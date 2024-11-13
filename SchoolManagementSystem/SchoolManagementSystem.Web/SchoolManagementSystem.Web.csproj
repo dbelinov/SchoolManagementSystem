@@ -17,6 +17,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\SchoolManagementSystem.Data\SchoolManagementSystem.Data.csproj" />
+      <ProjectReference Include="..\SchoolManagementSystem.Services\SchoolManagementSystem.Services.csproj" />
+      <ProjectReference Include="..\SchoolManagementSystem.Web.Infrastructure\SchoolManagementSystem.Web.Infrastructure.csproj" />
+      <ProjectReference Include="..\SchoolManagementSystem.Web.ViewModels\SchoolManagementSystem.Web.ViewModels.csproj" />
     </ItemGroup>
 
     <ItemGroup>
