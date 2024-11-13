@@ -1,6 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem", "SchoolManagementSystem\SchoolManagementSystem.csproj", "{6CDA225A-E89E-438E-BF6A-D1D390091382}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem.Web", "SchoolManagementSystem.Web\SchoolManagementSystem.Web.csproj", "{6CDA225A-E89E-438E-BF6A-D1D390091382}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem.Data", "SchoolManagementSystem.Data\SchoolManagementSystem.Data.csproj", "{7041F520-4BED-49C5-8D67-4D3F0E22BBA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem.Infrastructure", "SchoolManagementSystem.Infrastructure\SchoolManagementSystem.Infrastructure.csproj", "{E71D91DD-215B-4849-9A33-84CA3677CA00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem.Common", "SchoolManagementSystem.Common\SchoolManagementSystem.Common.csproj", "{6E52F2DC-C07D-461A-9793-9A2C231D6A99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +18,17 @@ Global
 		{6CDA225A-E89E-438E-BF6A-D1D390091382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CDA225A-E89E-438E-BF6A-D1D390091382}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CDA225A-E89E-438E-BF6A-D1D390091382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7041F520-4BED-49C5-8D67-4D3F0E22BBA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7041F520-4BED-49C5-8D67-4D3F0E22BBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7041F520-4BED-49C5-8D67-4D3F0E22BBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7041F520-4BED-49C5-8D67-4D3F0E22BBA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E71D91DD-215B-4849-9A33-84CA3677CA00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E71D91DD-215B-4849-9A33-84CA3677CA00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E71D91DD-215B-4849-9A33-84CA3677CA00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E71D91DD-215B-4849-9A33-84CA3677CA00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E52F2DC-C07D-461A-9793-9A2C231D6A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E52F2DC-C07D-461A-9793-9A2C231D6A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E52F2DC-C07D-461A-9793-9A2C231D6A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E52F2DC-C07D-461A-9793-9A2C231D6A99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

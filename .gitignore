@@ -1,3 +1,10 @@
 
-/SchoolManagementSystem/SchoolManagementSystem/obj
-/SchoolManagementSystem/SchoolManagementSystem/bin
+/SchoolManagementSystem/SchoolManagementSystem.Web/obj
+/SchoolManagementSystem/SchoolManagementSystem.Web/bin
+/SchoolManagementSystem/SchoolManagementSystem.Infrastructure/bin
+/SchoolManagementSystem/SchoolManagementSystem.Infrastructure/obj
+/SchoolManagementSystem/SchoolManagementSystem.Data/bin
+/SchoolManagementSystem/SchoolManagementSystem.Data/obj
+/SchoolManagementSystem/SchoolManagementSystem.Common/bin
+/SchoolManagementSystem/SchoolManagementSystem.Common/obj
+
