@@ -9,5 +9,5 @@ public class Class
     public Speciality Speciality { get; set; }
     public int TimetableId { get; set; }
     public ICollection<Student> Students { get; set; } = new List<Student>();
-    public Timetable Timetable { get; set; }
+    public Timetables Timetable { get; set; }
 }
