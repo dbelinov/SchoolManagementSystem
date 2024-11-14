@@ -8,4 +8,5 @@ public class School
     public string Description { get; set; } = null!;
     public ICollection<Class> Classes { get; set; } = new List<Class>();
     public ICollection<Teacher> Teachers { get; set; } = new List<Teacher>();
+    public ICollection<SchoolProject> SchoolsProjects { get; set; } = new List<SchoolProject>();
 }

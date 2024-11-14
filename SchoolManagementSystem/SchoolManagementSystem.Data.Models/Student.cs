@@ -8,4 +8,5 @@ public class Student
     public Dictionary<string, List<int>> Grades { get; set; } =  new Dictionary<string, List<int>>();
     public int ClassId { get; set; }
     public Class Class { get; set; }
+    public ICollection<StudentProject> StudentsProjects { get; set; } = new List<StudentProject>();
 }

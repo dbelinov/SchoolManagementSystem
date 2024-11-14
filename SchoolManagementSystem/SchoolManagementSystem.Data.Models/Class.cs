@@ -10,4 +10,5 @@ public class Class
     public int TimetableId { get; set; }
     public Timetable Timetable { get; set; }
     public ICollection<Student> Students { get; set; } = new List<Student>();
+    public ICollection<TeacherClass> TeachersClasses { get; set; } = new List<TeacherClass>();
 }
