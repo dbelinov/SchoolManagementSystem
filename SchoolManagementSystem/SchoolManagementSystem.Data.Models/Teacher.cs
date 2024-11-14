@@ -4,7 +4,7 @@ namespace SchoolManagementSystem.Data.Models;
 
 public class Teacher
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; }
     public Subject Subject { get; set; }
 }
