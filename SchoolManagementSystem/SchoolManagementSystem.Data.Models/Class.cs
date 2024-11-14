@@ -8,6 +8,6 @@ public class Class
     public string Name { get; set; } = null!;
     public Speciality Speciality { get; set; }
     public int TimetableId { get; set; }
+    public Timetable Timetable { get; set; }
     public ICollection<Student> Students { get; set; } = new List<Student>();
-    public Timetables Timetable { get; set; }
 }
