@@ -10,11 +10,13 @@ public class Student
 {
     public Student()
     {
+        Id = Guid.NewGuid();
+        VerificationKey = Guid.NewGuid();
         StudentGrades = new List<StudentGrade>();
         StudentsProjects = new List<StudentProject>();
     }
     
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     
     [Required]
     [MaxLength(FirstNameMaxLength)]
@@ -28,6 +30,9 @@ public class Student
     public int ClassId { get; set; }
     [ForeignKey(nameof(ClassId))]
     public Class Class { get; set; } = null!;
+
+    [Required]
+    public Guid VerificationKey { get; set; }
     
     public ICollection<StudentGrade> StudentGrades { get; set; }
     public ICollection<StudentProject> StudentsProjects { get; set; }
