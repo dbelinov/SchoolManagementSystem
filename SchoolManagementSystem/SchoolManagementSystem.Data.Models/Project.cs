@@ -6,6 +6,12 @@ namespace SchoolManagementSystem.Data.Models;
 
 public class Project
 {
+    public Project()
+    {
+        SchoolsProjects = new List<SchoolProject>();
+        StudentsProjects = new List<StudentProject>();
+    }
+    
     [Key]
     public int Id { get; set; }
     
@@ -22,6 +28,6 @@ public class Project
     [Required]
     public DateTime EndDate { get; set; }
     
-    public ICollection<SchoolProject> SchoolsProjects { get; set; } = new List<SchoolProject>();
-    public ICollection<StudentProject> StudentsProjects { get; set; } = new List<StudentProject>();
+    public ICollection<SchoolProject> SchoolsProjects { get; set; }
+    public ICollection<StudentProject> StudentsProjects { get; set; }
 }
