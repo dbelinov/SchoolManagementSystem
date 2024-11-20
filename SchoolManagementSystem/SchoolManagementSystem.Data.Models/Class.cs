@@ -7,6 +7,12 @@ namespace SchoolManagementSystem.Data.Models;
 
 public class Class
 {
+    public Class()
+    {
+        Students = new List<Student>();
+        TeachersClasses = new List<TeacherClass>();
+    }
+    
     [Key]
     public int Id { get; set; }
     
@@ -22,6 +28,6 @@ public class Class
     [ForeignKey(nameof(TimetableId))]
     public Timetable Timetable { get; set; } = null!;
     
-    public ICollection<Student> Students { get; set; } = new List<Student>();
-    public ICollection<TeacherClass> TeachersClasses { get; set; } = new List<TeacherClass>();
+    public ICollection<Student> Students { get; set; }
+    public ICollection<TeacherClass> TeachersClasses { get; set; }
 }
