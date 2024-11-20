@@ -8,7 +8,7 @@ namespace SchoolManagementSystem.Data.Models;
 public class StudentProject
 {
     [Required]
-    public int StudentId { get; set; }
+    public Guid StudentId { get; set; }
     [ForeignKey(nameof(StudentId))]
     public Student Student { get; set; } = null!;
     

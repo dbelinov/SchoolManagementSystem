@@ -9,7 +9,7 @@ public class StudentGrade
     public int Id { get; set; }
     
     [Required]
-    public int StudentId { get; set; }
+    public Guid StudentId { get; set; }
     
     [Required]
     public Subject Subject { get; set; }

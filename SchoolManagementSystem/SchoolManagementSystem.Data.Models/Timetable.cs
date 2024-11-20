@@ -10,9 +10,10 @@ public class Timetable
     
     [Required]
     public int Period { get; set; }
+
+    [Required]
+    public int SchoolId { get; set; }
     
     [Required]
     public int ClassId { get; set; }
-    [ForeignKey(nameof(ClassId))]
-    public Class Class { get; set; } = null!;
 }
