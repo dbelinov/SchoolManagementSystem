@@ -6,7 +6,7 @@ namespace SchoolManagementSystem.Data.Models;
 
 public class School
 {
-    [Required]
+    [Key]
     public int Id { get; set; }
     
     [Required]
