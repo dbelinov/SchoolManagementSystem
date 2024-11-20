@@ -6,6 +6,13 @@ namespace SchoolManagementSystem.Data.Models;
 
 public class School
 {
+    public School()
+    {
+        Classes = new List<Class>();
+        Teachers = new List<Teacher>();
+        SchoolsProjects = new List<SchoolProject>();
+    }
+    
     [Key]
     public int Id { get; set; }
     
@@ -20,7 +27,7 @@ public class School
     [MaxLength(DescriptionMaxLength)]
     public string? Description { get; set; }
     
-    public ICollection<Class> Classes { get; set; } = new List<Class>();
-    public ICollection<Teacher> Teachers { get; set; } = new List<Teacher>();
-    public ICollection<SchoolProject> SchoolsProjects { get; set; } = new List<SchoolProject>();
+    public ICollection<Class> Classes { get; set; }
+    public ICollection<Teacher> Teachers { get; set; }
+    public ICollection<SchoolProject> SchoolsProjects { get; set; }
 }
