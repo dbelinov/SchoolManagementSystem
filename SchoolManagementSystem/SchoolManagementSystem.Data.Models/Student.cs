@@ -21,6 +21,10 @@ public class Student
     [Required]
     [MaxLength(FirstNameMaxLength)]
     public string FirstName { get; set; } = null!;
+
+    [Required]
+    [MaxLength(MiddleNameMaxLength)]
+    public string MiddleName { get; set; } = null!;
     
     [Required]
     [MaxLength(LastNameMaxLength)]
