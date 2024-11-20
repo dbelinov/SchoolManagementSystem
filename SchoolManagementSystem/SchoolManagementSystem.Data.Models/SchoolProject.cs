@@ -1,8 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace SchoolManagementSystem.Data.Models;
 
+[PrimaryKey(nameof(SchoolId), nameof(ProjectId))]
 public class SchoolProject
 {
     [Required]
