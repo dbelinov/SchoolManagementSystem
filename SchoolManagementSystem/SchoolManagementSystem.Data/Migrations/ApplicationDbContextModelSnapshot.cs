@@ -8,7 +8,7 @@ using SchoolManagementSystem.Data;
 
 #nullable disable
 
-namespace SchoolManagementSystem.Web.Data.Migrations
+namespace SchoolManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
