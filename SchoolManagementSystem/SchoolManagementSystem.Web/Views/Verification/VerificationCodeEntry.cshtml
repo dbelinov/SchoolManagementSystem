@@ -1,0 +1,14 @@
+@model SchoolManagementSystem.Web.ViewModels.VerificationEntryViewModel
+@{
+    ViewData["Title"] = "Single Input Page";
+}
+
+<h2>Enter Data</h2>
+
+<form asp-action="VerificationCodeEntry" asp-controller="Verification" method="post">
+    <div>
+        <label asp-for="@Model.VerificationKey">Input:</label>
+        <input asp-for="VerificationKey" type="text" required />
+    </div>
+    <button type="submit">Submit</button>
+</form>
