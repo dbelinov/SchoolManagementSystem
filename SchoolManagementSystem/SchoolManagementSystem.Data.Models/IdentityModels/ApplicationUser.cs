@@ -18,4 +18,7 @@ public class ApplicationUser : IdentityUser<Guid>
     
     [MaxLength(LastNameMaxLength)]
     public string? LastName { get; set; }
+
+    [Required]
+    public bool IsAuthenticated { get; set; } = false;
 }
