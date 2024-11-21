@@ -10,15 +10,12 @@ public class ApplicationUser : IdentityUser<Guid>
     public Guid VerificationKey { get; set; } = Guid.NewGuid();
     public Guid AppId { get; set; } = Guid.Empty;
     
-    [Required]
     [MaxLength(FirstNameMaxLength)]
-    public string FirstName { get; set; } = null!;
+    public string? FirstName { get; set; }
     
-    [Required]
     [MaxLength(MiddleNameMaxLength)]
-    public string MiddleName { get; set; } = null!;
+    public string? MiddleName { get; set; }
     
-    [Required]
     [MaxLength(LastNameMaxLength)]
-    public string LastName { get; set; } = null!;
+    public string? LastName { get; set; }
 }
