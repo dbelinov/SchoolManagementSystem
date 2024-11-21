@@ -8,17 +8,18 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="bootstrap" Version="5.3.3" />
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.11"/>
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.11"/>
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.11"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11"/>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\SchoolManagementSystem.Data\SchoolManagementSystem.Data.csproj" />
       <ProjectReference Include="..\SchoolManagementSystem.Services\SchoolManagementSystem.Services.csproj" />
-      <ProjectReference Include="..\SchoolManagementSystem.Web.Infrastructure\SchoolManagementSystem.Web.Infrastructure.csproj" />
       <ProjectReference Include="..\SchoolManagementSystem.Web.ViewModels\SchoolManagementSystem.Web.ViewModels.csproj" />
     </ItemGroup>
 

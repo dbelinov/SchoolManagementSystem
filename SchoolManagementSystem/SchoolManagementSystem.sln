@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem.Web.ViewModels", "SchoolManagementSystem.Web.ViewModels\SchoolManagementSystem.Web.ViewModels.csproj", "{BE245B7E-F88E-48C9-80CC-F854C74C60F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagementSystem.Web.Infrastructure", "SchoolManagementSystem.Web.Infrastructure\SchoolManagementSystem.Web.Infrastructure.csproj", "{CC31D8EE-3610-423E-B9F4-AE5273283D4A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,9 +42,5 @@ Global
 		{BE245B7E-F88E-48C9-80CC-F854C74C60F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE245B7E-F88E-48C9-80CC-F854C74C60F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE245B7E-F88E-48C9-80CC-F854C74C60F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC31D8EE-3610-423E-B9F4-AE5273283D4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC31D8EE-3610-423E-B9F4-AE5273283D4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC31D8EE-3610-423E-B9F4-AE5273283D4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC31D8EE-3610-423E-B9F4-AE5273283D4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
