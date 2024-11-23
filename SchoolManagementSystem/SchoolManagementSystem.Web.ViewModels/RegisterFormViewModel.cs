@@ -35,7 +35,7 @@ public class RegisterFormViewModel
     public string LastName { get; set; } = string.Empty;
     
     [Required(ErrorMessage = BirthDateRequired)]
-    [DataType(DataType.DateTime)]
+    [DataType(DataType.Date)]
     public string BirthDate { get; set; } = string.Empty;
     
     [Required(ErrorMessage = IdNumberRequired)]
