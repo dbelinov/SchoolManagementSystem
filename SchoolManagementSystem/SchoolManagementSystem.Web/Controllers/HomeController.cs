@@ -21,16 +21,16 @@ public class HomeController : Controller
     {
         var user = await _userManager.GetUserAsync(HttpContext.User);
 
+        if (user?.IsGuest is true)
+        {
+            return View();
+        }
+        
         if (user?.IsAuthenticated is false)
         {
             return RedirectToAction("VerificationCodeEntry", "Verification");
         }
         
-        return View();
-    }
-
-    public IActionResult VerificationCodeEntry()
-    {
         return View();
     }
 

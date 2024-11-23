@@ -23,10 +23,9 @@ public class Class
     [Required]
     public Speciality Speciality { get; set; }
     
-    [Required]
-    public int TimetableId { get; set; }
+    public int? TimetableId { get; set; }
     [ForeignKey(nameof(TimetableId))]
-    public Timetable Timetable { get; set; } = null!;
+    public Timetable? Timetable { get; set; }
     
     public ICollection<Student> Students { get; set; }
     public ICollection<TeacherClass> TeachersClasses { get; set; }

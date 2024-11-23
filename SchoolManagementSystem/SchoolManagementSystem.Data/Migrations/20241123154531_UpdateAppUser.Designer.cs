@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystem.Data;
 
@@ -11,9 +12,11 @@ using SchoolManagementSystem.Data;
 namespace SchoolManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241123154531_UpdateAppUser")]
+    partial class UpdateAppUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -176,7 +179,7 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.Property<int>("Speciality")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TimetableId")
+                    b.Property<int>("TimetableId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -186,14 +189,6 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasIndex("TimetableId");
 
                     b.ToTable("Classes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "9b",
-                            Speciality = 1
-                        });
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.IdentityModels.ApplicationUser", b =>
@@ -403,18 +398,6 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasIndex("ClassId");
 
                     b.ToTable("Students");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("7914fdd8-8130-4813-8ba2-f2b1537cf3da"),
-                            ClassId = 1,
-                            FirstName = "Ivan",
-                            IdNumber = "0141012442",
-                            LastName = "Ivanov",
-                            MiddleName = "Ivanov",
-                            VerificationKey = new Guid("0caa1b3a-bf35-4baf-b7db-e9870a3e9ca1")
-                        });
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.StudentGrade", b =>
@@ -496,18 +479,6 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasIndex("SchoolId");
 
                     b.ToTable("Teachers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("54ba9ab6-6678-467b-aeea-c7a707eccb26"),
-                            FirstName = "Mariya",
-                            IdNumber = "8008089119",
-                            LastName = "Petrova",
-                            MiddleName = "Ivanova",
-                            Subject = 1,
-                            VerificationKey = new Guid("e0e6f113-f1d7-4b47-b4db-4780c87e2a92")
-                        });
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.TeacherClass", b =>
@@ -606,7 +577,9 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasOne("SchoolManagementSystem.Data.Models.Timetable", "Timetable")
                         .WithMany()
-                        .HasForeignKey("TimetableId");
+                        .HasForeignKey("TimetableId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Timetable");
                 });

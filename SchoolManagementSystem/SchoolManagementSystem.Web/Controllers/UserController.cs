@@ -109,7 +109,8 @@ public class UserController : Controller
             user.AppId = teacherMatch.Id;
             user.VerificationKey = teacherMatch.VerificationKey;
         }
-        
+
+        user.IsGuest = false;
         _userManager.UpdateAsync(user);
 
         return true;

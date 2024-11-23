@@ -39,7 +39,6 @@ public class Student
     [ForeignKey(nameof(ClassId))]
     public Class Class { get; set; } = null!;
 
-    [Required]
     public Guid VerificationKey { get; set; }
     
     public ICollection<StudentGrade> StudentGrades { get; set; }
