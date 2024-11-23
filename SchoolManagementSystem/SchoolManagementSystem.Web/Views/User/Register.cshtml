@@ -8,63 +8,64 @@
 <h2 class="text-center">Create a new account.</h2>
 
 <div class="row">
-    <div class="col-md-4 offset-md-1">
-        <form id="registerForm" method="post">
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Email">Email</label>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Password">Password</label>
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="ConfirmPassword">Confirm Password</label>
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="IdNumber" class="form-control" autocomplete="id-number" aria-required="true" placeholder="0102031234" />
-                <label asp-for="IdNumber">Identification Number</label>
-                <span asp-validation-for="IdNumber" class="text-danger"></span>
-            </div>
-        </form>
-    </div>
+    <div class="col-md-4 offset-md-1"></div>
+    <form id="registerForm" method="post">
+        <hr/>
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
-    <div class="col-md-4 offset-md-2">
-        <form>
-            <hr/>
-            <div class="form-floating mb-3">
-                <input asp-for="FirstName" class="form-control" autocomplete="first-name" aria-required="true" placeholder="Ivan"/>
-                <label asp-for="FirstName">First Name</label>
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-4 offset-md-1">
+                <div class="form-floating mb-3">
+                    <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com"/>
+                    <label asp-for="Email">Email</label>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
+                    <label asp-for="Password">Password</label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
+                    <label asp-for="ConfirmPassword">Confirm Password</label>
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="IdNumber" class="form-control" autocomplete="id-number" aria-required="true" placeholder="0102031234"/>
+                    <label asp-for="IdNumber">Identification Number</label>
+                    <span asp-validation-for="IdNumber" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="MiddleName" class="form-control" autocomplete="middle-name" aria-required="true" placeholder="Ivanov"/>
-                <label asp-for="MiddleName">Middle Name</label>
-                <span asp-validation-for="MiddleName" class="text-danger"></span>
+                
+            <div class="col-md-4 offset-md-2">
+                <div class="form-floating mb-3">
+                    <input asp-for="FirstName" class="form-control" autocomplete="first-name" aria-required="true" placeholder="Ivan"/>
+                    <label asp-for="FirstName">First Name</label>
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="MiddleName" class="form-control" autocomplete="middle-name" aria-required="true" placeholder="Ivanov"/>
+                    <label asp-for="MiddleName">Middle Name</label>
+                    <span asp-validation-for="MiddleName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="LastName" class="form-control" autocomplete="last-name" aria-required="true" placeholder="Ivanov"/>
+                    <label asp-for="LastName">Last Name</label>
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="BirthDate" class="form-control" autocomplete="birth-date" aria-required="true" placeholder="01/01/1900"/>
+                    <label asp-for="BirthDate">Birth Date</label>
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="LastName" class="form-control" autocomplete="last-name" aria-required="true" placeholder="Ivanov"/>
-                <label asp-for="LastName">Last Name</label>
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="BirthDate" class="form-control" autocomplete="birth-date" aria-required="true" placeholder="01/01/1900"/>
-                <label asp-for="BirthDate">Birth Date</label>
-                <span asp-validation-for="BirthDate" class="text-danger"></span>
-            </div>
-        </form>
-    </div>
-    <div class="d-flex justify-content-center mt-4">
-        <button id="registerSubmit" type="submit" class="btn btn-lg btn-primary w-25">Register</button>
-    </div>
+        </div>
+            
+        <div class="d-flex justify-content-center mt-4">
+            <button id="register-submit" type="submit" class="btn btn-lg btn-primary w-25">Register</button>
+        </div>
+    </form>
 </div>
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

@@ -9,8 +9,8 @@ public static class AuthenticationErrorMessages
     public const string PasswordMatchError = "Password don't match!";
     public const string IdNumberInvalid = "Invalid id!";
     public const string InvalidFirstName = "First name should be between 2 and 10 characters!";
-    public const string InvalidMiddleName = "First name should be between 2 and 10 characters!";
-    public const string InvalidLastName = "First name should be between 2 and 20 characters!";
+    public const string InvalidMiddleName = "Middle name should be between 2 and 10 characters!";
+    public const string InvalidLastName = "Last name should be between 2 and 20 characters!";
     public const string EmailRequired = "Email is required!";
     public const string PasswordRequired = "Password is required!";
     public const string ConfirmPasswordRequired = "Confirm password is required!";
@@ -19,4 +19,6 @@ public static class AuthenticationErrorMessages
     public const string MiddleNameRequired = "Middle name is required!";
     public const string LastNameRequired = "Last name is required!";
     public const string BirthDateRequired = "Birth date is required!";
+    public const string InvalidBirthDate = "Invalid birth date!";
+    public const string InvalidUser = "No such person in the database!";
 }

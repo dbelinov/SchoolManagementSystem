@@ -36,6 +36,7 @@ public class RegisterFormViewModel
     
     [Required(ErrorMessage = BirthDateRequired)]
     [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = DateFormat)]
     public string BirthDate { get; set; } = string.Empty;
     
     [Required(ErrorMessage = IdNumberRequired)]
