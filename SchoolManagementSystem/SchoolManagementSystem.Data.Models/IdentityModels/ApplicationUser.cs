@@ -36,6 +36,7 @@ public class ApplicationUser : IdentityUser<Guid>
     [MaxLength(IdNumberLength, ErrorMessage = IdNumberInvalid)]
     public string IdNumber { get; set; } = null!;
 
-    [Required]
     public bool IsAuthenticated { get; set; } = false;
+
+    public bool IsGuest { get; set; } = true;
 }
