@@ -27,12 +27,15 @@ public class UserController : Controller
     {
         if (!ModelState.IsValid)
         {
-            return View(model); // return view with model if validation fails
+            return View(model);
         }
 
         ApplicationUser user = new ApplicationUser()
         {
             IdNumber = model.IdNumber,
+            FirstName = model.FirstName,
+            MiddleName = model.MiddleName,
+            LastName = model.LastName,
         };
 
         await _userManager.SetEmailAsync(user, model.Email);

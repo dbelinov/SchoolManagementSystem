@@ -36,7 +36,7 @@ public class RegisterFormViewModel
     
     [Required(ErrorMessage = BirthDateRequired)]
     [DataType(DataType.DateTime)]
-    public DateTime BirthDate { get; set; }
+    public string BirthDate { get; set; } = string.Empty;
     
     [Required(ErrorMessage = IdNumberRequired)]
     [StringLength(IdNumberLength, MinimumLength = IdNumberLength, ErrorMessage = IdNumberInvalid)]
