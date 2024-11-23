@@ -5,6 +5,8 @@ using SchoolManagementSystem.Services;
 using SchoolManagementSystem.Services.Contracts;
 using SchoolManagementSystem.Web.ViewModels;
 
+using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMessages;
+
 namespace SchoolManagementSystem.Web.Controllers;
 
 public class VerificationController : Controller
@@ -36,7 +38,7 @@ public class VerificationController : Controller
 
         if (user is null)
         {
-            ModelState.AddModelError("user", "Mot logged in");
+            ModelState.AddModelError("user", NotLoggedIn);
             return View(model);
         }
         
@@ -44,13 +46,19 @@ public class VerificationController : Controller
 
         if (!keyAsGuid)
         {
-            ModelState.AddModelError("VerificationKey", "Verification key is invalid");
+            ModelState.AddModelError("VerificationKey", InvalidValidationKey);
+            return View(model);
         }
         
         if (user.VerificationKey == validGuid)
         {
             user.IsAuthenticated = true;
             await _userManager.UpdateAsync(user);
+        }
+        else
+        {
+            ModelState.AddModelError("VerificationKey", InvalidValidationKey);
+            return View(model);
         }
         
         return RedirectToAction("Index", "Home");

@@ -10,4 +10,6 @@ public static class TeacherConstants
     public const int LastNameMaxLength = 20;
     public const int SubjectMinValue = 1;
     public const int SubjectMaxValue = 14;
+    public const int IdNumberMaxLength = 10;
+
 }

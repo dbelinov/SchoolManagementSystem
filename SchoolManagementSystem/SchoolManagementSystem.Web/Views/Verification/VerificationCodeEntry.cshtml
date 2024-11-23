@@ -1,14 +1,14 @@
-@model SchoolManagementSystem.Web.ViewModels.VerificationEntryViewModel
+@model VerificationEntryViewModel
 @{
     ViewData["Title"] = "Single Input Page";
 }
 
-<h2>Enter Data</h2>
+<h2>Enter Verification Code</h2>
 
 <form asp-action="VerificationCodeEntry" asp-controller="Verification" method="post">
-    <div>
-        <label asp-for="@Model.VerificationKey">Input:</label>
-        <input asp-for="VerificationKey" type="text" required />
+    <div class="input-group mb-3">
+        <input asp-for="VerificationKey" type="text" class="form-control" placeholder="Enter verification code" aria-label="Authentication code" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
     </div>
-    <button type="submit">Submit</button>
+    <span asp-validation-for="@Model.VerificationKey" class="text-danger"></span>
 </form>

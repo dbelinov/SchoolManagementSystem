@@ -7,7 +7,7 @@ namespace SchoolManagementSystem.Data.Models.IdentityModels;
 
 public class ApplicationUser : IdentityUser<Guid>
 {
-    public Guid VerificationKey { get; set; } = Guid.NewGuid();
+    public Guid VerificationKey { get; set; } = Guid.Empty;
     public Guid AppId { get; set; } = Guid.Empty;
     
     [MaxLength(FirstNameMaxLength)]
@@ -18,6 +18,10 @@ public class ApplicationUser : IdentityUser<Guid>
     
     [MaxLength(LastNameMaxLength)]
     public string? LastName { get; set; }
+
+    [Required]
+    [MaxLength(IdNumberLength)]
+    public string IdNumber { get; set; } = null!;
 
     [Required]
     public bool IsAuthenticated { get; set; } = false;

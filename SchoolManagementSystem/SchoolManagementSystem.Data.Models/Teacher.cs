@@ -27,6 +27,10 @@ public class Teacher
     [Required]
     [MaxLength(LastNameMaxLength)]
     public string LastName { get; set; }
+
+    [Required]
+    [MaxLength(IdNumberMaxLength)]
+    public string IdNumber { get; set; } = null!;
     
     [Required]
     public Subject Subject { get; set; }
