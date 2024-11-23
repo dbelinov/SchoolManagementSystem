@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SchoolManagementSystem.Data.Models.IdentityModels;
@@ -9,6 +10,7 @@ using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMess
 
 namespace SchoolManagementSystem.Web.Controllers;
 
+[Authorize]
 public class VerificationController : Controller
 {
     //private readonly IVerificationService _verificationService;
