@@ -1,6 +1,7 @@
 using System.Globalization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Differencing;
 using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Web.ViewModels;
@@ -69,20 +70,16 @@ public class UserController : Controller
 
             return View(model);
         }
-        
-        var isValidUser = MatchToStudentOrTeacher(user);
-        if (!isValidUser)
-        {
-            ModelState.AddModelError(nameof(model.BirthDate), InvalidUser);
-            return View(model);
-        }
+
+        user.IsGuest = !await MatchToStudentOrTeacher(user);
+        await _userManager.UpdateAsync(user);
         
         await _signInManager.SignInAsync(user, false);
         
         return RedirectToAction("Index", "Home");
     }
 
-    private bool MatchToStudentOrTeacher(ApplicationUser user)
+    private async Task<bool> MatchToStudentOrTeacher(ApplicationUser user)
     {
         var studentMatch = _context.Students.FirstOrDefault(s => s.IdNumber == user.IdNumber 
                                                                  && s.FirstName == user.FirstName 
@@ -110,9 +107,7 @@ public class UserController : Controller
             user.VerificationKey = teacherMatch.VerificationKey;
         }
 
-        user.IsGuest = false;
-        _userManager.UpdateAsync(user);
-
+        await _userManager.UpdateAsync(user);
         return true;
     }
 }
