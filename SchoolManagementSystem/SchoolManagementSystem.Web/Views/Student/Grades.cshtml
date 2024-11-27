@@ -1,0 +1,82 @@
+@model List<StudentGradesViewModel>
+
+@{
+    ViewData["Title"] = "Student Grades";
+}
+
+<h2 class="text-center my-4">Student Grades</h2>
+
+@if (Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Subject</th>
+                <th scope="col">Grades</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var subjectGroup in Model)
+            {
+                <tr>
+                    <td class="align-middle">@subjectGroup.Subject</td>
+                    <td>
+                        <div class="d-flex flex-wrap gap-2">
+                            @foreach (var grade in subjectGroup.Grades)
+                            {
+                                <span class="badge grade-badge grade-@grade.Grade">@grade.Grade</span>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning text-center">
+        No grades available for this student.
+    </div>
+}
+
+<style>
+    /* Custom Grade Colors */
+    .grade-badge {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 0.5rem; /* Rounded corners */
+    }
+
+    .grade-6 {
+        background-color: #28a745; /* Bootstrap's green */
+        color: white;
+    }
+
+    .grade-5 {
+        background-color: #007bff; /* Bootstrap's blue */
+        color: white;
+    }
+
+    .grade-4 {
+        background-color: #ffc107; /* Bootstrap's yellow */
+        color: black;
+    }
+
+    .grade-3 {
+        background-color: #fd7e14; /* Bootstrap's orange */
+        color: white;
+    }
+
+    .grade-2 {
+        background-color: #dc3545; /* Bootstrap's red */
+        color: white;
+    }
+</style>
