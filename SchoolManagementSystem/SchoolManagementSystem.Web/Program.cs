@@ -30,7 +30,9 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(
         })
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IVerificationService, VerificationService>();
 
 var app = builder.Build();
 

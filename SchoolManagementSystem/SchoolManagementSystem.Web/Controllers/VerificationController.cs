@@ -2,67 +2,56 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SchoolManagementSystem.Data.Models.IdentityModels;
-using SchoolManagementSystem.Services;
 using SchoolManagementSystem.Services.Contracts;
 using SchoolManagementSystem.Web.ViewModels;
 
 using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMessages;
 
-namespace SchoolManagementSystem.Web.Controllers;
-
-[Authorize]
-public class VerificationController : Controller
+namespace SchoolManagementSystem.Web.Controllers
 {
-    //private readonly IVerificationService _verificationService;
-    private readonly UserManager<ApplicationUser> _userManager;
+    [Authorize]
+    public class VerificationController : Controller
+    {
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IVerificationService _verificationService;
 
-    public VerificationController(UserManager<ApplicationUser> userManager/*, IVerificationService verificationService*/)
-    {
-        _userManager = userManager;
-      //  _verificationService = verificationService;
-    }
-    
-    [HttpGet]
-    public IActionResult VerificationCodeEntry()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> VerificationCodeEntry(VerificationEntryViewModel model)
-    {
-        if (!ModelState.IsValid)
+        public VerificationController(
+            UserManager<ApplicationUser> userManager,
+            IVerificationService verificationService)
         {
-            return View(model);
-        }
-
-        var user = await _userManager.GetUserAsync(HttpContext.User);
-
-        if (user is null)
-        {
-            ModelState.AddModelError("user", NotLoggedIn);
-            return View(model);
+            _userManager = userManager;
+            _verificationService = verificationService;
         }
         
-        var keyAsGuid = Guid.TryParse(model.VerificationKey, out Guid validGuid);
+        [HttpGet]
+        public IActionResult VerificationCodeEntry()
+        {
+            return View();
+        }
 
-        if (!keyAsGuid)
+        [HttpPost]
+        public async Task<IActionResult> VerificationCodeEntry(VerificationEntryViewModel model)
         {
-            ModelState.AddModelError("VerificationKey", InvalidValidationKey);
-            return View(model);
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+
+            if (user is null)
+            {
+                ModelState.AddModelError("user", NotLoggedIn);
+                return View(model);
+            }
+
+            var isVerified = await _verificationService.VerifyCodeAsync(user, model.VerificationKey);
+
+            if (!isVerified)
+            {
+                ModelState.AddModelError("VerificationKey", InvalidValidationKey);
+                return View(model);
+            }
+
+            return RedirectToAction("Index", "Home");
         }
-        
-        if (user.VerificationKey == validGuid)
-        {
-            user.IsAuthenticated = true;
-            await _userManager.UpdateAsync(user);
-        }
-        else
-        {
-            ModelState.AddModelError("VerificationKey", InvalidValidationKey);
-            return View(model);
-        }
-        
-        return RedirectToAction("Index", "Home");
     }
 }
