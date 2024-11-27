@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models.IdentityModels;
-
+using SchoolManagementSystem.Services;
+using SchoolManagementSystem.Services.Contracts;
 using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +30,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(
         })
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
