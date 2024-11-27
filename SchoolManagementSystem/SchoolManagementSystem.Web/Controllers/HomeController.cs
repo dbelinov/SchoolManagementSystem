@@ -31,6 +31,7 @@ public class HomeController : Controller
             return RedirectToAction("VerificationCodeEntry", "Verification");
         }
         
+        
         return View();
     }
 

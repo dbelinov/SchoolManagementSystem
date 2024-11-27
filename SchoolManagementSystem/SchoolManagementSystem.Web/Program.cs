@@ -13,9 +13,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
                        throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(
+builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(
         options =>
         {
             options.SignIn.RequireConfirmedAccount = false;
@@ -28,8 +29,12 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(
             options.Password.RequireNonAlphanumeric = false;
             options.Password.RequiredLength = PasswordMinLength;
         })
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddRoles<IdentityRole<Guid>>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IVerificationService, VerificationService>();
