@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Web.Views;
 
@@ -10,11 +11,15 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly RoleManager<IdentityRole<Guid>> _roleManager;
 
-    public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager)
+    public HomeController(ILogger<HomeController> logger, 
+        UserManager<ApplicationUser> userManager,
+        RoleManager<IdentityRole<Guid>> roleManager)
     {
         _logger = logger;
         _userManager = userManager;
+        _roleManager = roleManager;
     }
 
     public async Task<IActionResult> Index()
@@ -30,8 +35,11 @@ public class HomeController : Controller
         {
             return RedirectToAction("VerificationCodeEntry", "Verification");
         }
-        
-        
+
+        if(user != null && await _userManager.IsInRoleAsync(user, nameof(Student)))
+        {
+            return RedirectToAction("Dashboard", "Student");
+        }
         return View();
     }
 
