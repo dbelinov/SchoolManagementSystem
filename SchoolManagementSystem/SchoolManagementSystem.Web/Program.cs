@@ -38,6 +38,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IVerificationService, VerificationService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 var app = builder.Build();
 
