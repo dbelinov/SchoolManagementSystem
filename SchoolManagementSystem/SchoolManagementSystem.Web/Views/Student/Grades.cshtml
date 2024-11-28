@@ -1,10 +1,10 @@
 @model List<StudentGradesViewModel>
 
 @{
-    ViewData["Title"] = "Student Grades";
+    ViewData["Title"] = "Grades";
 }
 
-<h2 class="text-center my-4">Student Grades</h2>
+<h2 class="text-center my-4">Grades</h2>
 
 @if (Model.Any())
 {
@@ -12,7 +12,7 @@
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Subject</th>
+                <th scope="col" class="subject-header">Subject</th>
                 <th scope="col">Grades</th>
             </tr>
             </thead>
@@ -20,7 +20,7 @@
             @foreach (var subjectGroup in Model)
             {
                 <tr>
-                    <td class="align-middle">@subjectGroup.Subject</td>
+                    <td class="align-middle subject-cell">@subjectGroup.Subject</td>
                     <td>
                         <div class="d-flex flex-wrap gap-2">
                             @foreach (var grade in subjectGroup.Grades)
@@ -43,7 +43,24 @@ else
 }
 
 <style>
-    /* Custom Grade Colors */
+    /* Custom Styles for Subject Header */
+    .subject-header {
+        font-size: 1.2rem;
+        text-align: center;
+        background-color: #343a40; /* Dark header background */
+        color: #fff; /* White text */
+    }
+
+    /* Custom Styles for Subject Cell */
+    .subject-cell {
+        font-size: 1.1rem;
+        font-weight: bold;
+        background-color: #f8f9fa; /* Light gray for emphasis */
+        color: #212529; /* Dark text for readability */
+        padding: 12px;
+    }
+
+    /* Custom Grade Badge Colors */
     .grade-badge {
         width: 40px;
         height: 40px;
@@ -52,7 +69,7 @@ else
         justify-content: center;
         font-size: 1rem;
         font-weight: bold;
-        border-radius: 0.5rem; /* Rounded corners */
+        border-radius: 0.5rem;
     }
 
     .grade-6 {

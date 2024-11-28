@@ -1,8 +1,22 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Welcome to School Management System";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container text-center">
+    <h1>Welcome to the Scholario!</h1>
+    <h3>Your Personal School Assistant!</h3>
+    <p class="lead mb-4">
+        Explore our schools, manage accounts, and access exclusive tools for teachers and students.
+    </p>
+
+    <p class="mb-4">
+        To unlock personalized features, please
+        <a href="Identity/Account/Login" class="btn btn-warning btn-lg mx-2">Log In</a>
+        or
+        <a href="/User/Register" class="btn btn-success btn-lg mx-2">Register</a>
+    </p>
+
+    <div class="mt-5">
+        <a href="/Schools" class="btn btn-primary btn-lg">View Schools</a>
+    </div>
 </div>

@@ -4,39 +4,14 @@
     ViewData["Title"] = "Student Dashboard";
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar -->
-        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-            <div class="position-sticky pt-3">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <i class="bi bi-house-door-fill"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Grades">
-                            <i class="bi bi-journal"></i> Grades
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-briefcase"></i> Projects
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Main content -->
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<div class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+        <main class="col-md-8 mx-auto">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
+                <h1 class="h2 text-center">Dashboard</h1>
             </div>
 
-            <div class="row">
-                <!-- Average Grade -->
+            <div class="row text-center">
                 <div class="col-md-4">
                     <div class="card text-white bg-primary mb-3">
                         <div class="card-body">
@@ -46,7 +21,6 @@
                     </div>
                 </div>
 
-                <!-- Total Grade Count -->
                 <div class="col-md-4">
                     <div class="card text-white bg-success mb-3">
                         <div class="card-body">
@@ -56,7 +30,6 @@
                     </div>
                 </div>
 
-                <!-- Project Count -->
                 <div class="col-md-4">
                     <div class="card text-white bg-warning mb-3">
                         <div class="card-body">
