@@ -1,107 +1,68 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NuGet.Packaging;
-using SchoolManagementSystem.Common.Enums;
-using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models;
-using SchoolManagementSystem.Data.Models.IdentityModels;
-using SchoolManagementSystem.Web.ViewModels;
-
+using SchoolManagementSystem.Services;
 using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMessages;
 
-namespace SchoolManagementSystem.Web.Controllers;
-
-[Authorize(Roles = "Student")]
-public class StudentController : Controller
+namespace SchoolManagementSystem.Web.Controllers
 {
-    private readonly ApplicationDbContext _context;
-    private readonly UserManager<ApplicationUser> _userManager;
-    
-    public StudentController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+    [Authorize(Roles = nameof(Student))]
+    public class StudentController : Controller
     {
-        _context = context;
-        _userManager = userManager;
-    }
-    
-    [HttpGet]
-    public async Task<IActionResult> Dashboard()
-    {
-        var user = await _userManager.GetUserAsync(HttpContext.User);
-        if (user is null)
-        {
-            ModelState.AddModelError("user", NotLoggedIn);
-            return RedirectToAction("Index", "Home");
-        }
-        
-        var student = await _context.Students
-            .Include(student => student.StudentGrades)
-            .Include(student => student.StudentsProjects)
-            .FirstOrDefaultAsync(s => s.Id == user.AppId);
+        private readonly StudentService _studentService;
 
-        if (student is null)
+        public StudentController(StudentService studentService)
         {
-            ModelState.AddModelError("user", InvalidUser);
-            return RedirectToAction("Index", "Home");
+            _studentService = studentService;
         }
 
-        var averageGrades = "0.0";
-        if (student.StudentGrades.Any())
+        [HttpGet]
+        public async Task<IActionResult> Dashboard()
         {
-            averageGrades = student.StudentGrades.Average(s => s.Grade).ToString("f2");
-        }
+            var user = await _studentService.GetLoggedInUserAsync(HttpContext.User);
 
-        var model = new StudentDashboardViewModel
-        {
-            AverageGrade = averageGrades,
-            GradesCount = student.StudentGrades.Count,
-            ProjectsCount = student.StudentsProjects.Count,
-        };
-        
-        return View(model);
-    }
-
-    public async Task<IActionResult> Grades()
-    {
-        var user = await _userManager.GetUserAsync(HttpContext.User);
-        
-        if (user is null)
-        {
-            ModelState.AddModelError("user", NotLoggedIn);
-            return RedirectToAction("Index", "Home");
-        }
-        
-        var student = await _context.Students
-            .Include(student => student.StudentGrades)
-            .Include(student => student.StudentsProjects)
-            .FirstOrDefaultAsync(s => s.Id == user.AppId);
-
-        if (student is null)
-        {
-            ModelState.AddModelError("user", InvalidUser);
-            return RedirectToAction("Index", "Home");
-        }
-        
-        await AddGradesToIvan();
-
-        var models = student.StudentGrades
-            .GroupBy(sg => sg.Subject)
-            .Select(g => new StudentGradesViewModel
+            if (user is null)
             {
-                Subject = g.Key,
-                Grades = student
-                    .StudentGrades
-                    .Where(gr => gr.Subject == g.Key)
-                    .ToList()
-            })
-            .ToList();
-        
-        return View(models);
+                ModelState.AddModelError("user", NotLoggedIn);
+                return RedirectToAction("Index", "Home");
+            }
+
+            var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
+            if (student is null)
+            {
+                ModelState.AddModelError("user", InvalidUser);
+                return RedirectToAction("Index", "Home");
+            }
+
+            var model = _studentService.GetDashboardViewModel(student);
+            return View(model);
+        }
+
+        public async Task<IActionResult> Grades()
+        {
+            var user = await _studentService.GetLoggedInUserAsync(HttpContext.User);
+
+            if (user is null)
+            {
+                ModelState.AddModelError("user", NotLoggedIn);
+                return RedirectToAction("Index", "Home");
+            }
+
+            var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
+            if (student is null)
+            {
+                ModelState.AddModelError("user", InvalidUser);
+                return RedirectToAction("Index", "Home");
+            }
+
+            var models = _studentService.GetGradesViewModel(student);
+            return View(models);
+        }
     }
+
 
     //Test Purposes
-    private async Task AddGradesToIvan()
+    /*private async Task AddGradesToIvan()
     {
         var student = await _context.Students
             .FirstOrDefaultAsync(s => s.FirstName == "Ivan");
@@ -132,5 +93,5 @@ public class StudentController : Controller
         student.StudentGrades.Add(grade3);
         
         await _context.SaveChangesAsync();
-    }
+    }*/
 }
