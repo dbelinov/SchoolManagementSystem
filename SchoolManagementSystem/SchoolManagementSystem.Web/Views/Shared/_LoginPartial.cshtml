@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using SchoolManagementSystem.Data.Models.IdentityModels
 @inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))

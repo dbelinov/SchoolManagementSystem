@@ -9,17 +9,13 @@ namespace SchoolManagementSystem.Web.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly RoleManager<IdentityRole<Guid>> _roleManager;
 
     public HomeController(ILogger<HomeController> logger, 
         UserManager<ApplicationUser> userManager,
         RoleManager<IdentityRole<Guid>> roleManager)
     {
-        _logger = logger;
         _userManager = userManager;
-        _roleManager = roleManager;
     }
 
     public async Task<IActionResult> Index()

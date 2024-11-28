@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Services;
+using SchoolManagementSystem.Services.Contracts;
 using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMessages;
 
 namespace SchoolManagementSystem.Web.Controllers
@@ -9,9 +10,9 @@ namespace SchoolManagementSystem.Web.Controllers
     [Authorize(Roles = nameof(Student))]
     public class StudentController : Controller
     {
-        private readonly StudentService _studentService;
+        private readonly IStudentService _studentService;
 
-        public StudentController(StudentService studentService)
+        public StudentController(IStudentService studentService)
         {
             _studentService = studentService;
         }
@@ -38,6 +39,7 @@ namespace SchoolManagementSystem.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Grades()
         {
             var user = await _studentService.GetLoggedInUserAsync(HttpContext.User);
