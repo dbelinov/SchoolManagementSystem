@@ -1,0 +1,40 @@
+@model IEnumerable<SchoolViewModel>
+@{
+    ViewData["Title"] = "Schools Overview";
+}
+
+<h1>Welcome to Scholario!</h1>
+<p class="text-muted">Explore schools in the system and learn more about them.</p>
+
+<div class="mt-4">
+    @if (Model.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>School Name</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var school in Model)
+            {
+                <tr>
+                    <td>@school.Name</td>
+                    <td>@school.Address</td>
+                    <td>@school.Description</td>
+                    <td>
+                        <a asp-page="/Schools/Details" asp-route-id="@school.Id" class="btn btn-primary btn-sm">View Details</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No schools are currently available in the system.</p>
+    }
+</div>

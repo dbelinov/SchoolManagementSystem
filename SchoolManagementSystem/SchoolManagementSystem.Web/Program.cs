@@ -36,6 +36,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+builder.Services.AddScoped<IHomeService, HomeService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IVerificationService, VerificationService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
