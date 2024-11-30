@@ -24,8 +24,14 @@ namespace SchoolManagementSystem.Web.Controllers
         }
         
         [HttpGet]
-        public IActionResult VerificationCodeEntry()
+        public async Task<IActionResult> VerificationCodeEntry()
         {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            if (user is not null && user.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
             return View();
         }
 
