@@ -21,4 +21,5 @@ public static class AuthenticationErrorMessages
     public const string BirthDateRequired = "Birth date is required!";
     public const string InvalidBirthDate = "Invalid birth date!";
     public const string InvalidUser = "No such person in the database!";
+    public const string NotAuthenticated = "User not authenticated!";
 }

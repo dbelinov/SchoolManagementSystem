@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SchoolManagementSystem.Data.Models;
-using SchoolManagementSystem.Services;
 using SchoolManagementSystem.Services.Contracts;
 using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMessages;
 
@@ -54,16 +53,17 @@ namespace SchoolManagementSystem.Web.Controllers
                 ModelState.AddModelError("user", NotLoggedIn);
                 return RedirectToAction("Index", "Home");
             }
+            
+            if (user.IsAuthenticated is false)
+            {
+                ModelState.AddModelError("user", NotAuthenticated);
+                return RedirectToAction("Index", "Home");
+            }
 
             var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
             if (student is null)
             {
                 ModelState.AddModelError("user", InvalidUser);
-                return RedirectToAction("Index", "Home");
-            }
-            
-            if (user.IsAuthenticated is false)
-            {
                 return RedirectToAction("Index", "Home");
             }
 
