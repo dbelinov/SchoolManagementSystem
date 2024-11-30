@@ -3,10 +3,6 @@ using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Services.Contracts;
-using SchoolManagementSystem.Web.ViewModels;
-
-using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
-using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMessages;
 
 namespace SchoolManagementSystem.Services;
 
@@ -49,11 +45,13 @@ public class UserService : IUserService
         {
             user.AppId = studentMatch.Id;
             user.VerificationKey = studentMatch.VerificationKey;
+            await _userManager.AddToRoleAsync(user, nameof(Student));
         }
         else if (teacherMatch is not null)
         {
             user.AppId = teacherMatch.Id;
             user.VerificationKey = teacherMatch.VerificationKey;
+            await _userManager.AddToRoleAsync(user, nameof(Teacher));
         }
 
         await _userManager.UpdateAsync(user);
