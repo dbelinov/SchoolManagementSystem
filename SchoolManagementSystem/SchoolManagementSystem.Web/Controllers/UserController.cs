@@ -71,7 +71,7 @@ public class UserController : Controller
             return View(model);
         }
 
-        user.IsGuest = !await _userService.MatchToStudentOrTeacherAsync(user);
+        user.IsGuest = !await _userService.AssignToStudentOrTeacherAsync(user);
         await _userManager.UpdateAsync(user);
         
         await _signInManager.SignInAsync(user, false);

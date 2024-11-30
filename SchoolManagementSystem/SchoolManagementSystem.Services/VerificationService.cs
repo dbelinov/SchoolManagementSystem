@@ -8,10 +8,12 @@ namespace SchoolManagementSystem.Services
     public class VerificationService : IVerificationService
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IUserService _userService;
 
-        public VerificationService(UserManager<ApplicationUser> userManager)
+        public VerificationService(UserManager<ApplicationUser> userManager, IUserService userService)
         {
             _userManager = userManager;
+            _userService = userService;
         }
 
         public async Task<bool> VerifyCodeAsync(ApplicationUser? user, string verificationKey)

@@ -6,6 +6,6 @@ namespace SchoolManagementSystem.Services.Contracts;
 
 public interface IUserService
 {
-    Task<bool> MatchToStudentOrTeacherAsync(ApplicationUser user);
+    Task<bool> AssignToStudentOrTeacherAsync(ApplicationUser user);
     Task<bool> AddToRoleAsync(ApplicationUser user, string role);
 }

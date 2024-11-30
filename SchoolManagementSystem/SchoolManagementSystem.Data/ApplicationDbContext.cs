@@ -47,6 +47,16 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
                     ClassId = 1
                 })
         );
+        
+        builder.Entity<Student>(e => e.HasData(
+            new Student { 
+                FirstName = "Gencho", 
+                MiddleName = "Petkov", 
+                LastName = "Ginev", 
+                IdNumber = "0543121244",
+                ClassId = 1
+            })
+        );
 
         builder.Entity<Teacher>(e => e
             .HasData(

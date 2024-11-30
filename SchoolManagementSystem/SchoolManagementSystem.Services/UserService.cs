@@ -26,7 +26,7 @@ public class UserService : IUserService
         _context = context;
     }
     
-    public async Task<bool> MatchToStudentOrTeacherAsync(ApplicationUser user)
+    public async Task<bool> AssignToStudentOrTeacherAsync(ApplicationUser user)
     {
         var studentMatch = _context.Students.FirstOrDefault(s =>
             s.IdNumber == user.IdNumber &&
@@ -49,13 +49,11 @@ public class UserService : IUserService
         {
             user.AppId = studentMatch.Id;
             user.VerificationKey = studentMatch.VerificationKey;
-            await AddToRoleAsync(user, nameof(Student));
         }
         else if (teacherMatch is not null)
         {
             user.AppId = teacherMatch.Id;
             user.VerificationKey = teacherMatch.VerificationKey;
-            await AddToRoleAsync(user, nameof(Teacher));
         }
 
         await _userManager.UpdateAsync(user);
