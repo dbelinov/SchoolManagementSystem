@@ -19,7 +19,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
     public DbSet<School> Schools { get; set; }
     public DbSet<SchoolProject> SchoolsProjects { get; set; }
     public DbSet<Student> Students { get; set; }
-    public DbSet<StudentGrade> StudentsGrades { get; set; }
+    public DbSet<Grade> Grades { get; set; }
     public DbSet<StudentProject> StudentsProjects { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<TeacherClass> TeachersClasses { get; set; }

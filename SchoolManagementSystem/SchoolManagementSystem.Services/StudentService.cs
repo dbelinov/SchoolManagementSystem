@@ -29,33 +29,34 @@ namespace SchoolManagementSystem.Services
         public async Task<Student?> GetStudentByUserIdAsync(Guid userId)
         {
             return await _context.Students
-                .Include(student => student.StudentGrades)
-                .Include(student => student.StudentsProjects)
-                .FirstOrDefaultAsync(s => s.Id == userId);
+                .Where(s => s.Id == userId)
+                .Include(s => s.Grades)
+                .Include(s => s.StudentsProjects)
+                .FirstOrDefaultAsync();
         }
 
         public StudentDashboardViewModel GetDashboardViewModel(Student student)
         {
-            var averageGrades = student.StudentGrades.Any()
-                ? student.StudentGrades.Average(s => s.Grade).ToString("f2")
+            var averageGrades = student.Grades.Any()
+                ? student.Grades.Average(s => s.GradeValue).ToString("f2")
                 : "0.0";
 
             return new StudentDashboardViewModel
             {
                 AverageGrade = averageGrades,
-                GradesCount = student.StudentGrades.Count,
+                GradesCount = student.Grades.Count,
                 ProjectsCount = student.StudentsProjects.Count,
             };
         }
 
         public List<StudentGradesViewModel> GetGradesViewModel(Student student)
         {
-            return student.StudentGrades
+            return student.Grades
                 .GroupBy(sg => sg.Subject)
                 .Select(g => new StudentGradesViewModel
                 {
                     Subject = g.Key,
-                    Grades = g.ToList()
+                    Grades = g.ToList(),
                 })
                 .ToList();
         }

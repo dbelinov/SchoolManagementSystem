@@ -12,7 +12,7 @@ public class Student
     {
         Id = Guid.NewGuid();
         VerificationKey = Guid.NewGuid();
-        StudentGrades = new List<StudentGrade>();
+        Grades = new List<Grade>();
         StudentsProjects = new List<StudentProject>();
     }
     
@@ -41,6 +41,6 @@ public class Student
 
     public Guid VerificationKey { get; set; }
     
-    public ICollection<StudentGrade> StudentGrades { get; set; }
+    public ICollection<Grade> Grades { get; set; }
     public ICollection<StudentProject> StudentsProjects { get; set; }
 }
