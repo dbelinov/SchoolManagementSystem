@@ -19,6 +19,9 @@ public class Class
     [Required]
     [MaxLength(NameMaxLength)]
     public string Name { get; set; } = null!;
+
+    [Required]
+    public int SchoolId { get; set; }
     
     [Required]
     public Speciality Speciality { get; set; }
