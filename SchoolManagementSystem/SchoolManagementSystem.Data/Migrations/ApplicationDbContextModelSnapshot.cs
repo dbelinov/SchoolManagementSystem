@@ -166,7 +166,7 @@ namespace SchoolManagementSystem.Data.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int?>("SchoolId")
+                    b.Property<int>("SchoolId")
                         .HasColumnType("int");
 
                     b.Property<int>("Speciality")
@@ -188,6 +188,7 @@ namespace SchoolManagementSystem.Data.Migrations
                         {
                             Id = 1,
                             Name = "9b",
+                            SchoolId = 1,
                             Speciality = 1
                         });
                 });
@@ -374,6 +375,15 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Schools");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "44 Avgusta Trayana, Stara Zagora, Bulgaria",
+                            Description = "The School of Informatics and Mathematics in Stara Zagora",
+                            Name = "PPMG \"Geo Milev\""
+                        });
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.SchoolProject", b =>
@@ -432,23 +442,23 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("02c4c685-e28b-4423-a713-9b4dffc21563"),
+                            Id = new Guid("661ce878-0af0-459a-a012-b473bd1b6a0f"),
                             ClassId = 1,
                             FirstName = "Ivan",
                             IdNumber = "0141012442",
                             LastName = "Ivanov",
                             MiddleName = "Ivanov",
-                            VerificationKey = new Guid("f39d1aa5-88fd-45eb-a22d-72a8fba75b96")
+                            VerificationKey = new Guid("e4394ca7-5120-4c98-ba53-c0d52d151cac")
                         },
                         new
                         {
-                            Id = new Guid("c3abc9b4-8813-497a-a0c4-3552df45f783"),
+                            Id = new Guid("4c5a4c87-8db8-4a07-aa02-59a8e143c5c5"),
                             ClassId = 1,
                             FirstName = "Gencho",
                             IdNumber = "0543121244",
                             LastName = "Ginev",
                             MiddleName = "Petkov",
-                            VerificationKey = new Guid("42cec904-9b85-4540-97db-aa1d00fb1c46")
+                            VerificationKey = new Guid("ec34be2e-7436-4144-94ed-473aa8eea32e")
                         });
                 });
 
@@ -511,13 +521,13 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e8389876-04bc-42fc-9447-4f76eea1855c"),
+                            Id = new Guid("f5823d7b-127d-46f9-91a5-26d5cce15f88"),
                             FirstName = "Mariya",
                             IdNumber = "8008089119",
                             LastName = "Petrova",
                             MiddleName = "Ivanova",
                             Subject = 1,
-                            VerificationKey = new Guid("ecc63368-e0ff-486b-b263-45a9c53e642a")
+                            VerificationKey = new Guid("f6e901df-0e6b-495f-bb29-6136a04d2a45")
                         });
                 });
 
@@ -611,13 +621,17 @@ namespace SchoolManagementSystem.Data.Migrations
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.Class", b =>
                 {
-                    b.HasOne("SchoolManagementSystem.Data.Models.School", null)
+                    b.HasOne("SchoolManagementSystem.Data.Models.School", "School")
                         .WithMany("Classes")
-                        .HasForeignKey("SchoolId");
+                        .HasForeignKey("SchoolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SchoolManagementSystem.Data.Models.Timetable", "Timetable")
                         .WithMany()
                         .HasForeignKey("TimetableId");
+
+                    b.Navigation("School");
 
                     b.Navigation("Timetable");
                 });

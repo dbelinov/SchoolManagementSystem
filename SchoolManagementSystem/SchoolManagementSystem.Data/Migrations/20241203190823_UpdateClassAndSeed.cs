@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SchoolManagementSystem.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateClassLogic : Migration
+    public partial class UpdateClassAndSeed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,21 +47,26 @@ namespace SchoolManagementSystem.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "SchoolId",
-                value: 0);
+                value: 1);
+
+            migrationBuilder.InsertData(
+                table: "Schools",
+                columns: new[] { "Id", "Address", "Description", "Name" },
+                values: new object[] { 1, "44 Avgusta Trayana, Stara Zagora, Bulgaria", "The School of Informatics and Mathematics in Stara Zagora", "PPMG \"Geo Milev\"" });
 
             migrationBuilder.InsertData(
                 table: "Students",
                 columns: new[] { "Id", "ClassId", "FirstName", "IdNumber", "LastName", "MiddleName", "VerificationKey" },
                 values: new object[,]
                 {
-                    { new Guid("a4c45f78-50d0-4d84-952c-cc34f79d5651"), 1, "Ivan", "0141012442", "Ivanov", "Ivanov", new Guid("052f7bb0-b3cf-4152-995a-621d39f2c31a") },
-                    { new Guid("df90b053-771b-4667-9de2-56860348626c"), 1, "Gencho", "0543121244", "Ginev", "Petkov", new Guid("a5f3d2a5-c906-44a3-9736-862622590431") }
+                    { new Guid("4c5a4c87-8db8-4a07-aa02-59a8e143c5c5"), 1, "Gencho", "0543121244", "Ginev", "Petkov", new Guid("ec34be2e-7436-4144-94ed-473aa8eea32e") },
+                    { new Guid("661ce878-0af0-459a-a012-b473bd1b6a0f"), 1, "Ivan", "0141012442", "Ivanov", "Ivanov", new Guid("e4394ca7-5120-4c98-ba53-c0d52d151cac") }
                 });
 
             migrationBuilder.InsertData(
                 table: "Teachers",
                 columns: new[] { "Id", "FirstName", "IdNumber", "LastName", "MiddleName", "SchoolId", "Subject", "VerificationKey" },
-                values: new object[] { new Guid("84a07a96-37da-4551-81c7-36d2fc022024"), "Mariya", "8008089119", "Petrova", "Ivanova", null, 1, new Guid("5a065926-3247-4ca9-bdf5-9d9736ceabfe") });
+                values: new object[] { new Guid("f5823d7b-127d-46f9-91a5-26d5cce15f88"), "Mariya", "8008089119", "Petrova", "Ivanova", null, 1, new Guid("f6e901df-0e6b-495f-bb29-6136a04d2a45") });
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Classes_Schools_SchoolId",
@@ -80,19 +85,24 @@ namespace SchoolManagementSystem.Data.Migrations
                 table: "Classes");
 
             migrationBuilder.DeleteData(
-                table: "Students",
+                table: "Schools",
                 keyColumn: "Id",
-                keyValue: new Guid("a4c45f78-50d0-4d84-952c-cc34f79d5651"));
+                keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Students",
                 keyColumn: "Id",
-                keyValue: new Guid("df90b053-771b-4667-9de2-56860348626c"));
+                keyValue: new Guid("4c5a4c87-8db8-4a07-aa02-59a8e143c5c5"));
+
+            migrationBuilder.DeleteData(
+                table: "Students",
+                keyColumn: "Id",
+                keyValue: new Guid("661ce878-0af0-459a-a012-b473bd1b6a0f"));
 
             migrationBuilder.DeleteData(
                 table: "Teachers",
                 keyColumn: "Id",
-                keyValue: new Guid("84a07a96-37da-4551-81c7-36d2fc022024"));
+                keyValue: new Guid("f5823d7b-127d-46f9-91a5-26d5cce15f88"));
 
             migrationBuilder.AlterColumn<int>(
                 name: "SchoolId",

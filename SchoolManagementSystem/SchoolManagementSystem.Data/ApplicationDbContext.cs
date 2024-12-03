@@ -29,12 +29,22 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
     {
         base.OnModelCreating(builder);
 
+        builder.Entity<School>(e => e.HasData(
+            new School
+            {
+                Id = 1,
+                Name = "PPMG \"Geo Milev\"",
+                Address = "44 Avgusta Trayana, Stara Zagora, Bulgaria",
+                Description = "The School of Informatics and Mathematics in Stara Zagora"
+            }));
+
         builder.Entity<Class>(e => e.HasData(
                 new Class
                 {
                     Id = 1,
                     Name = "9b",
-                    Speciality = Speciality.ComputerScience
+                    SchoolId = 1,
+                    Speciality = Speciality.ComputerScience,
                 })
         );
         
@@ -57,7 +67,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
                 ClassId = 1
             })
         );
-
+        
         builder.Entity<Teacher>(e => e
             .HasData(
                 new Teacher
@@ -66,7 +76,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
                     MiddleName = "Ivanova",
                     LastName = "Petrova",
                     IdNumber = "8008089119",
-                    Subject = Subject.Bulgarian
+                    Subject = Subject.Bulgarian,
                 }
             )
         );

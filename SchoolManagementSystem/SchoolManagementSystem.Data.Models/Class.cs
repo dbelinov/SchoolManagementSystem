@@ -22,6 +22,8 @@ public class Class
 
     [Required]
     public int SchoolId { get; set; }
+    [ForeignKey(nameof(SchoolId))]
+    public virtual School School { get; set; }
     
     [Required]
     public Speciality Speciality { get; set; }
