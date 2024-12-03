@@ -32,14 +32,25 @@ public class TeacherController : Controller
             return RedirectToAction("Index", "Home");
         }
 
-        var model = await _context.Teachers
-            .Where(t => t.IdNumber == user.IdNumber)
-            .Select(t => new TeacherDashboardViewModel
-            {
-                AverageGrade = t.Grades.Average(g => g.GradeValue).ToString("f2"),
-                GradesCount = t.Grades.Count,
-            })
-            .FirstOrDefaultAsync();
+        var teacher = await _context.Teachers
+            .Include(teacher => teacher.Grades)
+            .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
+
+        if (teacher is null)
+        {
+            ModelState.AddModelError("user", InvalidUser);
+            return RedirectToAction("Index", "Home");
+        }
+        
+        var averageGrades = teacher.Grades.Any()
+            ? teacher.Grades.Average(s => s.GradeValue).ToString("f2")
+            : "0.0";
+
+        var model = new TeacherDashboardViewModel
+        {
+            AverageGrade = averageGrades,
+            GradesCount = teacher.Grades.Count,
+        };
         
         return View(model);
     }
