@@ -39,6 +39,11 @@ public class HomeController : Controller
         {
             return RedirectToAction("Dashboard", "Student");
         }
+
+        if (user != null && await _userManager.IsInRoleAsync(user, nameof(Teacher)))
+        {
+            return RedirectToAction("Dashboard", "Teacher");
+        }
         
         return View();
     }
