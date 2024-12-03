@@ -1,0 +1,38 @@
+@model TeacherDashboardViewModel
+
+<div class="container mt-5">
+    <!-- Header -->
+    <h1 class="text-center mb-4">Teacher Dashboard</h1>
+
+    <div class="row">
+        <!-- Average Grade -->
+        <div class="col-md-6">
+            <div class="card text-center bg-primary text-white">
+                <div class="card-body">
+                    <h3>Average Grade</h3>
+                    <p class="display-4">@Model.AverageGrade</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grade Count -->
+        <div class="col-md-6">
+            <div class="card text-center bg-success text-white">
+                <div class="card-body">
+                    <h3>Total Grades</h3>
+                    <p class="display-4">@Model.GradesCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Navigation Buttons -->
+        <div class="col-md-6">
+            <a href="/Grades" class="btn btn-lg btn-secondary w-100">Go to Grades</a>
+        </div>
+        <div class="col-md-6">
+            <a href="/Scoreboard" class="btn btn-lg btn-secondary w-100">Go to Scoreboard</a>
+        </div>
+    </div>
+</div>
