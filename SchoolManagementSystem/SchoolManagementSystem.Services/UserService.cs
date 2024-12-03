@@ -51,7 +51,7 @@ public class UserService : IUserService
         {
             user.AppId = teacherMatch.Id;
             user.VerificationKey = teacherMatch.VerificationKey;
-            await _userManager.AddToRoleAsync(user, nameof(Teacher));
+            await AddToRoleAsync(user, nameof(Teacher));
         }
 
         await _userManager.UpdateAsync(user);
