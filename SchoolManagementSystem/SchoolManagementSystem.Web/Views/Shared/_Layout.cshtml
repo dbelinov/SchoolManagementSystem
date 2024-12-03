@@ -55,6 +55,29 @@
                             </li>
                         }
                     }
+
+                    @if (User.IsInRole(nameof(Teacher)))
+                    {
+                        var user = await UserManager.GetUserAsync(User);
+                        if (user is { IsAuthenticated: true })
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Teacher/Dashboard">
+                                    <i class="bi bi-house-door-fill"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Teacher/Grades">
+                                    <i class="bi bi-journal"></i> Grades
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Teacher/Scoreboard">
+                                    <i class="bi bi-table"></i> Scoreboard
+                                </a>
+                            </li>
+                        }
+                    }
                 </ul>
                 <partial name="_LoginPartial"/>
             </div>
