@@ -22,6 +22,7 @@ public class HomeService : IHomeService
             Name = s.Name,
             Address = s.Address,
             Description = s.Description,
+            LogoUrl = s.LogoUrl,
         })
         .ToListAsync();
 }

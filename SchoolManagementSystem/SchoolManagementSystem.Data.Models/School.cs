@@ -27,6 +27,9 @@ public class School
     [MaxLength(DescriptionMaxLength)]
     public string? Description { get; set; }
     
+    [Required]
+    public string LogoUrl { get; set; } = string.Empty;
+    
     public ICollection<Class> Classes { get; set; }
     public ICollection<Teacher> Teachers { get; set; }
     public ICollection<SchoolProject> SchoolsProjects { get; set; }

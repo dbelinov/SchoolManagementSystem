@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystem.Data;
 
@@ -11,9 +12,11 @@ using SchoolManagementSystem.Data;
 namespace SchoolManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241203193011_UpdateSeed")]
+    partial class UpdateSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -447,23 +450,23 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("65f2ad5b-c05d-47bd-b1f0-1b71fa3d31fb"),
+                            Id = new Guid("571cb247-15c6-493f-b262-073dc53dd35e"),
                             ClassId = 1,
                             FirstName = "Ivan",
                             IdNumber = "0141012442",
                             LastName = "Ivanov",
                             MiddleName = "Ivanov",
-                            VerificationKey = new Guid("ef9212b3-4d9d-4ffc-be32-bf1085878090")
+                            VerificationKey = new Guid("405ba503-5302-482c-b52e-f0fa3993f64f")
                         },
                         new
                         {
-                            Id = new Guid("914036eb-a628-480e-9832-05ad69072882"),
+                            Id = new Guid("7cc127b6-ebb8-44fb-9298-366538c4b67c"),
                             ClassId = 1,
                             FirstName = "Gencho",
                             IdNumber = "0543121244",
                             LastName = "Ginev",
                             MiddleName = "Petkov",
-                            VerificationKey = new Guid("026ea863-df25-4d76-a10f-86bd59ab4d8b")
+                            VerificationKey = new Guid("0d0e2820-80ec-4a5b-9efd-3e83996f19a3")
                         });
                 });
 
@@ -526,13 +529,13 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8ad5696e-0465-4b26-82e6-39c1ad4565c6"),
+                            Id = new Guid("a16b0aa3-aedf-4288-9b9c-84fc19e65a06"),
                             FirstName = "Mariya",
                             IdNumber = "8008089119",
                             LastName = "Petrova",
                             MiddleName = "Ivanova",
                             Subject = 1,
-                            VerificationKey = new Guid("0c2f2158-c4c7-4c9c-bbae-2857ffb94700")
+                            VerificationKey = new Guid("7f3651c6-074b-4b43-b29a-eb7411e4dc04")
                         });
                 });
 

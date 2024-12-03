@@ -34,8 +34,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
             {
                 Id = 1,
                 Name = "PPMG \"Geo Milev\"",
-                Address = "44 Avgusta Trayana, Stara Zagora, Bulgaria",
-                Description = "The School of Informatics and Mathematics in Stara Zagora"
+                Address = "44 Avgusta Trayana\nStara Zagora, Bulgaria",
+                Description = "The School of Informatics and Mathematics in Stara Zagora", 
+                LogoUrl = "https://scontent.fsof1-2.fna.fbcdn.net/v/t39.30808-6/327026697_887516432673344_8690934784557383737_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Rr0iH229ZRwQ7kNvgFeKEcF&_nc_zt=23&_nc_ht=scontent.fsof1-2.fna&_nc_gid=AizPmB3yiG6QTT84Mh5cpaJ&oh=00_AYDekshXGVy2Xa02RxZHINhma0rvygf0uH2D2_cO5om7Dg&oe=675539CD"
             }));
 
         builder.Entity<Class>(e => e.HasData(

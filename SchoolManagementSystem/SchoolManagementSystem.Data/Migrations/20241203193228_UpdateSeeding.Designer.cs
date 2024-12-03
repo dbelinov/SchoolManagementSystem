@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystem.Data;
 
@@ -11,9 +12,11 @@ using SchoolManagementSystem.Data;
 namespace SchoolManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241203193228_UpdateSeeding")]
+    partial class UpdateSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -386,7 +389,7 @@ namespace SchoolManagementSystem.Data.Migrations
                             Id = 1,
                             Address = "44 Avgusta Trayana\nStara Zagora, Bulgaria",
                             Description = "The School of Informatics and Mathematics in Stara Zagora",
-                            LogoUrl = "https://scontent.fsof1-2.fna.fbcdn.net/v/t39.30808-6/327026697_887516432673344_8690934784557383737_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Rr0iH229ZRwQ7kNvgFeKEcF&_nc_zt=23&_nc_ht=scontent.fsof1-2.fna&_nc_gid=AizPmB3yiG6QTT84Mh5cpaJ&oh=00_AYDekshXGVy2Xa02RxZHINhma0rvygf0uH2D2_cO5om7Dg&oe=675539CD",
+                            LogoUrl = "https://img.freepik.com/premium-vector/school-logo-design_706452-12.jpg?w=360",
                             Name = "PPMG \"Geo Milev\""
                         });
                 });
@@ -447,23 +450,23 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("65f2ad5b-c05d-47bd-b1f0-1b71fa3d31fb"),
+                            Id = new Guid("2df3e869-856b-4945-9964-e33546101209"),
                             ClassId = 1,
                             FirstName = "Ivan",
                             IdNumber = "0141012442",
                             LastName = "Ivanov",
                             MiddleName = "Ivanov",
-                            VerificationKey = new Guid("ef9212b3-4d9d-4ffc-be32-bf1085878090")
+                            VerificationKey = new Guid("f59fac71-5b7b-4d7b-aeda-6fe5e083ae26")
                         },
                         new
                         {
-                            Id = new Guid("914036eb-a628-480e-9832-05ad69072882"),
+                            Id = new Guid("086dd6c8-c2e9-4244-99ae-d6df7df958cc"),
                             ClassId = 1,
                             FirstName = "Gencho",
                             IdNumber = "0543121244",
                             LastName = "Ginev",
                             MiddleName = "Petkov",
-                            VerificationKey = new Guid("026ea863-df25-4d76-a10f-86bd59ab4d8b")
+                            VerificationKey = new Guid("b1b39fd1-20e3-426c-a6c2-5ea388c7af83")
                         });
                 });
 
@@ -526,13 +529,13 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8ad5696e-0465-4b26-82e6-39c1ad4565c6"),
+                            Id = new Guid("d95f2a13-b0fa-48db-b651-3a29a44c5ef5"),
                             FirstName = "Mariya",
                             IdNumber = "8008089119",
                             LastName = "Petrova",
                             MiddleName = "Ivanova",
                             Subject = 1,
-                            VerificationKey = new Guid("0c2f2158-c4c7-4c9c-bbae-2857ffb94700")
+                            VerificationKey = new Guid("b51092bc-c677-4f2b-a821-e44ce500a2dd")
                         });
                 });
 
