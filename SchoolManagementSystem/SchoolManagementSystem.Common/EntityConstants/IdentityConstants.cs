@@ -12,4 +12,5 @@ public static class IdentityConstants
     public const int PasswordMaxLength = 100;
     public const int IdNumberLength = 10;
     public const string DateFormat = "dd/MM/yyyy";
+    public const string AdminAreaName = "Admin";
 }

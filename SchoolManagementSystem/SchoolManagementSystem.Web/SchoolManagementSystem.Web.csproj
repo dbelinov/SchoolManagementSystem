@@ -23,4 +23,11 @@
       <ProjectReference Include="..\SchoolManagementSystem.Web.ViewModels\SchoolManagementSystem.Web.ViewModels.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Dashboard.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Views\Admin\Dashboard.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Admin\Dashboard.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\Admin\Dashboard.cshtml" />
+    </ItemGroup>
+
 </Project>
