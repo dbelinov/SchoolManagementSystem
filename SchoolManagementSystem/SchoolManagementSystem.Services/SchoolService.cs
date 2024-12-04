@@ -5,11 +5,11 @@ using SchoolManagementSystem.Web.ViewModels;
 
 namespace SchoolManagementSystem.Services;
 
-public class HomeService : IHomeService
+public class SchoolService : ISchoolService
 {
     private readonly ApplicationDbContext _context;
 
-    public HomeService(ApplicationDbContext context)
+    public SchoolService(ApplicationDbContext context)
     {
         _context = context;
     }
