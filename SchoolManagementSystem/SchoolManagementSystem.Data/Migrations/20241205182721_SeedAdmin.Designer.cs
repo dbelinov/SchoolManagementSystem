@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystem.Data;
 
@@ -11,9 +12,11 @@ using SchoolManagementSystem.Data;
 namespace SchoolManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241205182721_SeedAdmin")]
+    partial class SeedAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +55,7 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("530a6548-2cbb-4fea-a129-d6963d870f1b"),
+                            Id = new Guid("3a03dafa-6303-4171-8fad-633a1afc1c73"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -144,8 +147,8 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = new Guid("2c3bf96d-8520-488a-acc5-49247d999d35"),
-                            RoleId = new Guid("530a6548-2cbb-4fea-a129-d6963d870f1b")
+                            UserId = new Guid("716b6413-ad40-4341-863d-fc9cef165f9b"),
+                            RoleId = new Guid("3a03dafa-6303-4171-8fad-633a1afc1c73")
                         });
                 });
 
@@ -340,28 +343,28 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2c3bf96d-8520-488a-acc5-49247d999d35"),
+                            Id = new Guid("716b6413-ad40-4341-863d-fc9cef165f9b"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("2c3bf96d-8520-488a-acc5-49247d999d35"),
-                            BirthDate = new DateTime(2024, 12, 5, 20, 40, 46, 405, DateTimeKind.Local).AddTicks(1820),
-                            ConcurrencyStamp = "81be4c09-b377-4acd-ba1f-a7a7e254932c",
+                            AppId = new Guid("716b6413-ad40-4341-863d-fc9cef165f9b"),
+                            BirthDate = new DateTime(2024, 12, 5, 20, 27, 21, 300, DateTimeKind.Local).AddTicks(7230),
+                            ConcurrencyStamp = "8cafc4c7-09c0-4144-9817-5ba9c0f93398",
                             Email = "admin@scholario.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
                             IdNumber = "2452064114",
-                            IsAuthenticated = true,
-                            IsGuest = false,
+                            IsAuthenticated = false,
+                            IsGuest = true,
                             LastName = "Adminov",
                             LockoutEnabled = false,
                             MiddleName = "Adminov",
                             NormalizedEmail = "ADMIN@SCHOLARIO.COM",
                             NormalizedUserName = "ADMIN@SCHOLARIO.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKoFkogIonnrj49f6v+CzqrNoUbicm1ECtM7adQ+f+lLqe65rK6w67Qo56gNl5IidQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHWqKwlN7RnFbpEI0fR97mvGaVAUJ3pHKb8f6aTBrT4WY/NT2L97XQr/UMK4gbjhQw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d542c6c1-c8a5-4793-9c30-64e8782ff256",
+                            SecurityStamp = "6636c8ec-5546-4e48-9ca3-6362a6bb1b9c",
                             TwoFactorEnabled = false,
                             UserName = "admin@scholario.com",
-                            VerificationKey = new Guid("2c3bf96d-8520-488a-acc5-49247d999d35")
+                            VerificationKey = new Guid("716b6413-ad40-4341-863d-fc9cef165f9b")
                         });
                 });
 
@@ -489,23 +492,23 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c066bca0-bb05-4277-bcad-0424b57fb4cd"),
+                            Id = new Guid("8b85681d-b298-4c0f-bcbf-dee98317535f"),
                             ClassId = 1,
                             FirstName = "Ivan",
                             IdNumber = "0141012442",
                             LastName = "Ivanov",
                             MiddleName = "Ivanov",
-                            VerificationKey = new Guid("50cb4c81-981e-44f0-b502-1d0fc266a7a1")
+                            VerificationKey = new Guid("54107200-1ac3-4fd4-b16f-e9d5994785bb")
                         },
                         new
                         {
-                            Id = new Guid("77c36d3b-0272-461a-b922-48921204c167"),
+                            Id = new Guid("9fb86826-a1ec-4434-8f72-84d49d605213"),
                             ClassId = 1,
                             FirstName = "Gencho",
                             IdNumber = "0543121244",
                             LastName = "Ginev",
                             MiddleName = "Petkov",
-                            VerificationKey = new Guid("cc67a73a-3665-4606-8270-841affe14ca7")
+                            VerificationKey = new Guid("3f586fbe-7425-46da-b844-43d245dedb63")
                         });
                 });
 
@@ -568,13 +571,13 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6c81cf63-38a6-4dda-9673-386378ca462d"),
-                            FirstName = "Maria",
+                            Id = new Guid("bc525f8a-5bef-4173-b14a-3224dee74385"),
+                            FirstName = "Mariya",
                             IdNumber = "8008089119",
                             LastName = "Petrova",
                             MiddleName = "Ivanova",
                             Subject = 1,
-                            VerificationKey = new Guid("1a1b44bb-2dd2-4071-9f7a-82bfd6e13962")
+                            VerificationKey = new Guid("cb661852-8704-4993-b359-a05dd4ba4775")
                         });
                 });
 

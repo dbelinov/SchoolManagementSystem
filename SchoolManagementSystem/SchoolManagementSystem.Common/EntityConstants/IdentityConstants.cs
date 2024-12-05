@@ -13,4 +13,5 @@ public static class IdentityConstants
     public const int IdNumberLength = 10;
     public const string DateFormat = "dd/MM/yyyy";
     public const string AdminAreaName = "Admin";
+    public const string AdminRoleName = "Admin";
 }

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Data.Models.IdentityModels;
-using SchoolManagementSystem.Services;
-using SchoolManagementSystem.Services.Contracts;
 using SchoolManagementSystem.Web.Views;
+
+using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 
 namespace SchoolManagementSystem.Web.Controllers;
 
@@ -40,6 +40,11 @@ public class HomeController : Controller
         if (user != null && await _userManager.IsInRoleAsync(user, nameof(Teacher)))
         {
             return RedirectToAction("Dashboard", "Teacher");
+        }
+
+        if (user != null && await _userManager.IsInRoleAsync(user, AdminRoleName))
+        {
+            return RedirectToAction("Index", "Admin", new { area = "Admin" });
         }
         
         return View();

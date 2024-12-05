@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Common.Enums;
 using SchoolManagementSystem.Data.Models;
+using SchoolManagementSystem.Data.Models.IdentityModels;
 
 namespace SchoolManagementSystem.Data.Seeding;
 
@@ -48,13 +50,62 @@ public class Seeder : ISeeder
         modelBuilder.Entity<Teacher>().HasData(
             new Teacher
             {
-                FirstName = "Mariya",
+                FirstName = "Maria",
                 MiddleName = "Ivanova",
                 LastName = "Petrova",
                 IdNumber = "8008089119",
                 Subject = Subject.Bulgarian,
             });
+        
+        SeedAdmin(modelBuilder).Wait();
 
+        return Task.CompletedTask;
+    }
+
+    private static Task SeedAdmin(ModelBuilder modelBuilder)
+    {
+        var roleId = Guid.NewGuid();
+        
+        modelBuilder.Entity<IdentityRole<Guid>>().HasData(
+            new IdentityRole<Guid>
+            {
+                Id = roleId,
+                Name = "Admin",
+                NormalizedName = "ADMIN"
+            });
+
+        var adminId = Guid.NewGuid(); // Generate a unique GUID for the Admin user.
+
+        modelBuilder.Entity<ApplicationUser>().HasData(
+            new ApplicationUser
+            {
+                Id = adminId,
+                VerificationKey = adminId,
+                AppId = adminId,
+                UserName = "admin@scholario.com",
+                NormalizedUserName = "ADMIN@SCHOLARIO.COM",
+                Email = "admin@scholario.com",
+                NormalizedEmail = "ADMIN@SCHOLARIO.COM",
+                EmailConfirmed = true,
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Admin123!"), // Replace with a secure password.
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                FirstName = "Admin",
+                MiddleName = "Adminov",
+                LastName = "Adminov",
+                IdNumber = "2452064114",
+                BirthDate = DateTime.Now,
+                IsAuthenticated = true,
+                IsGuest = false
+            });
+        
+        modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(
+            new IdentityUserRole<Guid>
+            {
+                UserId = adminId,
+                RoleId = roleId
+            });
+        
         return Task.CompletedTask;
     }
 }
