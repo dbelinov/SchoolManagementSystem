@@ -89,21 +89,36 @@ public class TeacherController : Controller
     public async Task<IActionResult> ClassGrades(int classId)
     {
         var user = await _userManager.GetUserAsync(HttpContext.User);
+
+        if (user is null)
+        {
+            ModelState.AddModelError("user", NotLoggedIn);
+            return RedirectToAction("Index", "Home");
+        }
         
         var teacher = await _context.Teachers
             .Include(teacher => teacher.Grades)
             .ThenInclude(grade => grade.Student).ThenInclude(student => student.Grades)
             .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
 
-        var models = teacher.Grades
-            .GroupBy(g => g.Student)
-            .Where(g => g.Key.ClassId == classId)
-            .Select(g => new TeacherGradesViewModel
+        if (teacher is null)
+        {
+            ModelState.AddModelError("user", NotAuthenticated);
+            return RedirectToAction("Index", "Home");
+        }
+
+        var studentsInClass = await _context.Students
+            .Include(student => student.Grades)
+            .Where(student => student.ClassId == classId)
+            .ToListAsync();
+
+        var models = studentsInClass
+            .Select(student => new TeacherGradesViewModel
             {
-                StudentName = $"{g.Key.FirstName} {g.Key.MiddleName} {g.Key.LastName}",
-                Grades = g.Key.Grades
+                StudentName = $"{student.FirstName} {student.MiddleName} {student.LastName}",
+                Grades = student.Grades
                     .Where(g => g.Subject == teacher.Subject)
-                    .ToList(),
+                    .ToList()
             })
             .ToList();
 

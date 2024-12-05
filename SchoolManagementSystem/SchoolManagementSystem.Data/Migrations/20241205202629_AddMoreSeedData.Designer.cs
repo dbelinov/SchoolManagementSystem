@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManagementSystem.Data;
 
@@ -11,9 +12,11 @@ using SchoolManagementSystem.Data;
 namespace SchoolManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241205202629_AddMoreSeedData")]
+    partial class AddMoreSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +55,7 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("459e725e-7ed2-4360-8f26-6d5f69ef5e96"),
+                            Id = new Guid("a3708a62-b708-4172-bc0e-461e15a91609"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -144,8 +147,8 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = new Guid("26db12ae-b423-410e-8f39-8a3aee4a31f7"),
-                            RoleId = new Guid("459e725e-7ed2-4360-8f26-6d5f69ef5e96")
+                            UserId = new Guid("cd535470-db25-4e99-a92f-de3a1b571304"),
+                            RoleId = new Guid("a3708a62-b708-4172-bc0e-461e15a91609")
                         });
                 });
 
@@ -347,11 +350,11 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("26db12ae-b423-410e-8f39-8a3aee4a31f7"),
+                            Id = new Guid("cd535470-db25-4e99-a92f-de3a1b571304"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("26db12ae-b423-410e-8f39-8a3aee4a31f7"),
-                            BirthDate = new DateTime(2024, 12, 5, 22, 30, 56, 990, DateTimeKind.Local).AddTicks(9400),
-                            ConcurrencyStamp = "a357da63-c086-4e92-a318-aa7352f6b75c",
+                            AppId = new Guid("cd535470-db25-4e99-a92f-de3a1b571304"),
+                            BirthDate = new DateTime(2024, 12, 5, 22, 26, 29, 407, DateTimeKind.Local).AddTicks(1870),
+                            ConcurrencyStamp = "b98f6ecd-31aa-4068-9a02-1b29da8d7ca8",
                             Email = "admin@scholario.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -363,12 +366,12 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Adminov",
                             NormalizedEmail = "ADMIN@SCHOLARIO.COM",
                             NormalizedUserName = "ADMIN@SCHOLARIO.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDulC4tj5aO3phHkROw09+cZtI6XXkkvluW1T7lypPgcVsd6gQ89jhKQyST63HQuxA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA5xhQ89MFFRiG+Lxlxu3Z0pZeqkE+v5xI9f5CWEqwuh37+V3iwXbhypu9D3Xol7MQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a34c5be4-bfc8-464f-839d-9ed5680d620e",
+                            SecurityStamp = "d43827cf-911d-45a2-946b-9a75091e29be",
                             TwoFactorEnabled = false,
                             UserName = "admin@scholario.com",
-                            VerificationKey = new Guid("26db12ae-b423-410e-8f39-8a3aee4a31f7")
+                            VerificationKey = new Guid("cd535470-db25-4e99-a92f-de3a1b571304")
                         });
                 });
 
@@ -496,33 +499,33 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2e97bd0e-e3b3-439c-b603-6548aaa4a02b"),
+                            Id = new Guid("0cedf809-6444-4b18-b993-e1dd12d070a0"),
                             ClassId = 1,
                             FirstName = "Ivan",
                             IdNumber = "0141012442",
                             LastName = "Ivanov",
                             MiddleName = "Ivanov",
-                            VerificationKey = new Guid("0795633d-2215-4a1c-9418-059535adf74e")
+                            VerificationKey = new Guid("9d5a8b5a-5b40-46b6-b784-f2b9f05cc66f")
                         },
                         new
                         {
-                            Id = new Guid("7f694e18-3881-403b-93b1-80189f0c5ea1"),
+                            Id = new Guid("078b507c-e903-47e1-b22a-2e3d32b5ada2"),
                             ClassId = 1,
                             FirstName = "Gencho",
                             IdNumber = "0543121244",
                             LastName = "Ginev",
                             MiddleName = "Petkov",
-                            VerificationKey = new Guid("e06b3766-e589-4191-9bfa-9776948f816c")
+                            VerificationKey = new Guid("5f58e6b7-73ee-4e71-959a-7f5a953f59a5")
                         },
                         new
                         {
-                            Id = new Guid("02aa85db-e0d9-4b43-ab9c-8e3340c3a4f5"),
+                            Id = new Guid("bc4b2fd7-941f-4f9c-9753-13310d4af3fc"),
                             ClassId = 2,
                             FirstName = "Martin",
                             IdNumber = "0741124324",
                             LastName = "Georgiev",
                             MiddleName = "Ivanov",
-                            VerificationKey = new Guid("8bbfeb65-31cd-4a3a-a553-9b4c8be4748b")
+                            VerificationKey = new Guid("1b3c6210-a34f-43f0-b052-1f6ca4a81384")
                         });
                 });
 
@@ -585,23 +588,23 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ea3ad780-d97f-407a-8e71-75f7eb7cdca0"),
+                            Id = new Guid("0ef98b31-a666-4975-b815-ff82c69c91e9"),
                             FirstName = "Maria",
                             IdNumber = "8008089119",
                             LastName = "Petrova",
                             MiddleName = "Ivanova",
                             Subject = 1,
-                            VerificationKey = new Guid("8757e486-d02e-4e8a-8c9f-397540fa5efd")
+                            VerificationKey = new Guid("135d5451-7349-4634-82cd-d35545529872")
                         },
                         new
                         {
-                            Id = new Guid("73011ad8-0c95-4078-ab13-600206234716"),
+                            Id = new Guid("acd49e64-f8e4-4f22-9cf6-f5056695bab9"),
                             FirstName = "Stefka",
                             IdNumber = "9003021331",
                             LastName = "Gineva",
                             MiddleName = "Petkova",
                             Subject = 4,
-                            VerificationKey = new Guid("0d58c16a-bc32-4c27-bb0e-a2f0f5373ce7")
+                            VerificationKey = new Guid("31f9ffd7-9c57-480d-a7d7-0eb700446b38")
                         });
                 });
 
@@ -622,22 +625,12 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            TeacherId = new Guid("ea3ad780-d97f-407a-8e71-75f7eb7cdca0"),
+                            TeacherId = new Guid("0ef98b31-a666-4975-b815-ff82c69c91e9"),
                             ClassId = 1
                         },
                         new
                         {
-                            TeacherId = new Guid("ea3ad780-d97f-407a-8e71-75f7eb7cdca0"),
-                            ClassId = 2
-                        },
-                        new
-                        {
-                            TeacherId = new Guid("73011ad8-0c95-4078-ab13-600206234716"),
-                            ClassId = 1
-                        },
-                        new
-                        {
-                            TeacherId = new Guid("73011ad8-0c95-4078-ab13-600206234716"),
+                            TeacherId = new Guid("acd49e64-f8e4-4f22-9cf6-f5056695bab9"),
                             ClassId = 2
                         });
                 });

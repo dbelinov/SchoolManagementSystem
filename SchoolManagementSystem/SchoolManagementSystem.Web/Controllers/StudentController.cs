@@ -74,6 +74,7 @@ namespace SchoolManagementSystem.Web.Controllers
 
             await AddGradesToIvan();
             await AddGradesToGencho();
+            await AddGradesToMartin();
             
             var models = _studentService.GetGradesViewModel(student);
             return View(models);
@@ -149,6 +150,45 @@ namespace SchoolManagementSystem.Web.Controllers
                 TeacherId = teacher.Id,
                 GradeValue = 6,
                 Subject = Subject.Maths
+            };
+        
+            student.Grades.Add(grade1);
+            student.Grades.Add(grade2);
+            student.Grades.Add(grade3);
+        
+            await _context.SaveChangesAsync();
+        }
+        
+        private async Task AddGradesToMartin()
+        {
+            var student = await _context.Students
+                .FirstOrDefaultAsync(s => s.FirstName == "Martin");
+            
+            var teacher = await _context.Teachers
+                .FirstOrDefaultAsync(t => t.FirstName == "Stefka");
+
+            var grade1 = new Grade
+            {
+                StudentId = student.Id,
+                TeacherId = teacher.Id,
+                GradeValue = 6,
+                Subject = Subject.Bulgarian,
+            };
+
+            var grade2 = new Grade
+            {
+                StudentId = student.Id,
+                TeacherId = teacher.Id,
+                GradeValue = 5,
+                Subject = Subject.Bulgarian
+            };
+
+            var grade3 = new Grade
+            {
+                StudentId = student.Id,
+                TeacherId = teacher.Id,
+                GradeValue = 6,
+                Subject = Subject.German
             };
         
             student.Grades.Add(grade1);

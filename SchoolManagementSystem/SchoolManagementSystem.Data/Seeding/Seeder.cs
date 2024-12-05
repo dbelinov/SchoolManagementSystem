@@ -10,7 +10,8 @@ public class Seeder : ISeeder
 {
     public Task SeedData(ModelBuilder modelBuilder)
     {
-        var teacherId = Guid.NewGuid();
+        var teacher1Id = Guid.NewGuid();
+        var teacher2Id = Guid.NewGuid();
         
         modelBuilder.Entity<School>().HasData(
             new School
@@ -19,7 +20,7 @@ public class Seeder : ISeeder
                 Name = "PPMG \"Geo Milev\"",
                 Address = "44 Avgusta Trayana\nStara Zagora, Bulgaria",
                 Description = "The School of Informatics and Mathematics in Stara Zagora",
-                LogoUrl = "https://scontent.fsof1-2.fna.fbcdn.net/v/t39.30808-6/327026697_887516432673344_8690934784557383737_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Rr0iH229ZRwQ7kNvgFeKEcF&_nc_zt=23&_nc_ht=scontent.fsof1-2.fna&_nc_gid=AizPmB3yiG6QTT84Mh5cpaJ&oh=00_AYDekshXGVy2Xa02RxZHINhma0rvygf0uH2D2_cO5om7Dg&oe=675539CD"
+                LogoUrl = "https://scontent.fsof1-2.fna.fbcdn.net/v/t39.30808-6/327026697_887516432673344_8690934784557383737_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Rr0iH229ZRwQ7kNvgFeKEcF&_nc_zt=23&_nc_ht=scontent.fsof1-2.fna&_nc_gid=AizPmB3yiG6QTT84Mh5cpaJ&oh=00_AYDekshXGVy2Xa02RxZHINhma0rvygf0uH2D2_cO5om7Dg&oe=675539CD",
             });
 
         modelBuilder.Entity<Class>().HasData(
@@ -27,6 +28,13 @@ public class Seeder : ISeeder
             {
                 Id = 1,
                 Name = "9b",
+                SchoolId = 1,
+                Speciality = Speciality.ComputerScience,
+            },
+            new Class
+            {
+                Id = 2,
+                Name = "10b",
                 SchoolId = 1,
                 Speciality = Speciality.ComputerScience,
             });
@@ -47,24 +55,56 @@ public class Seeder : ISeeder
                 LastName = "Ginev",
                 IdNumber = "0543121244",
                 ClassId = 1
+            },
+            new Student()
+            {
+                FirstName = "Martin",
+                MiddleName = "Ivanov",
+                LastName = "Georgiev",
+                IdNumber = "0741124324",
+                ClassId = 2
             });
 
         modelBuilder.Entity<Teacher>().HasData(
             new Teacher
             {
-                Id = teacherId,
+                Id = teacher1Id,
                 FirstName = "Maria",
                 MiddleName = "Ivanova",
                 LastName = "Petrova",
                 IdNumber = "8008089119",
                 Subject = Subject.Bulgarian,
+            },
+            new Teacher()
+            {
+                Id = teacher2Id,
+                FirstName = "Stefka",
+                MiddleName = "Petkova",
+                LastName = "Gineva",
+                IdNumber = "9003021331",
+                Subject = Subject.German
             });
 
         modelBuilder.Entity<TeacherClass>().HasData(
             new TeacherClass
             {
                 ClassId = 1,
-                TeacherId = teacherId,
+                TeacherId = teacher1Id,
+            },
+            new TeacherClass
+            {
+                ClassId = 2,
+                TeacherId = teacher1Id
+            },
+            new TeacherClass
+            {
+                ClassId = 1,
+                TeacherId = teacher2Id,
+            },
+            new TeacherClass
+            {
+                ClassId = 2,
+                TeacherId = teacher2Id
             });
         
         SeedAdmin(modelBuilder).Wait();
