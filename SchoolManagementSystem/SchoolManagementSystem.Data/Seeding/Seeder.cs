@@ -10,6 +10,8 @@ public class Seeder : ISeeder
 {
     public Task SeedData(ModelBuilder modelBuilder)
     {
+        var teacherId = Guid.NewGuid();
+        
         modelBuilder.Entity<School>().HasData(
             new School
             {
@@ -50,11 +52,19 @@ public class Seeder : ISeeder
         modelBuilder.Entity<Teacher>().HasData(
             new Teacher
             {
+                Id = teacherId,
                 FirstName = "Maria",
                 MiddleName = "Ivanova",
                 LastName = "Petrova",
                 IdNumber = "8008089119",
                 Subject = Subject.Bulgarian,
+            });
+
+        modelBuilder.Entity<TeacherClass>().HasData(
+            new TeacherClass
+            {
+                ClassId = 1,
+                TeacherId = teacherId,
             });
         
         SeedAdmin(modelBuilder).Wait();
@@ -74,7 +84,7 @@ public class Seeder : ISeeder
                 NormalizedName = "ADMIN"
             });
 
-        var adminId = Guid.NewGuid(); // Generate a unique GUID for the Admin user.
+        var adminId = Guid.NewGuid();
 
         modelBuilder.Entity<ApplicationUser>().HasData(
             new ApplicationUser
@@ -87,7 +97,7 @@ public class Seeder : ISeeder
                 Email = "admin@scholario.com",
                 NormalizedEmail = "ADMIN@SCHOLARIO.COM",
                 EmailConfirmed = true,
-                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Admin123!"), // Replace with a secure password.
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Admin123!"),
                 SecurityStamp = Guid.NewGuid().ToString("D"),
                 ConcurrencyStamp = Guid.NewGuid().ToString("D"),
                 FirstName = "Admin",

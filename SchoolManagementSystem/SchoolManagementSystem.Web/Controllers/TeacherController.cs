@@ -22,6 +22,7 @@ public class TeacherController : Controller
         _userManager = userManager;
     }
     
+    [HttpGet]
     public async Task<IActionResult> Dashboard()
     {
         var user = await _userManager.GetUserAsync(HttpContext.User);
@@ -42,16 +43,70 @@ public class TeacherController : Controller
             return RedirectToAction("Index", "Home");
         }
         
-        var averageGrades = teacher.Grades.Any()
-            ? teacher.Grades.Average(s => s.GradeValue).ToString("f2")
+        var averageGrades = teacher.Grades.Any(g => g.Subject == teacher.Subject)
+            ? teacher.Grades
+                .Where(g => g.Subject == teacher.Subject)
+                .Average(s => s.GradeValue).ToString("f2")
             : "0.0";
 
         var model = new TeacherDashboardViewModel
         {
             AverageGrade = averageGrades,
-            GradesCount = teacher.Grades.Count,
+            GradesCount = teacher.Grades
+                .Where(g => g.Subject == teacher.Subject)
+                .ToList().Count,
         };
         
         return View(model);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GradesDashboard()
+    {
+        var user = await _userManager.GetUserAsync(HttpContext.User);
+        
+        var teacher = await _context.Teachers
+            .Include(teacher => teacher.TeachersClasses)
+            .ThenInclude(teacherClass => teacherClass.Class)
+            .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
+
+        var models = new TeacherClassesViewModel
+            {
+                TeacherName = $"{teacher.FirstName} {teacher.MiddleName} {teacher.LastName}",
+                Classes = teacher.TeachersClasses
+                    .Select(tc => new ClassViewModel
+                    {
+                        Id = tc.ClassId,
+                        ClassName = tc.Class.Name,
+                    })
+                    .ToList(),
+            };
+        
+        return View(models);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> ClassGrades(int classId)
+    {
+        var user = await _userManager.GetUserAsync(HttpContext.User);
+        
+        var teacher = await _context.Teachers
+            .Include(teacher => teacher.Grades)
+            .ThenInclude(grade => grade.Student).ThenInclude(student => student.Grades)
+            .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
+
+        var models = teacher.Grades
+            .GroupBy(g => g.Student)
+            .Where(g => g.Key.ClassId == classId)
+            .Select(g => new TeacherGradesViewModel
+            {
+                StudentName = $"{g.Key.FirstName} {g.Key.MiddleName} {g.Key.LastName}",
+                Grades = g.Key.Grades
+                    .Where(g => g.Subject == teacher.Subject)
+                    .ToList(),
+            })
+            .ToList();
+
+        return View(models);
     }
 }

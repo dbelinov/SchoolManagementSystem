@@ -1,0 +1,22 @@
+@model TeacherClassesViewModel
+
+<h1>Classes for @Model.TeacherName</h1>
+
+@if (Model.Classes.Any())
+{
+    <div>
+        @foreach (var cls in Model.Classes)
+        {
+            <form asp-action="ClassGrades" asp-controller="Teacher" method="get" style="display:inline;">
+                <input type="hidden" name="classId" value="@cls.Id" />
+                <button type="submit" class="btn btn-primary" style="margin: 5px;">
+                    @cls.ClassName
+                </button>
+            </form>
+        }
+    </div>
+}
+else
+{
+    <p>No classes found for this teacher.</p>
+}

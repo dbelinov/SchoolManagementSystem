@@ -1,0 +1,112 @@
+@model IEnumerable<TeacherGradesViewModel>
+
+@{
+    ViewData["Title"] = "Grades Overview";
+}
+
+<h2 class="text-center my-4">All Grades</h2>
+
+@if (Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Student Name</th>
+                <th scope="col">Grades</th>
+                <th scope="col">Add Grade</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td class="align-middle subject-cell">@student.StudentName</td>
+                    <td>
+                        <div class="d-flex flex-wrap gap-2">
+                            @foreach (var grade in student.Grades.Select(g => g.GradeValue))
+                            {
+                                <span class="badge grade-badge grade-@grade">@grade</span>
+                            }
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group" role="group" aria-label="Grade Buttons">
+                            @for (int grade = 2; grade <= 6; grade++)
+                            {
+                                <button
+                                    class="btn btn-sm btn-outline-primary"
+                                    onclick="addGrade('@student.StudentName', @grade)">
+                                    @grade
+                                </button>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning text-center">
+        No grades available for any students.
+    </div>
+}
+
+<style>
+    /* Custom Styles for Subject Header */
+    .subject-header {
+        font-size: 1.2rem;
+        text-align: center;
+        background-color: #343a40; /* Dark header background */
+        color: #fff; /* White text */
+    }
+
+    /* Custom Styles for Subject Cell */
+    .subject-cell {
+        font-size: 1.1rem;
+        font-weight: bold;
+        background-color: #f8f9fa; /* Light gray for emphasis */
+        color: #212529; /* Dark text for readability */
+        padding: 12px;
+    }
+
+    /* Custom Grade Badge Colors */
+    .grade-badge {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 0.5rem;
+    }
+
+    .grade-6 {
+        background-color: #28a745; /* Bootstrap's green */
+        color: white;
+    }
+
+    .grade-5 {
+        background-color: #007bff; /* Bootstrap's blue */
+        color: white;
+    }
+
+    .grade-4 {
+        background-color: #ffc107; /* Bootstrap's yellow */
+        color: black;
+    }
+
+    .grade-3 {
+        background-color: #fd7e14; /* Bootstrap's orange */
+        color: white;
+    }
+
+    .grade-2 {
+        background-color: #dc3545; /* Bootstrap's red */
+        color: white;
+    }
+</style>

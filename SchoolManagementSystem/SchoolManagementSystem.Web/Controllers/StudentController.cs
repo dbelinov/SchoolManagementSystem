@@ -13,12 +13,12 @@ namespace SchoolManagementSystem.Web.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
-        //private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public StudentController(IStudentService studentService/*, ApplicationDbContext context*/)
+        public StudentController(IStudentService studentService, ApplicationDbContext context)
         {
             _studentService = studentService;
-            //_context = context;
+            _context = context;
         }
 
         [HttpGet]
@@ -72,26 +72,28 @@ namespace SchoolManagementSystem.Web.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            //await AddGradesToIvan();
+            await AddGradesToIvan();
+            await AddGradesToGencho();
+            
             var models = _studentService.GetGradesViewModel(student);
             return View(models);
         }
         
         //Test Purposes
-        /*private async Task AddGradesToIvan()
+        private async Task AddGradesToIvan()
         {
             var student = await _context.Students
                 .FirstOrDefaultAsync(s => s.FirstName == "Ivan");
             
             var teacher = await _context.Teachers
-                .FirstOrDefaultAsync(t => t.FirstName == "Mariya");
+                .FirstOrDefaultAsync(t => t.FirstName == "Maria");
 
             var grade1 = new Grade
             {
                 StudentId = student.Id,
                 TeacherId = teacher.Id,
                 GradeValue = 6,
-                Subject = Subject.Biology
+                Subject = Subject.Bulgarian,
             };
 
             var grade2 = new Grade
@@ -115,6 +117,45 @@ namespace SchoolManagementSystem.Web.Controllers
             student.Grades.Add(grade3);
         
             await _context.SaveChangesAsync();
-        }*/
+        }
+        
+        private async Task AddGradesToGencho()
+        {
+            var student = await _context.Students
+                .FirstOrDefaultAsync(s => s.FirstName == "Gencho");
+            
+            var teacher = await _context.Teachers
+                .FirstOrDefaultAsync(t => t.FirstName == "Maria");
+
+            var grade1 = new Grade
+            {
+                StudentId = student.Id,
+                TeacherId = teacher.Id,
+                GradeValue = 6,
+                Subject = Subject.Bulgarian,
+            };
+
+            var grade2 = new Grade
+            {
+                StudentId = student.Id,
+                TeacherId = teacher.Id,
+                GradeValue = 5,
+                Subject = Subject.Bulgarian
+            };
+
+            var grade3 = new Grade
+            {
+                StudentId = student.Id,
+                TeacherId = teacher.Id,
+                GradeValue = 6,
+                Subject = Subject.Maths
+            };
+        
+            student.Grades.Add(grade1);
+            student.Grades.Add(grade2);
+            student.Grades.Add(grade3);
+        
+            await _context.SaveChangesAsync();
+        }
     }
 }

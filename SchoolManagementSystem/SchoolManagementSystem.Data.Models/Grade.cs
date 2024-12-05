@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using SchoolManagementSystem.Common.Enums;
 
 namespace SchoolManagementSystem.Data.Models;
@@ -10,6 +11,8 @@ public class Grade
     
     [Required]
     public Guid StudentId { get; set; }
+    [ForeignKey(nameof(StudentId))]
+    public Student Student { get; set; }
 
     [Required]
     public Guid TeacherId { get; set; }
