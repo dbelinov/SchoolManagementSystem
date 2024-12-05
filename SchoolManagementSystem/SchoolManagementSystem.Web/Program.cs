@@ -31,6 +31,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(
         })
     .AddRoles<IdentityRole<Guid>>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultUI()
     .AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
@@ -60,6 +61,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
