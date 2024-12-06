@@ -24,21 +24,35 @@
                     <td class="align-middle subject-cell">@student.StudentName</td>
                     <td>
                         <div class="d-flex flex-wrap gap-2">
-                            @foreach (var grade in student.Grades.Select(g => g.GradeValue))
+                            @foreach (var grade in student.Grades)
                             {
-                                <span class="badge grade-badge grade-@grade">@grade</span>
+                                <form asp-action="DeleteGrade" method="post" class="d-inline">
+                                    <input type="hidden" name="gradeId" value="@grade.Id" />
+                                    <input type="hidden" name="studentId" value="@student.StudentId" />
+                                    <button
+                                        type="submit"
+                                        class="badge grade-badge grade-@grade.GradeValue"
+                                        title="Click to delete grade">
+                                        @grade.GradeValue
+                                    </button>
+                                </form>
                             }
                         </div>
                     </td>
                     <td class="text-center">
-                        <div class="btn-group" role="group" aria-label="Grade Buttons">
+                        <div class="d-flex flex-wrap gap-2">
                             @for (int grade = 2; grade <= 6; grade++)
                             {
-                                <button
-                                    class="btn btn-sm btn-outline-primary"
-                                    onclick="addGrade('@student.StudentName', @grade)">
-                                    @grade
-                                </button>
+                                <form asp-action="AddGrade" method="post" class="d-inline">
+                                    <input type="hidden" name="gradeValue" value="@grade" />
+                                    <input type="hidden" name="studentId" value="@student.StudentId" />
+                                    <button
+                                        type="submit"
+                                        class="badge grade-badge grade-btn grade-@grade"
+                                        title="Click to add grade @grade">
+                                        @grade
+                                    </button>
+                                </form>
                             }
                         </div>
                     </td>
@@ -56,57 +70,64 @@ else
 }
 
 <style>
-    /* Custom Styles for Subject Header */
-    .subject-header {
-        font-size: 1.2rem;
-        text-align: center;
-        background-color: #343a40; /* Dark header background */
-        color: #fff; /* White text */
-    }
-
-    /* Custom Styles for Subject Cell */
-    .subject-cell {
-        font-size: 1.1rem;
-        font-weight: bold;
-        background-color: #f8f9fa; /* Light gray for emphasis */
-        color: #212529; /* Dark text for readability */
-        padding: 12px;
-    }
-
-    /* Custom Grade Badge Colors */
+    /* General Grade Button Styles */
     .grade-badge {
-        width: 40px;
-        height: 40px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        width: 40px;
+        height: 40px;
         font-size: 1rem;
         font-weight: bold;
         border-radius: 0.5rem;
+        cursor: pointer;
+        border: none;
     }
 
+    /* Add Grade Button Colors */
     .grade-6 {
-        background-color: #28a745; /* Bootstrap's green */
+        background-color: #28a745; /* Green */
         color: white;
     }
 
     .grade-5 {
-        background-color: #007bff; /* Bootstrap's blue */
+        background-color: #007bff; /* Blue */
         color: white;
     }
 
     .grade-4 {
-        background-color: #ffc107; /* Bootstrap's yellow */
+        background-color: #ffc107; /* Yellow */
         color: black;
     }
 
     .grade-3 {
-        background-color: #fd7e14; /* Bootstrap's orange */
+        background-color: #fd7e14; /* Orange */
         color: white;
     }
 
     .grade-2 {
-        background-color: #dc3545; /* Bootstrap's red */
+        background-color: #dc3545; /* Red */
         color: white;
+    }
+
+    /* Hover Effects for Add Grade Buttons */
+    .grade-6:hover {
+        background-color: #218838; /* Darker green */
+    }
+
+    .grade-5:hover {
+        background-color: #0056b3; /* Darker blue */
+    }
+
+    .grade-4:hover {
+        background-color: #e0a800; /* Darker yellow */
+    }
+
+    .grade-3:hover {
+        background-color: #e85900; /* Darker orange */
+    }
+
+    .grade-2:hover {
+        background-color: #c82333; /* Darker red */
     }
 </style>
