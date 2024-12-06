@@ -85,37 +85,19 @@ namespace SchoolManagementSystem.Web.Controllers
         {
             var student = await _context.Students
                 .FirstOrDefaultAsync(s => s.FirstName == "Ivan");
-            
-            var teacher = await _context.Teachers
+
+            var maria = await _context.Teachers
                 .FirstOrDefaultAsync(t => t.FirstName == "Maria");
 
             var grade1 = new Grade
             {
                 StudentId = student.Id,
-                TeacherId = teacher.Id,
+                TeacherId = maria.Id,
                 GradeValue = 6,
                 Subject = Subject.Bulgarian,
             };
-
-            var grade2 = new Grade
-            {
-                StudentId = student.Id,
-                TeacherId = teacher.Id,
-                GradeValue = 5,
-                Subject = Subject.Biology
-            };
-
-            var grade3 = new Grade
-            {
-                StudentId = student.Id,
-                TeacherId = teacher.Id,
-                GradeValue = 6,
-                Subject = Subject.Maths
-            };
         
             student.Grades.Add(grade1);
-            student.Grades.Add(grade2);
-            student.Grades.Add(grade3);
         
             await _context.SaveChangesAsync();
         }
@@ -125,13 +107,16 @@ namespace SchoolManagementSystem.Web.Controllers
             var student = await _context.Students
                 .FirstOrDefaultAsync(s => s.FirstName == "Gencho");
             
-            var teacher = await _context.Teachers
+            var stefka = await _context.Teachers
+                .FirstOrDefaultAsync(t => t.FirstName == "Stefka");
+
+            var maria = await _context.Teachers
                 .FirstOrDefaultAsync(t => t.FirstName == "Maria");
 
             var grade1 = new Grade
             {
                 StudentId = student.Id,
-                TeacherId = teacher.Id,
+                TeacherId = maria.Id,
                 GradeValue = 6,
                 Subject = Subject.Bulgarian,
             };
@@ -139,22 +124,13 @@ namespace SchoolManagementSystem.Web.Controllers
             var grade2 = new Grade
             {
                 StudentId = student.Id,
-                TeacherId = teacher.Id,
+                TeacherId = maria.Id,
                 GradeValue = 5,
                 Subject = Subject.Bulgarian
-            };
-
-            var grade3 = new Grade
-            {
-                StudentId = student.Id,
-                TeacherId = teacher.Id,
-                GradeValue = 6,
-                Subject = Subject.Maths
             };
         
             student.Grades.Add(grade1);
             student.Grades.Add(grade2);
-            student.Grades.Add(grade3);
         
             await _context.SaveChangesAsync();
         }
@@ -164,13 +140,16 @@ namespace SchoolManagementSystem.Web.Controllers
             var student = await _context.Students
                 .FirstOrDefaultAsync(s => s.FirstName == "Martin");
             
-            var teacher = await _context.Teachers
+            var stefka = await _context.Teachers
                 .FirstOrDefaultAsync(t => t.FirstName == "Stefka");
+
+            var maria = await _context.Teachers
+                .FirstOrDefaultAsync(t => t.FirstName == "Maria");
 
             var grade1 = new Grade
             {
                 StudentId = student.Id,
-                TeacherId = teacher.Id,
+                TeacherId = maria.Id,
                 GradeValue = 6,
                 Subject = Subject.Bulgarian,
             };
@@ -178,7 +157,7 @@ namespace SchoolManagementSystem.Web.Controllers
             var grade2 = new Grade
             {
                 StudentId = student.Id,
-                TeacherId = teacher.Id,
+                TeacherId = maria.Id,
                 GradeValue = 5,
                 Subject = Subject.Bulgarian
             };
@@ -186,7 +165,7 @@ namespace SchoolManagementSystem.Web.Controllers
             var grade3 = new Grade
             {
                 StudentId = student.Id,
-                TeacherId = teacher.Id,
+                TeacherId = stefka.Id,
                 GradeValue = 6,
                 Subject = Subject.German
             };
