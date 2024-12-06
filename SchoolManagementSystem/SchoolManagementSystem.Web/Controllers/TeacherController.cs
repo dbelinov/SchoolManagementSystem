@@ -135,6 +135,7 @@ public class TeacherController : Controller
         }
         
         var teacher = await _context.Teachers
+            .Include(teacher => teacher.TeachersClasses)
             .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
         
         var student = await _context.Students
@@ -145,20 +146,23 @@ public class TeacherController : Controller
             return BadRequest();
         }
 
-        Grade grade = new Grade()
+        if (teacher.TeachersClasses.Any(tc => tc.ClassId == student.ClassId))
         {
-            StudentId = student.Id,
-            TeacherId = teacher.Id,
-            Subject = teacher.Subject,
-            GradeValue = gradeValue,
-        };
+            Grade grade = new Grade()
+            {
+                StudentId = student.Id,
+                TeacherId = teacher.Id,
+                Subject = teacher.Subject,
+                GradeValue = gradeValue,
+            };
+
+        
+            student.Grades.Add(grade);
+            _context.Update(student);
+            await _context.SaveChangesAsync();
+        }
 
         var classId = student.ClassId;
-        
-        student.Grades.Add(grade);
-        _context.Update(student);
-        await _context.SaveChangesAsync();
-
         return RedirectToAction("ClassGrades", "Teacher", new { classId });
     }
 
