@@ -64,11 +64,21 @@ public class TeacherController : Controller
     public async Task<IActionResult> GradesDashboard()
     {
         var user = await _userManager.GetUserAsync(HttpContext.User);
+
+        if (user is null)
+        {
+            return BadRequest();
+        }
         
         var teacher = await _context.Teachers
             .Include(teacher => teacher.TeachersClasses)
             .ThenInclude(teacherClass => teacherClass.Class)
             .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
+
+        if (teacher is null)
+        {
+            return BadRequest();
+        }
 
         var models = new TeacherClassesViewModel
             {
@@ -97,7 +107,8 @@ public class TeacherController : Controller
         
         var teacher = await _context.Teachers
             .Include(teacher => teacher.Grades)
-            .ThenInclude(grade => grade.Student).ThenInclude(student => student.Grades)
+            .ThenInclude(grade => grade.Student)
+            .ThenInclude(student => student.Grades)
             .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
 
         if (teacher is null)
