@@ -69,33 +69,35 @@ public class TeacherService : ITeacherService
                 .ToList()
         };
     }
-
+    
     public async Task<List<TeacherGradesViewModel>?> GetClassGradesAsync(int classId, string userId)
     {
         var user = await _userManager.FindByIdAsync(userId);
         if (user == null) return null;
 
         var teacher = await _context.Teachers
-            .Include(t => t.Grades)
-            .ThenInclude(g => g.Student)
-            .ThenInclude(s => s.Grades)
-            .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
+            .Where(t => t.IdNumber == user.IdNumber)
+            .Select(t => new
+            {
+                t.Subject
+            })
+            .FirstOrDefaultAsync();
 
         if (teacher == null) return null;
 
         var studentsInClass = await _context.Students
-            .Include(s => s.Grades)
             .Where(s => s.ClassId == classId)
+            .Select(s => new TeacherGradesViewModel
+            {
+                StudentId = s.Id,
+                StudentName = $"{s.FirstName} {s.MiddleName} {s.LastName}",
+                Grades = s.Grades
+                    .Where(g => g.Subject == teacher.Subject)
+                    .ToList()
+            })
             .ToListAsync();
 
-        return studentsInClass.Select(student => new TeacherGradesViewModel
-        {
-            StudentId = student.Id,
-            StudentName = $"{student.FirstName} {student.MiddleName} {student.LastName}",
-            Grades = student.Grades
-                .Where(g => g.Subject == teacher.Subject)
-                .ToList()
-        }).ToList();
+        return studentsInClass;
     }
 
     public async Task<int?> AddGradeAsync(int gradeValue, Guid studentId, string userId)
