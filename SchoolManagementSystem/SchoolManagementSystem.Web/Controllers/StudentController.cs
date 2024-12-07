@@ -1,11 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SchoolManagementSystem.Common.Enums;
-using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Services.Contracts;
-using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMessages;
 
 namespace SchoolManagementSystem.Web.Controllers
 {
@@ -13,12 +9,12 @@ namespace SchoolManagementSystem.Web.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
-        public StudentController(IStudentService studentService, ApplicationDbContext context)
+        public StudentController(IStudentService studentService/*, ApplicationDbContext context*/)
         {
             _studentService = studentService;
-            _context = context;
+            //_context = context;
         }
 
         [HttpGet]
@@ -28,8 +24,7 @@ namespace SchoolManagementSystem.Web.Controllers
 
             if (user is null)
             {
-                ModelState.AddModelError("user", NotLoggedIn);
-                return RedirectToAction("Index", "Home");
+                return BadRequest();
             }
             
             if (user.IsAuthenticated is false)
@@ -40,8 +35,7 @@ namespace SchoolManagementSystem.Web.Controllers
             var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
             if (student is null)
             {
-                ModelState.AddModelError("user", InvalidUser);
-                return RedirectToAction("Index", "Home");
+                return BadRequest();
             }
 
             var model = _studentService.GetDashboardViewModel(student);
@@ -55,126 +49,123 @@ namespace SchoolManagementSystem.Web.Controllers
 
             if (user is null)
             {
-                ModelState.AddModelError("user", NotLoggedIn);
-                return RedirectToAction("Index", "Home");
+                return BadRequest();
             }
             
             if (user.IsAuthenticated is false)
             {
-                ModelState.AddModelError("user", NotAuthenticated);
-                return RedirectToAction("Index", "Home");
+                return BadRequest();
             }
 
             var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
             if (student is null)
             {
-                ModelState.AddModelError("user", InvalidUser);
-                return RedirectToAction("Index", "Home");
+                return BadRequest();
             }
 
-            await AddGradesToIvan();
-            await AddGradesToGencho();
-            await AddGradesToMartin();
+            // await AddGradesToIvan();
+            // await AddGradesToGencho();
+            // await AddGradesToMartin();
             
             var models = _studentService.GetGradesViewModel(student);
             return View(models);
         }
         
-        //Test Purposes
-        private async Task AddGradesToIvan()
-        {
-            var student = await _context.Students
-                .FirstOrDefaultAsync(s => s.FirstName == "Ivan");
-
-            var maria = await _context.Teachers
-                .FirstOrDefaultAsync(t => t.FirstName == "Maria");
-
-            var grade1 = new Grade
-            {
-                StudentId = student.Id,
-                TeacherId = maria.Id,
-                GradeValue = 6,
-                Subject = Subject.Bulgarian,
-            };
-        
-            student.Grades.Add(grade1);
-        
-            await _context.SaveChangesAsync();
-        }
-        
-        private async Task AddGradesToGencho()
-        {
-            var student = await _context.Students
-                .FirstOrDefaultAsync(s => s.FirstName == "Gencho");
-            
-            var stefka = await _context.Teachers
-                .FirstOrDefaultAsync(t => t.FirstName == "Stefka");
-
-            var maria = await _context.Teachers
-                .FirstOrDefaultAsync(t => t.FirstName == "Maria");
-
-            var grade1 = new Grade
-            {
-                StudentId = student.Id,
-                TeacherId = maria.Id,
-                GradeValue = 6,
-                Subject = Subject.Bulgarian,
-            };
-
-            var grade2 = new Grade
-            {
-                StudentId = student.Id,
-                TeacherId = maria.Id,
-                GradeValue = 5,
-                Subject = Subject.Bulgarian
-            };
-        
-            student.Grades.Add(grade1);
-            student.Grades.Add(grade2);
-        
-            await _context.SaveChangesAsync();
-        }
-        
-        private async Task AddGradesToMartin()
-        {
-            var student = await _context.Students
-                .FirstOrDefaultAsync(s => s.FirstName == "Martin");
-            
-            var stefka = await _context.Teachers
-                .FirstOrDefaultAsync(t => t.FirstName == "Stefka");
-
-            var maria = await _context.Teachers
-                .FirstOrDefaultAsync(t => t.FirstName == "Maria");
-
-            var grade1 = new Grade
-            {
-                StudentId = student.Id,
-                TeacherId = maria.Id,
-                GradeValue = 6,
-                Subject = Subject.Bulgarian,
-            };
-
-            var grade2 = new Grade
-            {
-                StudentId = student.Id,
-                TeacherId = maria.Id,
-                GradeValue = 5,
-                Subject = Subject.Bulgarian
-            };
-
-            var grade3 = new Grade
-            {
-                StudentId = student.Id,
-                TeacherId = stefka.Id,
-                GradeValue = 6,
-                Subject = Subject.German
-            };
-        
-            student.Grades.Add(grade1);
-            student.Grades.Add(grade2);
-            student.Grades.Add(grade3);
-        
-            await _context.SaveChangesAsync();
-        }
+        // //Test Purposes
+        // private async Task AddGradesToIvan()
+        // {
+        //     var student = await _context.Students
+        //         .FirstOrDefaultAsync(s => s.FirstName == "Ivan");
+        //
+        //     var maria = await _context.Teachers
+        //         .FirstOrDefaultAsync(t => t.FirstName == "Maria");
+        //
+        //     var grade1 = new Grade
+        //     {
+        //         StudentId = student.Id,
+        //         TeacherId = maria.Id,
+        //         GradeValue = 6,
+        //         Subject = Subject.Bulgarian,
+        //     };
+        //
+        //     student.Grades.Add(grade1);
+        //
+        //     await _context.SaveChangesAsync();
+        // }
+        //
+        // private async Task AddGradesToGencho()
+        // {
+        //     var student = await _context.Students
+        //         .FirstOrDefaultAsync(s => s.FirstName == "Gencho");
+        //     
+        //     var stefka = await _context.Teachers
+        //         .FirstOrDefaultAsync(t => t.FirstName == "Stefka");
+        //
+        //     var maria = await _context.Teachers
+        //         .FirstOrDefaultAsync(t => t.FirstName == "Maria");
+        //
+        //     var grade1 = new Grade
+        //     {
+        //         StudentId = student.Id,
+        //         TeacherId = maria.Id,
+        //         GradeValue = 6,
+        //         Subject = Subject.Bulgarian,
+        //     };
+        //
+        //     var grade2 = new Grade
+        //     {
+        //         StudentId = student.Id,
+        //         TeacherId = maria.Id,
+        //         GradeValue = 5,
+        //         Subject = Subject.Bulgarian
+        //     };
+        //
+        //     student.Grades.Add(grade1);
+        //     student.Grades.Add(grade2);
+        //
+        //     await _context.SaveChangesAsync();
+        // }
+        //
+        // private async Task AddGradesToMartin()
+        // {
+        //     var student = await _context.Students
+        //         .FirstOrDefaultAsync(s => s.FirstName == "Martin");
+        //     
+        //     var stefka = await _context.Teachers
+        //         .FirstOrDefaultAsync(t => t.FirstName == "Stefka");
+        //
+        //     var maria = await _context.Teachers
+        //         .FirstOrDefaultAsync(t => t.FirstName == "Maria");
+        //
+        //     var grade1 = new Grade
+        //     {
+        //         StudentId = student.Id,
+        //         TeacherId = maria.Id,
+        //         GradeValue = 6,
+        //         Subject = Subject.Bulgarian,
+        //     };
+        //
+        //     var grade2 = new Grade
+        //     {
+        //         StudentId = student.Id,
+        //         TeacherId = maria.Id,
+        //         GradeValue = 5,
+        //         Subject = Subject.Bulgarian
+        //     };
+        //
+        //     var grade3 = new Grade
+        //     {
+        //         StudentId = student.Id,
+        //         TeacherId = stefka.Id,
+        //         GradeValue = 6,
+        //         Subject = Subject.German
+        //     };
+        //
+        //     student.Grades.Add(grade1);
+        //     student.Grades.Add(grade2);
+        //     student.Grades.Add(grade3);
+        //
+        //     await _context.SaveChangesAsync();
+        // }
     }
 }

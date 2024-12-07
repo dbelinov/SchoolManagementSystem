@@ -16,6 +16,7 @@ public class SchoolController : Controller
     public IActionResult Schools()
         => View(_schoolService.GetAllSchoolsAsync());
 
+    [HttpGet]
     public async Task<IActionResult> Details(int id)
     {
         var model = await _schoolService.GetSchoolDetailsAsync(id);

@@ -8,6 +8,7 @@ using SchoolManagementSystem.Services.Contracts;
 namespace SchoolManagementSystem.Web.Controllers;
 
 [Authorize(Roles = nameof(Teacher))]
+[ValidateAntiForgeryToken]
 public class TeacherController : Controller
 {
     private readonly ITeacherService _teacherService;
@@ -87,6 +88,7 @@ public class TeacherController : Controller
         return RedirectToAction("ClassGrades", "Teacher", new { classId = success });
     }
 
+    [HttpPost]
     public async Task<IActionResult> DeleteGrade(int gradeId, Guid studentId)
     {
         var userId = _userManager.GetUserId(User);

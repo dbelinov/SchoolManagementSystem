@@ -6,6 +6,7 @@
 <h2>Enter Verification Code</h2>
 
 <form asp-action="VerificationCodeEntry" asp-controller="Verification" method="post">
+    @Html.AntiForgeryToken()
     <div class="input-group mb-3">
         <input asp-for="VerificationKey" type="text" class="form-control" placeholder="Enter verification code" aria-label="Authentication code" aria-describedby="button-addon2">
         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>

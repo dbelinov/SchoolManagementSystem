@@ -27,8 +27,9 @@
                             @foreach (var grade in student.Grades)
                             {
                                 <form asp-action="DeleteGrade" method="post" class="d-inline">
-                                    <input type="hidden" name="gradeId" value="@grade.Id" />
-                                    <input type="hidden" name="studentId" value="@student.StudentId" />
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="gradeId" value="@grade.Id"/>
+                                    <input type="hidden" name="studentId" value="@student.StudentId"/>
                                     <button
                                         type="submit"
                                         class="badge grade-badge grade-@grade.GradeValue"
@@ -44,8 +45,9 @@
                             @for (int grade = 2; grade <= 6; grade++)
                             {
                                 <form asp-action="AddGrade" method="post" class="d-inline">
-                                    <input type="hidden" name="gradeValue" value="@grade" />
-                                    <input type="hidden" name="studentId" value="@student.StudentId" />
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="gradeValue" value="@grade"/>
+                                    <input type="hidden" name="studentId" value="@student.StudentId"/>
                                     <button
                                         type="submit"
                                         class="badge grade-badge grade-btn grade-@grade"

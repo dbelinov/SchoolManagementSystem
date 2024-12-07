@@ -1,17 +1,13 @@
-using System.Globalization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Differencing;
-using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Services.Contracts;
 using SchoolManagementSystem.Web.ViewModels;
-
-using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMessages;
 
 namespace SchoolManagementSystem.Web.Controllers;
 
+[ValidateAntiForgeryToken]
 public class UserController : Controller
 {
     private readonly SignInManager<ApplicationUser> _signInManager;

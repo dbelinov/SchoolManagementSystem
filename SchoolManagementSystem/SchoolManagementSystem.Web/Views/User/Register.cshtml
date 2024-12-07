@@ -10,6 +10,8 @@
 <div class="row">
     <div class="col-md-4 offset-md-1"></div>
     <form id="registerForm" method="post">
+        @Html.AntiForgeryToken()
+        
         <hr/>
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
@@ -36,7 +38,7 @@
                     <span asp-validation-for="IdNumber" class="text-danger"></span>
                 </div>
             </div>
-                
+
             <div class="col-md-4 offset-md-2">
                 <div class="form-floating mb-3">
                     <input asp-for="FirstName" class="form-control" autocomplete="first-name" aria-required="true" placeholder="Ivan"/>
@@ -60,7 +62,7 @@
                 </div>
             </div>
         </div>
-            
+
         <div class="d-flex justify-content-center mt-4">
             <button id="register-submit" type="submit" class="btn btn-lg btn-primary w-25">Register</button>
         </div>
