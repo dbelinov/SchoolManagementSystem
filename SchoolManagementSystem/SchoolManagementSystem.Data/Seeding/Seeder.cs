@@ -61,6 +61,7 @@ public class Seeder : ISeeder
         var jivkoVerificationCode = Guid.NewGuid();
         var penchoVerificationCode = Guid.NewGuid();
         
+        //Schools
         modelBuilder.Entity<School>().HasData(
             new School
             {
@@ -81,6 +82,7 @@ public class Seeder : ISeeder
                 Specialities = new List<Speciality>{Speciality.German, Speciality.French, Speciality.English}
             });
 
+        //Classes
         modelBuilder.Entity<Class>().HasData(
             new Class
             {
@@ -118,6 +120,7 @@ public class Seeder : ISeeder
                 Speciality = Speciality.French
             });
 
+        //Students
         modelBuilder.Entity<Student>().HasData(
             new Student
             {
@@ -192,6 +195,7 @@ public class Seeder : ISeeder
                 ClassId = 5
             });
 
+        //Teachers
         modelBuilder.Entity<Teacher>().HasData(
             new Teacher
             {
@@ -248,6 +252,7 @@ public class Seeder : ISeeder
                 Subject = Subject.History
             });
 
+        //Link between teachers and classes they teach
         modelBuilder.Entity<TeacherClass>().HasData(
             new TeacherClass
             {
@@ -300,10 +305,24 @@ public class Seeder : ISeeder
                 TeacherId = teacherBonchoId
             });
 
+        //Users
+        var ivanId = Guid.NewGuid();
+        var genchoId = Guid.NewGuid();
+        var martinId = Guid.NewGuid();
+        var ginkaId = Guid.NewGuid();
+        var jivkoId = Guid.NewGuid();
+        var penchoId = Guid.NewGuid();
+        var mariaId = Guid.NewGuid();
+        var stefkaId = Guid.NewGuid();
+        var stamenId = Guid.NewGuid();
+        var stoyankaId = Guid.NewGuid();
+        var petarId = Guid.NewGuid();
+        var bonchoId = Guid.NewGuid();
+        
         modelBuilder.Entity<ApplicationUser>().HasData(
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = ivanId,
                 AppId = studentIvanId,
                 VerificationKey = ivanVerificationCode,
                 FirstName = "Ivan",
@@ -323,7 +342,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = genchoId,
                 AppId = studentGenchoId,
                 VerificationKey = genchoVerificationCode,
                 FirstName = "Gencho",
@@ -343,7 +362,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = martinId,
                 AppId = studentMartinId,
                 VerificationKey = martinVerificationCode,
                 FirstName = "Martin",
@@ -363,7 +382,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = ginkaId,
                 AppId = studentGinkaId,
                 VerificationKey = ginkaVerificationCode,
                 FirstName = "Ginka",
@@ -383,7 +402,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = jivkoId,
                 AppId = studentJivkoId,
                 VerificationKey = jivkoVerificationCode,
                 FirstName = "Jivko",
@@ -403,7 +422,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = penchoId,
                 AppId = studentPenchoId,
                 VerificationKey = penchoVerificationCode,
                 FirstName = "Pencho",
@@ -423,7 +442,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = mariaId,
                 AppId = teacherMariaId,
                 VerificationKey = mariaVerificationCode,
                 FirstName = "Maria",
@@ -443,7 +462,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = stefkaId,
                 AppId = teacherStefkaId,
                 VerificationKey = stefkaVerificationCode,
                 FirstName = "Stefka",
@@ -463,7 +482,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = stamenId,
                 AppId = teacherStamenId,
                 VerificationKey = stamenVerificationCode,
                 FirstName = "Stamen",
@@ -483,7 +502,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = stoyankaId,
                 AppId = teacherStoyankaId,
                 VerificationKey = stoyankaVerificationCode,
                 FirstName = "Stoyanka",
@@ -503,7 +522,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = petarId,
                 AppId = teacherPetarId,
                 VerificationKey = petarVerificationCode,
                 FirstName = "Petar",
@@ -523,7 +542,7 @@ public class Seeder : ISeeder
             },
             new ApplicationUser
             {
-                Id = Guid.NewGuid(),
+                Id = bonchoId,
                 AppId = teacherBonchoId,
                 VerificationKey = bonchoVerificationCode,
                 FirstName = "Boncho",
@@ -539,7 +558,90 @@ public class Seeder : ISeeder
                 SecurityStamp = Guid.NewGuid().ToString("D"),
                 ConcurrencyStamp = Guid.NewGuid().ToString("D"),
                 IsAuthenticated = true,
-                IsGuest = false
+                IsGuest = false,
+            });
+        
+        //Roles
+        var studentRoleId = Guid.NewGuid();
+        var teacherRoleId = Guid.NewGuid();
+        
+        modelBuilder.Entity<IdentityRole<Guid>>().HasData(
+            new IdentityRole<Guid>
+            {
+                Id = studentRoleId,
+                Name = "Student",
+                NormalizedName = "STUDENT"
+            });
+        
+        modelBuilder.Entity<IdentityRole<Guid>>().HasData(
+            new IdentityRole<Guid>
+            {
+                Id = teacherRoleId,
+                Name = "Teacher",
+                NormalizedName = "TEACHER"
+            });
+        
+        //Assign Roles
+        modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(
+            new IdentityUserRole<Guid>
+            {
+                UserId = ivanId,
+                RoleId = studentRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = genchoId,
+                RoleId = studentRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = martinId,
+                RoleId = studentRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = ginkaId,
+                RoleId = studentRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = jivkoId,
+                RoleId = studentRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = penchoId,
+                RoleId = studentRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = mariaId,
+                RoleId = teacherRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = stefkaId,
+                RoleId = teacherRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = stamenId,
+                RoleId = teacherRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = stoyankaId,
+                RoleId = teacherRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = petarId,
+                RoleId = teacherRoleId
+            },
+            new IdentityUserRole<Guid>
+            {
+                UserId = bonchoId,
+                RoleId = teacherRoleId
             });
         
         SeedAdmin(modelBuilder).Wait();
