@@ -103,6 +103,7 @@ body {
 
   /* General card text color */
   .card {
+    background-color: #333333 !important; /* Dark background */
     color: #ffffff !important; /* Ensure text is white */
   }
 
