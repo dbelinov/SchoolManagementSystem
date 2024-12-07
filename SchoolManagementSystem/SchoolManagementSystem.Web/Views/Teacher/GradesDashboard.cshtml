@@ -1,5 +1,9 @@
 @model TeacherClassesViewModel
 
+@{
+    ViewData["Title"] = "Grades";
+}
+
 <h1>Classes for @Model.TeacherName</h1>
 
 @if (Model.Classes.Any())
