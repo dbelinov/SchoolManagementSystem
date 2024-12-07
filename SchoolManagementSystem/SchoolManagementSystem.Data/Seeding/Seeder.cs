@@ -80,6 +80,15 @@ public class Seeder : ISeeder
                 Description = "Stara Zagora's School for Languages like German, French and English",
                 LogoUrl = "https://scontent.fsof1-2.fna.fbcdn.net/v/t1.6435-9/119450239_3343706645698457_6833144760730823616_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ydzqvT5knjIQ7kNvgHdpGNw&_nc_zt=23&_nc_ht=scontent.fsof1-2.fna&_nc_gid=AFu1voqShMlHBNalgqkJBc1&oh=00_AYCyzp4BZ7gcXj6ZSnpr1Oop6AQoeJAI-BKPdIUJsGXD5Q&oe=677BAAFA",
                 Specialities = new List<Speciality>{Speciality.German, Speciality.French, Speciality.English}
+            },
+            new School
+            {
+                Id = 3,
+                Name = "Technical University of Sofia",
+                Address = "Sveti Kliment Ohridski 8, Sofia, Bulgaria",
+                Description = "The Technical University of Sofia is Bulgaria's largest and foremost academic establishment for higher engineering education.",
+                LogoUrl = "https://scontent.fsof1-1.fna.fbcdn.net/v/t39.30808-6/453179855_1108969364009343_5412650960044976974_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=qPhfwrpLKZUQ7kNvgGHjtnI&_nc_zt=23&_nc_ht=scontent.fsof1-1.fna&_nc_gid=A1xPbdI_kb_P2-V2ZeYF9Ij&oh=00_AYCD4-wxXkM0nUjRh1A3Z58xa9vtxRdQAf4fh6OnOsLa_g&oe=675A5DED",
+                Specialities = new List<Speciality> { Speciality.Mathematics, Speciality.ComputerScience}
             });
 
         //Classes
