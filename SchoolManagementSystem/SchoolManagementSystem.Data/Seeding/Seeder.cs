@@ -44,6 +44,23 @@ public class Seeder : ISeeder
         var studentDianaId = Guid.NewGuid();
         var studentRuzhaId = Guid.NewGuid();
         
+        //User VerificationCodes
+        var mariaVerificationCode = Guid.NewGuid();
+        var stefkaVerificationCode = Guid.NewGuid();
+        var stamenVerificationCode = Guid.NewGuid();
+        
+        var ivanVerificationCode = Guid.NewGuid();
+        var genchoVerificationCode = Guid.NewGuid();
+        var martinVerificationCode = Guid.NewGuid();
+        var ginkaVerificationCode = Guid.NewGuid();
+        
+        var stoyankaVerificationCode = Guid.NewGuid();
+        var petarVerificationCode = Guid.NewGuid();
+        var bonchoVerificationCode = Guid.NewGuid();
+        
+        var jivkoVerificationCode = Guid.NewGuid();
+        var penchoVerificationCode = Guid.NewGuid();
+        
         modelBuilder.Entity<School>().HasData(
             new School
             {
@@ -287,6 +304,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = studentIvanId,
+                VerificationKey = ivanVerificationCode,
                 FirstName = "Ivan",
                 MiddleName = "Ivanov",
                 LastName = "Ivanov",
@@ -305,6 +324,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = studentGenchoId,
+                VerificationKey = genchoVerificationCode,
                 FirstName = "Gencho",
                 MiddleName = "Petkov",
                 LastName = "Ginev",
@@ -323,6 +344,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = studentMartinId,
+                VerificationKey = martinVerificationCode,
                 FirstName = "Martin",
                 MiddleName = "Ivanov",
                 LastName = "Georgiev",
@@ -341,6 +364,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = studentGinkaId,
+                VerificationKey = ginkaVerificationCode,
                 FirstName = "Ginka",
                 MiddleName = "Petrova",
                 LastName = "Stoyanova",
@@ -359,6 +384,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = studentJivkoId,
+                VerificationKey = jivkoVerificationCode,
                 FirstName = "Jivko",
                 MiddleName = "Vasilev",
                 LastName = "Donev",
@@ -377,6 +404,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = studentPenchoId,
+                VerificationKey = penchoVerificationCode,
                 FirstName = "Pencho",
                 MiddleName = "Angelov",
                 LastName = "Mihov",
@@ -395,6 +424,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = teacherMariaId,
+                VerificationKey = mariaVerificationCode,
                 FirstName = "Maria",
                 MiddleName = "Ivanova",
                 LastName = "Petrova",
@@ -413,6 +444,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = teacherStefkaId,
+                VerificationKey = stefkaVerificationCode,
                 FirstName = "Stefka",
                 MiddleName = "Petkova",
                 LastName = "Gineva",
@@ -431,6 +464,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = teacherStamenId,
+                VerificationKey = stamenVerificationCode,
                 FirstName = "Stamen",
                 MiddleName = "Georgiev",
                 LastName = "Peev",
@@ -449,6 +484,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = teacherStoyankaId,
+                VerificationKey = stoyankaVerificationCode,
                 FirstName = "Stoyanka",
                 MiddleName = "Doneva",
                 LastName = "Peneva",
@@ -467,6 +504,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = teacherPetarId,
+                VerificationKey = petarVerificationCode,
                 FirstName = "Petar",
                 MiddleName = "Mladenov",
                 LastName = "Chonev",
@@ -485,6 +524,8 @@ public class Seeder : ISeeder
             new ApplicationUser
             {
                 Id = Guid.NewGuid(),
+                AppId = teacherBonchoId,
+                VerificationKey = bonchoVerificationCode,
                 FirstName = "Boncho",
                 MiddleName = "Dimitrov",
                 LastName = "Dimitrov",
