@@ -8,20 +8,60 @@ namespace SchoolManagementSystem.Data.Seeding;
 
 public class Seeder : ISeeder
 {
+    //Already matches profiles with existing people:
+    //Students -> Ivan, Gencho, Martin, Ginka, Jivko, Pencho
+    
+    //Users available for registration testing:
+    //Students -> Diana, Ruzha
+    
+    //All teachers are matched with profiles
+    //Maria, Stefka, Stamen, Stoyanka, Petar, Boncho
+    
+    //Email template used: firstname@gmail.com
+    //Password used: Parola123
+    
     public Task SeedData(ModelBuilder modelBuilder)
     {
-        var teacher1Id = Guid.NewGuid();
-        var teacher2Id = Guid.NewGuid();
+        //Teachers School 1
+        var teacherMariaId = Guid.NewGuid();
+        var teacherStefkaId = Guid.NewGuid();
+        var teacherStamenId = Guid.NewGuid();
+        
+        //Students School 1
+        var studentIvanId = Guid.NewGuid();
+        var studentGenchoId = Guid.NewGuid();
+        var studentMartinId = Guid.NewGuid();
+        var studentGinkaId = Guid.NewGuid();
+        
+        //Teachers School 2
+        var teacherStoyankaId = Guid.NewGuid();
+        var teacherPetarId = Guid.NewGuid();
+        var teacherBonchoId = Guid.NewGuid();
+        
+        //Students School 2
+        var studentJivkoId = Guid.NewGuid();
+        var studentPenchoId = Guid.NewGuid();
+        var studentDianaId = Guid.NewGuid();
+        var studentRuzhaId = Guid.NewGuid();
         
         modelBuilder.Entity<School>().HasData(
             new School
             {
                 Id = 1,
                 Name = "PPMG \"Geo Milev\"",
-                Address = "44 Avgusta Trayana\nStara Zagora, Bulgaria",
+                Address = "Avgusta Trayana 44, Stara Zagora, Bulgaria",
                 Description = "The School of Informatics and Mathematics in Stara Zagora",
                 LogoUrl = "https://scontent.fsof1-2.fna.fbcdn.net/v/t39.30808-6/327026697_887516432673344_8690934784557383737_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Rr0iH229ZRwQ7kNvgFeKEcF&_nc_zt=23&_nc_ht=scontent.fsof1-2.fna&_nc_gid=AizPmB3yiG6QTT84Mh5cpaJ&oh=00_AYDekshXGVy2Xa02RxZHINhma0rvygf0uH2D2_cO5om7Dg&oe=675539CD",
                 Specialities = new List<Speciality>{Speciality.ComputerScience, Speciality.Mathematics, Speciality.Medicine}
+            },
+            new School
+            {
+                Id = 2,
+                Name = "SSFL \"Romain Rolland\"",
+                Address = "Tsar Ivan Shishman 62, Stara Zagora, Bulgaria",
+                Description = "Stara Zagora's School for Languages like German, French and English",
+                LogoUrl = "https://scontent.fsof1-2.fna.fbcdn.net/v/t1.6435-9/119450239_3343706645698457_6833144760730823616_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ydzqvT5knjIQ7kNvgHdpGNw&_nc_zt=23&_nc_ht=scontent.fsof1-2.fna&_nc_gid=AFu1voqShMlHBNalgqkJBc1&oh=00_AYCyzp4BZ7gcXj6ZSnpr1Oop6AQoeJAI-BKPdIUJsGXD5Q&oe=677BAAFA",
+                Specialities = new List<Speciality>{Speciality.German, Speciality.French, Speciality.English}
             });
 
         modelBuilder.Entity<Class>().HasData(
@@ -38,11 +78,33 @@ public class Seeder : ISeeder
                 Name = "10b",
                 SchoolId = 1,
                 Speciality = Speciality.ComputerScience,
+            },
+            new Class
+            {
+                Id = 3,
+                Name = "8g",
+                SchoolId = 1,
+                Speciality = Speciality.Mathematics
+            },
+            new Class
+            {
+                Id = 4,
+                Name = "10a",
+                SchoolId = 2,
+                Speciality = Speciality.German
+            },
+            new Class
+            {
+                Id = 5,
+                Name = "11v",
+                SchoolId = 2,
+                Speciality = Speciality.French
             });
 
         modelBuilder.Entity<Student>().HasData(
             new Student
             {
+                Id = studentIvanId,
                 FirstName = "Ivan",
                 MiddleName = "Ivanov",
                 LastName = "Ivanov",
@@ -51,6 +113,7 @@ public class Seeder : ISeeder
             },
             new Student
             {
+                Id = studentGenchoId,
                 FirstName = "Gencho",
                 MiddleName = "Petkov",
                 LastName = "Ginev",
@@ -59,53 +122,383 @@ public class Seeder : ISeeder
             },
             new Student()
             {
+                Id = studentMartinId,
                 FirstName = "Martin",
                 MiddleName = "Ivanov",
                 LastName = "Georgiev",
                 IdNumber = "0741124324",
                 ClassId = 2
+            },
+            new Student()
+            {
+                Id = studentGinkaId,
+                FirstName = "Ginka",
+                MiddleName = "Petrova",
+                LastName = "Stoyanova",
+                IdNumber = "0944174331",
+                ClassId = 3
+            },
+            new Student
+            {
+                Id = studentJivkoId,
+                FirstName = "Jivko",
+                MiddleName = "Vasilev",
+                LastName = "Donev",
+                IdNumber = "1041124324",
+                ClassId = 4
+            },
+            new Student
+            {
+                Id = studentPenchoId,
+                FirstName = "Pencho",
+                MiddleName = "Angelov",
+                LastName = "Mihov",
+                IdNumber = "0945161226",
+                ClassId = 5,
+            },
+            new Student
+            {
+                Id = studentDianaId,
+                FirstName = "Diana",
+                MiddleName = "Nedeva",
+                LastName = "Kostova",
+                IdNumber = "1148061932",
+                ClassId = 4
+            },
+            new Student
+            {
+                Id = studentRuzhaId,
+                FirstName = "Ruzha",
+                MiddleName = "Todorova",
+                LastName = "Veleva",
+                IdNumber = "0852131993",
+                ClassId = 5
             });
 
         modelBuilder.Entity<Teacher>().HasData(
             new Teacher
             {
-                Id = teacher1Id,
+                Id = teacherMariaId,
                 FirstName = "Maria",
                 MiddleName = "Ivanova",
                 LastName = "Petrova",
                 IdNumber = "8008089119",
                 Subject = Subject.Bulgarian,
             },
-            new Teacher()
+            new Teacher
             {
-                Id = teacher2Id,
+                Id = teacherStefkaId,
                 FirstName = "Stefka",
                 MiddleName = "Petkova",
                 LastName = "Gineva",
                 IdNumber = "9003021331",
                 Subject = Subject.German
+            },
+            new Teacher
+            {
+                Id = teacherStamenId,
+                FirstName = "Stamen",
+                MiddleName = "Georgiev",
+                LastName = "Peev",
+                IdNumber = "7211053143",
+                Subject = Subject.IT
+            },
+            new Teacher
+            {
+                Id = teacherStoyankaId,
+                FirstName = "Stoyanka",
+                MiddleName = "Doneva",
+                LastName = "Peneva",
+                IdNumber = "7105053113",
+                Subject = Subject.French
+            },
+            new Teacher
+            {
+                Id = teacherPetarId,
+                FirstName = "Petar",
+                MiddleName = "Mladenov",
+                LastName = "Chonev",
+                IdNumber = "8210045421",
+                Subject = Subject.Geography
+            },
+            new Teacher
+            {
+                Id = teacherBonchoId,
+                FirstName = "Boncho",
+                MiddleName = "Dimitrov",
+                LastName = "Dimitrov",
+                IdNumber = "8006210887",
+                Subject = Subject.History
             });
 
         modelBuilder.Entity<TeacherClass>().HasData(
             new TeacherClass
             {
                 ClassId = 1,
-                TeacherId = teacher1Id,
+                TeacherId = teacherMariaId,
             },
             new TeacherClass
             {
                 ClassId = 2,
-                TeacherId = teacher1Id
+                TeacherId = teacherMariaId
             },
             new TeacherClass
             {
                 ClassId = 1,
-                TeacherId = teacher2Id,
+                TeacherId = teacherStefkaId,
             },
             new TeacherClass
             {
                 ClassId = 2,
-                TeacherId = teacher2Id
+                TeacherId = teacherStefkaId
+            },
+            new TeacherClass
+            {
+                ClassId = 5,
+                TeacherId = teacherStoyankaId
+            },
+            new TeacherClass
+            {
+                ClassId = 1,
+                TeacherId = teacherStamenId
+            },
+            new TeacherClass
+            {
+                ClassId = 2,
+                TeacherId = teacherStamenId
+            },
+            new TeacherClass
+            {
+                ClassId = 3,
+                TeacherId = teacherStamenId
+            },
+            new TeacherClass
+            {
+                ClassId = 4,
+                TeacherId = teacherPetarId
+            },
+            new TeacherClass
+            {
+                ClassId = 4,
+                TeacherId = teacherBonchoId
+            });
+
+        modelBuilder.Entity<ApplicationUser>().HasData(
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Ivan",
+                MiddleName = "Ivanov",
+                LastName = "Ivanov",
+                Email = "ivan@gmail.com",
+                NormalizedEmail = "IVAN@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "ivan@gmail.com",
+                NormalizedUserName = "IVAN@GMAIL.COM",
+                IdNumber = "0141012442",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Gencho",
+                MiddleName = "Petkov",
+                LastName = "Ginev",
+                Email = "gencho@gmail.com",
+                NormalizedEmail = "GENCHO@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "gencho@gmail.com",
+                NormalizedUserName = "GENCHO@GMAIL.COM",
+                IdNumber = "0543121244",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Martin",
+                MiddleName = "Ivanov",
+                LastName = "Georgiev",
+                Email = "martin@gmail.com",
+                NormalizedEmail = "MARTIN@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "martin@gmail.com",
+                NormalizedUserName = "MARTIN@GMAIL.COM",
+                IdNumber = "0741124324",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Ginka",
+                MiddleName = "Petrova",
+                LastName = "Stoyanova",
+                Email = "ginka@gmail.com",
+                NormalizedEmail = "GINKA@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "ginka@gmail.com",
+                NormalizedUserName = "GINKA@GMAIL.COM",
+                IdNumber = "0944174331",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Jivko",
+                MiddleName = "Vasilev",
+                LastName = "Donev",
+                Email = "jivko@gmail.com",
+                NormalizedEmail = "JIVKO@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "jivko@gmail.com",
+                NormalizedUserName = "JIVKO@GMAIL.COM",
+                IdNumber = "1041124324",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Pencho",
+                MiddleName = "Angelov",
+                LastName = "Mihov",
+                Email = "pencho@gmail.com",
+                NormalizedEmail = "PENCHO@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "pencho@gmail.com",
+                NormalizedUserName = "PENCHO@GMAIL.COM",
+                IdNumber = "0945161226",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Maria",
+                MiddleName = "Ivanova",
+                LastName = "Petrova",
+                Email = "maria@gmail.com",
+                NormalizedEmail = "MARIA@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "maria@gmail.com",
+                NormalizedUserName = "MARIA@GMAIL.COM",
+                IdNumber = "8008089119",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Stefka",
+                MiddleName = "Petkova",
+                LastName = "Gineva",
+                Email = "stefka@gmail.com",
+                NormalizedEmail = "STEFKA@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "stefka@gmail.com",
+                NormalizedUserName = "STEFKA@GMAIL.COM",
+                IdNumber = "9003021331",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Stamen",
+                MiddleName = "Georgiev",
+                LastName = "Peev",
+                Email = "stamen@gmail.com",
+                NormalizedEmail = "STAMEN@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "stamen@gmail.com",
+                NormalizedUserName = "STAMEN@GMAIL.COM",
+                IdNumber = "7211053143",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Stoyanka",
+                MiddleName = "Doneva",
+                LastName = "Peneva",
+                Email = "stoyanka@gmail.com",
+                NormalizedEmail = "STOYANKA@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "stoyanka@gmail.com",
+                NormalizedUserName = "STOYANKA@GMAIL.COM",
+                IdNumber = "7105053113",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Petar",
+                MiddleName = "Mladenov",
+                LastName = "Chonev",
+                Email = "petar@gmail.com",
+                NormalizedEmail = "PETAR@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "petar@gmail.com",
+                NormalizedUserName = "PETAR@GMAIL.COM",
+                IdNumber = "8210045421",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
+            },
+            new ApplicationUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Boncho",
+                MiddleName = "Dimitrov",
+                LastName = "Dimitrov",
+                Email = "boncho@gmail.com",
+                NormalizedEmail = "BONCHO@GMAIL.COM",
+                PasswordHash = new PasswordHasher<ApplicationUser>().HashPassword(null, "Parola123"),
+                UserName = "boncho@gmail.com",
+                NormalizedUserName = "BONCHO@GMAIL.COM",
+                IdNumber = "8006210887",
+                BirthDate = DateTime.Now,
+                SecurityStamp = Guid.NewGuid().ToString("D"),
+                ConcurrencyStamp = Guid.NewGuid().ToString("D"),
+                IsAuthenticated = true,
+                IsGuest = false
             });
         
         SeedAdmin(modelBuilder).Wait();
