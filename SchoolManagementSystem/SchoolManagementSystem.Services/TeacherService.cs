@@ -61,6 +61,7 @@ public class TeacherService : ITeacherService
         {
             TeacherName = $"{teacher.FirstName} {teacher.MiddleName} {teacher.LastName}",
             Classes = teacher.TeachersClasses
+                .OrderBy(tc => GetNumericPartFromClassName(tc.Class.Name))
                 .Select(tc => new ClassViewModel
                 {
                     Id = tc.ClassId,
@@ -154,5 +155,11 @@ public class TeacherService : ITeacherService
         }
 
         return student.ClassId;
+    }
+    
+    private int GetNumericPartFromClassName(string className)
+    {
+        var numericPart = new string(className.TakeWhile(char.IsDigit).ToArray());
+        return int.TryParse(numericPart, out var result) ? result : 0;
     }
 }
