@@ -41,6 +41,7 @@ builder.Services.AddScoped<ISchoolService, SchoolService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IVerificationService, VerificationService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<ITeacherService, TeacherService>();
 
 var app = builder.Build();
 
