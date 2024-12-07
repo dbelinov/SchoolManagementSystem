@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
+using SchoolManagementSystem.Common.Enums;
 using static SchoolManagementSystem.Common.EntityConstants.SchoolConstants;
 
 namespace SchoolManagementSystem.Data.Models;
@@ -29,7 +29,9 @@ public class School
     
     [Required]
     public string LogoUrl { get; set; } = string.Empty;
-    
+
+    [Required]
+    public ICollection<Speciality> Specialities { get; set; }
     public ICollection<Class> Classes { get; set; }
     public ICollection<Teacher> Teachers { get; set; }
     public ICollection<SchoolProject> SchoolsProjects { get; set; }
