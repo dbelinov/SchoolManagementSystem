@@ -15,5 +15,6 @@ public enum Subject
     Sports = 11,
     Philosophy = 12,
     Literature = 13,
-    IT = 14
+    IT = 14,
+    French = 15,
 }

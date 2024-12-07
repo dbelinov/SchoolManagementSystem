@@ -6,5 +6,7 @@ public enum Speciality
     Mathematics = 2,
     Architecture = 3,
     Medicine = 4,
-    Language = 5
+    German = 5,
+    French = 6,
+    English = 7,
 }
