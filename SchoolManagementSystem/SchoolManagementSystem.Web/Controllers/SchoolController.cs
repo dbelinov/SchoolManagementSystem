@@ -13,8 +13,8 @@ public class SchoolController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Schools()
-        => View(await _schoolService.GetAllSchoolsAsync());
+    public IActionResult Schools()
+        => View(_schoolService.GetAllSchoolsAsync());
 
     public async Task<IActionResult> Details(int id)
     {
@@ -26,5 +26,15 @@ public class SchoolController : Controller
         }
         
         return View(model);
+    }
+    
+    [HttpGet]
+    public IActionResult Search(string query, int? page)
+    {
+        int pageSize = 6;
+        int pageNumber = page ?? 1;
+
+        var schools = _schoolService.SearchSchools(query, pageNumber, pageSize);
+        return View("Schools", schools);
     }
 }

@@ -1,37 +1,50 @@
-@model IEnumerable<SchoolViewModel>
-@{
-    ViewData["Title"] = "Schools Overview";
-}
+@model X.PagedList.IPagedList<SchoolViewModel>
 
-<h1>Welcome to Scholario!</h1>
-<p class="text-muted">Explore schools in the system and learn more about them.</p>
+<h2>Search Schools</h2>
 
-<div class="mt-4">
-    @if (Model.Any())
-    {
-        <div class="row">
-            @foreach (var school in Model)
-            {
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body d-flex flex-column">
-                            <div class="text-center">
-                                <img src="@school.LogoUrl" alt="@school.Name Logo" class="img-fluid mb-3" style="max-height: 150px; object-fit: contain;" />
-                            </div>
-                            <h5 class="card-title text-center">@school.Name</h5>
-                            <h6 class="card-subtitle mb-2 text-muted text-center">@school.Address</h6>
-                            <p class="card-text flex-grow-1">@school.Description</p>
+<div class="my-4">
+    <form asp-action="Search" method="get" class="d-flex">
+        <input type="text" name="query" class="form-control me-2" placeholder="Search for schools..." value="@Context.Request.Query["query"]" />
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+    </form>
+</div>
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var school in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <div class="text-center">
+                            <img src="@school.LogoUrl" alt="@school.Name Logo" class="img-fluid mb-3" style="max-height: 150px; object-fit: contain;" />
                         </div>
-                        <div class="card-footer">
-                            <a asp-controller="School" asp-action="Details" asp-route-id="@school.Id" class="btn btn-primary w-100">View Details</a>
-                        </div>
+                        <h5 class="card-title text-center">@school.Name</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-center">@school.Address</h6>
+                        <p class="card-text flex-grow-1">@school.Description</p>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-controller="School" asp-action="Details" asp-route-id="@school.Id" class="btn btn-primary w-100">View Details</a>
                     </div>
                 </div>
+            </div>
+        }
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="d-flex justify-content-center">
+        @Html.PagedListPager(Model, page => Url.Action("Search", new { query = Context.Request.Query["query"], page }),
+            new PagedListRenderOptions
+            {
+                LiElementClasses = ["page-item"],
+                PageClasses = ["page-link", "btn", "btn-outline-primary"],
+                UlElementClasses = ["pagination", "pagination"]
             }
-        </div>
-    }
-    else
-    {
-        <p>No schools are currently available in the system.</p>
-    }
-</div>
+        )
+    </div>
+}
+else
+{
+    <p>No schools found matching your search criteria.</p>
+}
