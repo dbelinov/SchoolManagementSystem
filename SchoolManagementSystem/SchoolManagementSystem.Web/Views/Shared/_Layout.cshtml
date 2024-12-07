@@ -9,7 +9,8 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - SchoolManagementSystem.Web</title>
+    <title>@ViewData["Title"] - Scholario</title>
+    <link rel="icon" href="~/scholario_icon.png" type="image/png">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/SchoolManagementSystem.styles.css" asp-append-version="true"/>
@@ -19,7 +20,17 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Scholario</a>
+            <div class="navbar-header">
+                <div class="navbar-header">
+                    <!-- App Icon and Title Group -->
+                    <div class="logo-title-group">
+                        <img src="~/scholario_icon.png" alt="App Icon" style="height: 40px; width: auto; margin-right: 10px;">
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                            Scholario
+                        </a>
+                    </div>
+                </div>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,7 +41,7 @@
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-                                <i class="bi bi-house-door"></i>Home
+                                <i class="bi bi-house-door"></i> Home
                             </a>
                         </li>
                         <li class="nav-item">
@@ -112,3 +123,22 @@
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<style>
+    .logo-title-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .separator {
+        border-left: 2px solid #000; /* Adjust color and thickness of the line */
+        height: 40px; /* Adjust the height to match the logo and title */
+        margin-left: 20px; /* Add space between the logo/title and the separator */
+        margin-right: 20px; /* Add space between the separator and the rest of the nav items */
+    }
+
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+    }
+</style>
