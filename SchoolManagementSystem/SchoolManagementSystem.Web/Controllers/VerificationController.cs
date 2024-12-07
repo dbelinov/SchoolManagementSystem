@@ -8,7 +8,7 @@ using SchoolManagementSystem.Web.ViewModels;
 namespace SchoolManagementSystem.Web.Controllers;
 
 [Authorize]
-[ValidateAntiForgeryToken]
+[AutoValidateAntiforgeryToken]
 public class VerificationController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;

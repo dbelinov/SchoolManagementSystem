@@ -7,7 +7,7 @@ using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMess
 
 namespace SchoolManagementSystem.Web.Controllers;
 
-[ValidateAntiForgeryToken]
+[AutoValidateAntiforgeryToken]
 public class UserController : Controller
 {
     private readonly SignInManager<ApplicationUser> _signInManager;

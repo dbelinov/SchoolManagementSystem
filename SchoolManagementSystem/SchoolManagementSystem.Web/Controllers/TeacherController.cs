@@ -8,7 +8,7 @@ using SchoolManagementSystem.Services.Contracts;
 namespace SchoolManagementSystem.Web.Controllers;
 
 [Authorize(Roles = nameof(Teacher))]
-[ValidateAntiForgeryToken]
+[AutoValidateAntiforgeryToken]
 public class TeacherController : Controller
 {
     private readonly ITeacherService _teacherService;
