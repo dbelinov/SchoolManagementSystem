@@ -20,3 +20,120 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Global styles for light mode (default) */
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  /* Form fields */
+  .form-control, .form-select {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    border: 1px solid #555555 !important;
+  }
+
+  .form-control:focus, .form-select:focus {
+    border-color: #ffffff !important;
+    background-color: #444444 !important;
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+  }
+
+  .navbar a {
+    color: #ffffff !important;
+  }
+
+  .navbar a:hover {
+    color: #f0f0f0 !important;
+  }
+
+  /* Button Styles */
+  .btn, .btn-primary {
+    color: #ffffff !important;
+    border: 1px solid #555555 !important;
+  }
+
+  /* Dark mode styles for tables */
+  .subject-cell {
+    color: #ffffff !important; /* Ensure text is white */
+  }
+  
+  table {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #555555 !important;
+    text-align: left;
+  }
+
+  th {
+    background-color: #444444 !important;
+    color: #ffffff !important;
+  }
+
+  tr:nth-child(even) {
+    background-color: #444444 !important;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #333333 !important;
+  }
+
+  tr:hover {
+    background-color: #555555 !important;
+  }
+
+  /* General card text color */
+  .card {
+    color: #ffffff !important; /* Ensure text is white */
+  }
+
+  /* Maintain the color classes for the cards in dark mode */
+  .card.bg-primary {
+    background-color: #1d3b5f !important; /* Darker blue for bg-primary */
+  }
+
+  .card.bg-success {
+    background-color: #2f6e3f !important; /* Darker green for bg-success */
+  }
+
+  .card.bg-warning {
+    background-color: #7a5e28 !important; /* Darker yellow for bg-warning */
+  }
+
+  /* Ensure the text remains white inside the card */
+  .card-title, .card-text {
+    color: #ffffff !important; /* White text inside the cards */
+  }
+
+  /* Ensure the cards in the Available Schools section have a dark background */
+  .school-card {
+    background-color: #333333 !important; /* Dark background for the school cards */
+    color: #ffffff !important; /* Text color should be white */
+  }
+
+  /* Ensure the card title and text are white in dark mode */
+  .school-card .card-title,
+  .school-card .card-text {
+    color: #ffffff !important;
+  }
+
+}
