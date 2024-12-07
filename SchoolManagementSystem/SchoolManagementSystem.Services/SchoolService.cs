@@ -25,4 +25,17 @@ public class SchoolService : ISchoolService
             LogoUrl = s.LogoUrl,
         })
         .ToListAsync();
+
+    public async Task<SchoolDetailsViewModel?> GetSchoolDetailsAsync(int id) 
+        => await _context.Schools
+            .Where(s => s.Id == id)
+            .Select(s => new SchoolDetailsViewModel
+            {
+                Id = s.Id,
+                Name = s.Name,
+                Address = s.Address,
+                Description = s.Description,
+                LogoUrl = s.LogoUrl,
+            })
+            .FirstOrDefaultAsync();
 }

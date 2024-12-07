@@ -12,6 +12,19 @@ public class SchoolController : Controller
         _schoolService = schoolService;
     }
 
+    [HttpGet]
     public async Task<IActionResult> Schools()
         => View(await _schoolService.GetAllSchoolsAsync());
+
+    public async Task<IActionResult> Details(int id)
+    {
+        var model = await _schoolService.GetSchoolDetailsAsync(id);
+
+        if (model is null)
+        {
+            return BadRequest();
+        }
+        
+        return View(model);
+    }
 }

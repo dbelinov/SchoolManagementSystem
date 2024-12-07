@@ -23,7 +23,7 @@
                             <p class="card-text flex-grow-1">@school.Description</p>
                         </div>
                         <div class="card-footer">
-                            <a asp-page="/Schools/Details" asp-route-id="@school.Id" class="btn btn-primary w-100">View Details</a>
+                            <a asp-controller="School" asp-action="Details" asp-route-id="@school.Id" class="btn btn-primary w-100">View Details</a>
                         </div>
                     </div>
                 </div>
