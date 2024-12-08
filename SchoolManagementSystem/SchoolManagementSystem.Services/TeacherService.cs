@@ -88,6 +88,9 @@ public class TeacherService : ITeacherService
 
         var studentsInClass = await _context.Students
             .Where(s => s.ClassId == classId)
+            .OrderBy(s => s.FirstName)
+            .ThenBy(s => s.MiddleName)
+            .ThenBy(s => s.LastName)
             .Select(s => new TeacherGradesViewModel
             {
                 StudentId = s.Id,
