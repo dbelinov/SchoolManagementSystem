@@ -207,7 +207,7 @@ public class TeacherService : ITeacherService
             .ToList();
 
         var classesScoreboard = students
-            .GroupBy(s => s.Class.Name) // Group students by class name
+            .GroupBy(s => s.Class.Name)
             .Select(group =>
             {
                 var relevantGrades = group
@@ -221,7 +221,8 @@ public class TeacherService : ITeacherService
                     ClassName = group.Key,
                     AverageGrade = relevantGrades.Any()
                         ? relevantGrades.Average().ToString("f2")
-                        : "No Grades"
+                        : "No Grades",
+                    StudentsCount = group.Count()
                 };
             })
             .OrderByDescending(c => c.AverageGrade != "No Grades" ? double.Parse(c.AverageGrade) : 0)
