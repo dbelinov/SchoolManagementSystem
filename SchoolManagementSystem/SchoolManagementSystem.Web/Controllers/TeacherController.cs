@@ -16,13 +16,11 @@ public class TeacherController : Controller
 {
     private readonly ITeacherService _teacherService;
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly ApplicationDbContext _context;
 
-    public TeacherController(ITeacherService teacherService, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+    public TeacherController(ITeacherService teacherService, UserManager<ApplicationUser> userManager)
     {
         _teacherService = teacherService;
         _userManager = userManager;
-        _context = context;
     }
 
     [HttpGet]
@@ -97,8 +95,11 @@ public class TeacherController : Controller
     public async Task<IActionResult> DeleteGrade(int gradeId, Guid studentId)
     {
         var userId = _userManager.GetUserId(User);
-        
-        if (userId == null) return BadRequest();
+
+        if (userId == null)
+        {
+            return BadRequest();
+        }
         
         var success = await _teacherService.DeleteGradeAsync(gradeId, studentId, userId);
 
@@ -112,61 +113,19 @@ public class TeacherController : Controller
 
     public async Task<IActionResult> Scoreboard()
     {
-        var user = await _userManager.GetUserAsync(User);
+        var userId = _userManager.GetUserId(User);
 
-        if (user == null)
+        if (userId == null)
         {
             return BadRequest();
         }
 
-        var teacher = await _context.Teachers
-            .Include(t => t.TeachersClasses)
-            .ThenInclude(tc => tc.Class)
-            .ThenInclude(c => c.Students)
-            .ThenInclude(student => student.Grades)
-            .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
+        var model = await _teacherService.GetScoreboardAsync(userId);
 
-        if (teacher == null)
+        if (model == null)
         {
             return BadRequest();
         }
-
-        var classes = teacher.TeachersClasses.Select(c => c.Class).ToList();
-
-        var students = classes
-            .SelectMany(c => c.Students)
-            .Distinct()
-            .ToList();
-
-        var studentScoreboard = students
-            .Select(s => new StudentScoreboardViewModel
-            {
-                FullName = $"{s.FirstName} {s.MiddleName} {s.LastName}",
-                ClassName = s.Class.Name,
-                AverageGrade = s.Grades.Any(g => g.Subject == teacher.Subject) ? s.Grades
-                    .Average(g => g.GradeValue) : 0 
-            })
-            .ToList();
-
-
-        var classesScoreboard = classes
-            .Select(c => new ClassScoreboardViewModel
-            {
-                ClassName = c.Name,
-                AverageGrade = c.Students
-                    .Where(s => s.Grades
-                        .Any(g => g.Subject == teacher.Subject))
-                    .Select(s => s.Grades.Average(g => g.GradeValue))
-                    .DefaultIfEmpty(0)
-                    .Average()
-            })
-            .ToList();
-
-        var model = new ScoreboardViewModel
-        {
-            ClassScores = classesScoreboard,
-            StudentScores = studentScoreboard,
-        };
         
         return View(model);
     }

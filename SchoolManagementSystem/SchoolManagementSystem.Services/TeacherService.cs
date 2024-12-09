@@ -160,6 +160,74 @@ public class TeacherService : ITeacherService
         return student.ClassId;
     }
     
+    public async Task<ScoreboardViewModel?> GetScoreboardAsync(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+
+        if (user == null)
+        {
+            return null;
+        }
+
+        var teacher = await _context.Teachers
+            .Include(t => t.TeachersClasses)
+            .ThenInclude(tc => tc.Class)
+            .ThenInclude(c => c.Students)
+            .ThenInclude(student => student.Grades)
+            .FirstOrDefaultAsync(t => t.IdNumber == user.IdNumber);
+
+        if (teacher == null)
+        {
+            return null;
+        }
+
+        var classes = teacher.TeachersClasses.Select(tc => tc.Class).ToList();
+
+        var students = classes
+            .SelectMany(c => c.Students)
+            .Distinct()
+            .ToList();
+
+        var studentScoreboard = students
+            .Select(s => new StudentScoreboardViewModel
+            {
+                FullName = $"{s.FirstName} {s.MiddleName} {s.LastName}",
+                ClassName = s.Class.Name,
+                AverageGrade = s.Grades
+                    .Any(g => g.Subject == teacher.Subject) 
+                    ? s.Grades
+                        .Where(g => g.Subject == teacher.Subject)
+                        .Average(g => g.GradeValue)
+                    : 0 
+            })
+            .OrderByDescending(t => t.AverageGrade)
+            .ThenBy(t => t.FullName)
+            .ToList();
+
+        var classesScoreboard = classes
+            .Select(c => new ClassScoreboardViewModel
+            {
+                ClassName = c.Name,
+                AverageGrade = c.Students
+                    .Where(s => s.Grades
+                        .Any(g => g.Subject == teacher.Subject))
+                    .Select(s => s.Grades
+                        .Where(g => g.Subject == teacher.Subject)
+                        .Average(g => g.GradeValue))
+                    .DefaultIfEmpty(0)
+                    .Average()
+            })
+            .OrderByDescending(t => t.AverageGrade)
+            .ThenBy(t => GetNumericPartFromClassName(t.ClassName))
+            .ToList();
+
+        return new ScoreboardViewModel
+        {
+            ClassScores = classesScoreboard,
+            StudentScores = studentScoreboard,
+        };
+    }
+    
     private int GetNumericPartFromClassName(string className)
     {
         var numericPart = new string(className.TakeWhile(char.IsDigit).ToArray());
