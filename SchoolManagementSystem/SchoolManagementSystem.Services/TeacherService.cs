@@ -198,27 +198,34 @@ public class TeacherService : ITeacherService
                     ? s.Grades
                         .Where(g => g.Subject == teacher.Subject)
                         .Average(g => g.GradeValue)
-                    : 0 
+                        .ToString("f2")
+                    : "No Grades" 
             })
-            .OrderByDescending(t => t.AverageGrade)
+            .OrderByDescending(t => t.AverageGrade != "No Grades")
+            .ThenByDescending(t => t.AverageGrade != "No Grades" ? double.Parse(t.AverageGrade) : 0)
             .ThenBy(t => t.FullName)
             .ToList();
 
-        var classesScoreboard = classes
-            .Select(c => new ClassScoreboardViewModel
+        var classesScoreboard = students
+            .GroupBy(s => s.Class.Name) // Group students by class name
+            .Select(group =>
             {
-                ClassName = c.Name,
-                AverageGrade = c.Students
-                    .Where(s => s.Grades
-                        .Any(g => g.Subject == teacher.Subject))
-                    .Select(s => s.Grades
-                        .Where(g => g.Subject == teacher.Subject)
-                        .Average(g => g.GradeValue))
-                    .DefaultIfEmpty(0)
-                    .Average()
+                var relevantGrades = group
+                    .SelectMany(s => s.Grades
+                        .Where(g => g.Subject == teacher.Subject && g.TeacherId == teacher.Id))
+                    .Select(g => g.GradeValue)
+                    .ToList();
+
+                return new ClassScoreboardViewModel
+                {
+                    ClassName = group.Key,
+                    AverageGrade = relevantGrades.Any()
+                        ? relevantGrades.Average().ToString("f2")
+                        : "No Grades"
+                };
             })
-            .OrderByDescending(t => t.AverageGrade)
-            .ThenBy(t => GetNumericPartFromClassName(t.ClassName))
+            .OrderByDescending(c => c.AverageGrade != "No Grades" ? double.Parse(c.AverageGrade) : 0)
+            .ThenBy(c => GetNumericPartFromClassName(c.ClassName))
             .ToList();
 
         return new ScoreboardViewModel
