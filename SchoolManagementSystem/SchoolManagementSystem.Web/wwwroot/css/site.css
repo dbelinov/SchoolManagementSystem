@@ -83,6 +83,10 @@ body {
     border: 1px solid #555555 !important;
     text-align: left;
   }
+  
+  tbody, td {
+    color: #ffffff !important;
+  }
 
   th {
     background-color: #444444 !important;
@@ -136,5 +140,4 @@ body {
   .school-card .card-text {
     color: #ffffff !important;
   }
-
 }
