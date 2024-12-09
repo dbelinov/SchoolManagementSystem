@@ -1,0 +1,65 @@
+@model ScoreboardViewModel
+
+@{
+    ViewData["Title"] = "Scoreboard";
+}
+
+<h2>Scoreboard</h2>
+
+<div style="display: flex; gap: 2rem;">
+    <!-- Students' Scoreboard Table -->
+    <div>
+        <h3>Students' Scoreboard</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Class Name</th>
+                <th>Average Grade</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var student in Model.StudentScores)
+            {
+                <tr>
+                    <td>@student.FullName</td>
+                    <td>@student.ClassName</td>
+                    <td>@student.AverageGrade.ToString("f2")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Classes' Scoreboard Table -->
+    <div>
+        <h3>Classes' Scoreboard</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Class Name</th>
+                <th>Class Average Grade</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var classScore in Model.ClassScores)
+            {
+                <tr>
+                    <td>@classScore.ClassName</td>
+                    <td>@classScore.AverageGrade.ToString("f2")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Add some styling -->
+<style>
+    .table {
+        width: 100%;
+    }
+    h3 {
+        text-align: center;
+    }
+</style>
