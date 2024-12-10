@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Data;
+using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Web.ViewModels;
 using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
@@ -151,6 +153,58 @@ public class AdminStudentsController : Controller
             await _userManager.UpdateAsync(studentUser);
         }
         
+        return RedirectToAction(nameof(StudentsList));
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> CreateStudent()
+    {
+        var model = new StudentCreateViewModel
+        {
+            Schools = await _context.Schools
+                .Select(s => new SchoolSelectViewModel
+                {
+                    SchoolId = s.Id,
+                    Name = s.Name
+                }).ToListAsync()
+        };
+        
+        return View(model);
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetClassesForSchool(int schoolId)
+    {
+        var classes = await _context.Classes
+            .Where(c => c.SchoolId == schoolId)
+            .Select(c => new
+            {
+                c.Id,
+                c.Name
+            }).ToListAsync();
+
+        return Json(classes);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateStudent(StudentCreateViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        var student = new Student
+        {
+            FirstName = model.FirstName,
+            MiddleName = model.MiddleName,
+            LastName = model.LastName,
+            IdNumber = model.IdNumber,
+            ClassId = model.ClassId
+        };
+        
+        _context.Students.Add(student);
+        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(StudentsList));
     }
 }

@@ -1,0 +1,85 @@
+@model StudentCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Student";
+}
+
+<h2 class="mb-4">@ViewData["Title"]</h2>
+
+<form asp-action="CreateStudent" method="post">
+    <div class="form-group mb-4">
+        <label asp-for="FirstName" class="control-label">First Name</label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label asp-for="MiddleName" class="control-label">Middle Name</label>
+        <input asp-for="MiddleName" class="form-control" />
+        <span asp-validation-for="MiddleName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label asp-for="LastName" class="control-label">Last Name</label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label asp-for="IdNumber" class="control-label">Identificator</label>
+        <input asp-for="IdNumber" class="form-control" />
+        <span asp-validation-for="IdNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label asp-for="SchoolId" class="control-label">School</label>
+        <select asp-for="SchoolId" class="form-control" id="schoolId">
+            <option value="">Select School</option>
+            @foreach (var school in Model.Schools)
+            {
+                <option value="@school.SchoolId">@school.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group mb-4"> 
+        <label asp-for="ClassId" class="control-label">Class</label>
+        <select asp-for="ClassId" class="form-control" id="classId">
+            <option value="">Select Class</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#schoolId').change(function() {
+                var schoolId = $(this).val();
+                if (schoolId) {
+                    $.ajax({
+                        url: '@Url.Action("GetClassesForSchool", "AdminStudents")',
+                        data: { schoolId: schoolId },
+                        success: function(data) {
+                            $('#classId').empty();
+                            $('#classId').append('<option value="">Select Class</option>');
+                            $.each(data, function(index, classItem) {
+                                $('#classId').append('<option value="' + classItem.id + '">' + classItem.name + '</option>');
+                            });
+                        },
+                        error: function() {
+                            alert('Error fetching classes.');
+                        }
+                    });
+                } else {
+                    $('#classId').empty();
+                    $('#classId').append('<option value="">Select Class</option>');
+                }
+            });
+        });
+    </script>
+}
