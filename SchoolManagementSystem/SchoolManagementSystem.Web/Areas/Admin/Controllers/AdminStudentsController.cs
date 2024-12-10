@@ -139,7 +139,7 @@ public class AdminStudentsController : Controller
         await _context.SaveChangesAsync();
         
         var studentUser = await _userManager.Users
-            .FirstOrDefaultAsync(u => u.Id == student.Id);
+            .FirstOrDefaultAsync(u => u.AppId == student.Id);
 
         if (studentUser != null)
         {
