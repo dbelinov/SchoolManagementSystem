@@ -40,10 +40,19 @@ public class AdminController : Controller
                 StudentId = s.Id,
                 FullName = $"{s.FirstName} {s.MiddleName} {s.LastName}",
                 ClassName = s.Class.Name,
+                ValidationKey = s.VerificationKey.ToString(),
             })
             .ToListAsync();
         
         return View(model);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> ManageStudent(Guid id)
+    {
+        var student = _context.Students
+            .FirstOrDefault(s => s.Id == id);
+
+        return View();
+    }
 }
