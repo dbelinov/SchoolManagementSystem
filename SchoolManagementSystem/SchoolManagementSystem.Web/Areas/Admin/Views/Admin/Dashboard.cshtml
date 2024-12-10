@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Manage Teachers</h5>
                     <p class="card-text">Manage teacher profiles.</p>
-                    <a asp-action="ManageTeachers" class="btn btn-secondary btn-block">Manage Teachers</a>
+                    <a asp-controller="AdminTeachers" asp-action="TeachersList" class="btn btn-secondary btn-block">Manage Teachers</a>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Manage Schools</h5>
                     <p class="card-text">Add, edit, or remove school data.</p>
-                    <a href="/Admin/ManageSchools" class="btn btn-success btn-block">Manage Schools</a>
+                    <a asp-controller="AdminSchools" asp-action="SchoolsList" class="btn btn-success btn-block">Manage Schools</a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Manage Projects</h5>
                     <p class="card-text">Create and manage projects.</p>
-                    <a href="/Admin/ManageClasses" class="btn btn-warning btn-block">Manage Projects</a>
+                    <a asp-controller="AdminProjects" asp-action="ProjectsList" class="btn btn-warning btn-block">Manage Projects</a>
                 </div>
             </div>
         </div>
