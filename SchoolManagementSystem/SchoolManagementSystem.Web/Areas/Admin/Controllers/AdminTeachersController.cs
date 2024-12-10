@@ -80,4 +80,31 @@ public class AdminTeachersController : Controller
         
         return RedirectToAction(nameof(TeachersList));
     }
+    
+    [HttpPost]
+    public async Task<IActionResult> GenerateValidationKey(Guid id)
+    {
+        var teacher = await _context.Teachers
+            .FirstOrDefaultAsync(t => t.Id == id);
+
+        if (teacher == null)
+        {
+            return BadRequest();
+        }
+        
+        var newVerificationKey = Guid.NewGuid();
+        teacher.VerificationKey = newVerificationKey;
+        await _context.SaveChangesAsync();
+        
+        var teacherUser = await _userManager.Users
+            .FirstOrDefaultAsync(u => u.AppId == teacher.Id);
+
+        if (teacherUser != null)
+        {
+            teacherUser.VerificationKey = newVerificationKey;
+            await _userManager.UpdateAsync(teacherUser);
+        }
+        
+        return RedirectToAction(nameof(TeachersList));
+    }
 }
