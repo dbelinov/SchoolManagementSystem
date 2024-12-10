@@ -268,7 +268,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasIndex("TimetableId");
 
-                    b.ToTable("Classes");
+                    b.ToTable("Classes", (string)null);
 
                     b.HasData(
                         new
@@ -334,7 +334,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Grades");
+                    b.ToTable("Grades", (string)null);
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.IdentityModels.ApplicationUser", b =>
@@ -789,7 +789,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Projects", (string)null);
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.School", b =>
@@ -824,7 +824,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Schools");
+                    b.ToTable("Schools", (string)null);
 
                     b.HasData(
                         new
@@ -868,7 +868,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("SchoolsProjects");
+                    b.ToTable("SchoolsProjects", (string)null);
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.Student", b =>
@@ -907,7 +907,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasIndex("ClassId");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
 
                     b.HasData(
                         new
@@ -1004,7 +1004,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("StudentsProjects");
+                    b.ToTable("StudentsProjects", (string)null);
                 });
 
             modelBuilder.Entity("SchoolManagementSystem.Data.Models.Teacher", b =>
@@ -1046,7 +1046,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasIndex("SchoolId");
 
-                    b.ToTable("Teachers");
+                    b.ToTable("Teachers", (string)null);
 
                     b.HasData(
                         new
@@ -1123,7 +1123,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasIndex("ClassId");
 
-                    b.ToTable("TeachersClasses");
+                    b.ToTable("TeachersClasses", (string)null);
 
                     b.HasData(
                         new
@@ -1197,7 +1197,7 @@ namespace SchoolManagementSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Timetables");
+                    b.ToTable("Timetables", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

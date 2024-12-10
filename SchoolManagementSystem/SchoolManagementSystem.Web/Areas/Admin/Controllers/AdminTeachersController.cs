@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SchoolManagementSystem.Common.Enums;
 using SchoolManagementSystem.Data;
+using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Web.ViewModels;
 using X.PagedList.Extensions;
@@ -105,6 +107,56 @@ public class AdminTeachersController : Controller
             await _userManager.UpdateAsync(teacherUser);
         }
         
+        return RedirectToAction(nameof(TeachersList));
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> ManageTeacher(Guid id)
+    {
+        var teacher = await _context.Teachers
+            .FirstOrDefaultAsync(t => t.Id == id);
+        
+        if (teacher == null) 
+        {
+            return BadRequest();
+        }
+        
+        var model = new TeacherManageViewModel
+        {
+            FirstName = teacher.FirstName,
+            MiddleName = teacher.MiddleName,
+            LastName = teacher.LastName,
+            Subject = teacher.Subject.ToString(),
+            IdNumber = teacher.IdNumber,
+        };
+
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ManageTeacher(Guid id, TeacherManageViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+        
+        var teacher = await _context.Teachers
+            .Include(t => t.TeachersClasses)
+            .FirstOrDefaultAsync(t => t.Id == id);
+
+        if (teacher == null)
+        {
+            return BadRequest();
+        }
+        
+        teacher.FirstName = model.FirstName;
+        teacher.MiddleName = model.MiddleName;
+        teacher.LastName = model.LastName;
+        teacher.Subject = Enum.Parse<Subject>(model.Subject);
+        teacher.IdNumber = model.IdNumber;
+        
+        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(TeachersList));
     }
 }
