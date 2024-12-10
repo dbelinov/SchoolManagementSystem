@@ -52,19 +52,19 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b4fe28f6-9778-4a94-bffc-dc6588ff646e"),
+                            Id = new Guid("953a2f8f-536a-42b4-a2fc-a75836d187d9"),
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = new Guid("3f3edb75-d559-46ca-928f-9f3f87f5c13e"),
+                            Id = new Guid("cc685e9d-f29e-415b-9620-aac09bafc3f9"),
                             Name = "Teacher",
                             NormalizedName = "TEACHER"
                         },
                         new
                         {
-                            Id = new Guid("4be99e1c-24c4-4dca-a247-26317c7313ce"),
+                            Id = new Guid("77d96249-67ff-4667-9d54-75487978d2d4"),
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -156,68 +156,68 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = new Guid("e25ed50c-f621-482b-8087-4e8ffefdc8bc"),
-                            RoleId = new Guid("b4fe28f6-9778-4a94-bffc-dc6588ff646e")
+                            UserId = new Guid("a1103813-6533-4f6b-9226-20fba6c93318"),
+                            RoleId = new Guid("953a2f8f-536a-42b4-a2fc-a75836d187d9")
                         },
                         new
                         {
-                            UserId = new Guid("d4577c75-77f6-498e-8bf3-5e40fe7c0bce"),
-                            RoleId = new Guid("b4fe28f6-9778-4a94-bffc-dc6588ff646e")
+                            UserId = new Guid("c6303d6b-1b5d-47b8-ac36-b28c9363e2e4"),
+                            RoleId = new Guid("953a2f8f-536a-42b4-a2fc-a75836d187d9")
                         },
                         new
                         {
-                            UserId = new Guid("61344aa0-73cc-474e-b417-f0eb155d4e05"),
-                            RoleId = new Guid("b4fe28f6-9778-4a94-bffc-dc6588ff646e")
+                            UserId = new Guid("4a26d76f-81b7-4082-8f3e-178b7c3a3025"),
+                            RoleId = new Guid("953a2f8f-536a-42b4-a2fc-a75836d187d9")
                         },
                         new
                         {
-                            UserId = new Guid("7457b466-60c2-4b9a-8422-b2b889bfea94"),
-                            RoleId = new Guid("b4fe28f6-9778-4a94-bffc-dc6588ff646e")
+                            UserId = new Guid("3dd3ef79-eaea-4aa0-a571-e47e87fd5029"),
+                            RoleId = new Guid("953a2f8f-536a-42b4-a2fc-a75836d187d9")
                         },
                         new
                         {
-                            UserId = new Guid("c76f8236-2060-4b87-898e-27d6b2da6d78"),
-                            RoleId = new Guid("b4fe28f6-9778-4a94-bffc-dc6588ff646e")
+                            UserId = new Guid("aa5c635d-2f0a-4840-9ba4-401e5e682d7d"),
+                            RoleId = new Guid("953a2f8f-536a-42b4-a2fc-a75836d187d9")
                         },
                         new
                         {
-                            UserId = new Guid("7ca00505-f103-48e4-9d61-fb3263ba977a"),
-                            RoleId = new Guid("b4fe28f6-9778-4a94-bffc-dc6588ff646e")
+                            UserId = new Guid("b871cd1b-c4e2-4725-8a21-abbc1d4c305d"),
+                            RoleId = new Guid("953a2f8f-536a-42b4-a2fc-a75836d187d9")
                         },
                         new
                         {
-                            UserId = new Guid("37a2e56c-5e73-426c-b64c-67f3e1276a02"),
-                            RoleId = new Guid("3f3edb75-d559-46ca-928f-9f3f87f5c13e")
+                            UserId = new Guid("2fb904be-10b0-4c3b-a926-fb7ce5e1f81d"),
+                            RoleId = new Guid("cc685e9d-f29e-415b-9620-aac09bafc3f9")
                         },
                         new
                         {
-                            UserId = new Guid("4841dee8-5528-4641-a29a-6639d65d70d8"),
-                            RoleId = new Guid("3f3edb75-d559-46ca-928f-9f3f87f5c13e")
+                            UserId = new Guid("9f5ac8dd-e7ab-405b-9b9d-5d5c5fd9671c"),
+                            RoleId = new Guid("cc685e9d-f29e-415b-9620-aac09bafc3f9")
                         },
                         new
                         {
-                            UserId = new Guid("66f892b6-6a11-4df1-bc4b-ff0014c62fb8"),
-                            RoleId = new Guid("3f3edb75-d559-46ca-928f-9f3f87f5c13e")
+                            UserId = new Guid("719ecc8f-c52c-4cb3-bdbb-81a204c78844"),
+                            RoleId = new Guid("cc685e9d-f29e-415b-9620-aac09bafc3f9")
                         },
                         new
                         {
-                            UserId = new Guid("3d357581-f0af-43cf-b07d-10e633e47ae9"),
-                            RoleId = new Guid("3f3edb75-d559-46ca-928f-9f3f87f5c13e")
+                            UserId = new Guid("2f25395d-8c7f-4737-9e4c-d163bb3ccfc8"),
+                            RoleId = new Guid("cc685e9d-f29e-415b-9620-aac09bafc3f9")
                         },
                         new
                         {
-                            UserId = new Guid("743896c4-dde4-4d4a-ae08-201448a0538a"),
-                            RoleId = new Guid("3f3edb75-d559-46ca-928f-9f3f87f5c13e")
+                            UserId = new Guid("e5f406ab-ad3d-450b-b6be-5c9e0a0c1f5c"),
+                            RoleId = new Guid("cc685e9d-f29e-415b-9620-aac09bafc3f9")
                         },
                         new
                         {
-                            UserId = new Guid("18fe4605-776f-4e3b-a6ea-7de059667c60"),
-                            RoleId = new Guid("3f3edb75-d559-46ca-928f-9f3f87f5c13e")
+                            UserId = new Guid("b5e5fd1a-a3ff-487a-a3a6-a11b03a3cf5b"),
+                            RoleId = new Guid("cc685e9d-f29e-415b-9620-aac09bafc3f9")
                         },
                         new
                         {
-                            UserId = new Guid("6d8fb148-72df-484b-998d-68ea58112359"),
-                            RoleId = new Guid("4be99e1c-24c4-4dca-a247-26317c7313ce")
+                            UserId = new Guid("c78a8c24-0225-45da-82ff-0462e92fe43d"),
+                            RoleId = new Guid("77d96249-67ff-4667-9d54-75487978d2d4")
                         });
                 });
 
@@ -440,11 +440,11 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e25ed50c-f621-482b-8087-4e8ffefdc8bc"),
+                            Id = new Guid("a1103813-6533-4f6b-9226-20fba6c93318"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("45a0fc66-8c37-4b97-bd66-eed20cca76a9"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 26, 927, DateTimeKind.Local).AddTicks(6740),
-                            ConcurrencyStamp = "88b49e6b-b266-477b-81b7-a2ea82d5b70c",
+                            AppId = new Guid("983cb0fe-f890-4974-a93f-5b009a0490bc"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 655, DateTimeKind.Local).AddTicks(6230),
+                            ConcurrencyStamp = "8edafb8a-6ce3-47db-827f-289fea7d8acc",
                             Email = "ivan@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ivan",
@@ -456,20 +456,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Ivanov",
                             NormalizedEmail = "IVAN@GMAIL.COM",
                             NormalizedUserName = "IVAN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMX1z+p2FXngi6WiWlkOHSplB1gvAQqsqxsSunNnW62pzZCsIt+c+2xawa9ruLeFsA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKsYJJvRyZRefg4MwNZ3NxW1qAPkpV+SSg+bQ78bcJEFD2VFjfNkQi0PEx6uw+Hm/A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "48b08606-64cf-4200-9ebb-475d8ea0daf1",
+                            SecurityStamp = "fda3bd35-e129-4b3e-9322-41f3a7abc2b0",
                             TwoFactorEnabled = false,
                             UserName = "ivan@gmail.com",
-                            VerificationKey = new Guid("b6662178-53af-4450-8e6c-594d313bcae1")
+                            VerificationKey = new Guid("52f4a5b6-a496-44b7-b584-bfbc22b45bdd")
                         },
                         new
                         {
-                            Id = new Guid("d4577c75-77f6-498e-8bf3-5e40fe7c0bce"),
+                            Id = new Guid("c6303d6b-1b5d-47b8-ac36-b28c9363e2e4"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("d753c019-419d-4fc9-bcd1-e81084d677c5"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 26, 964, DateTimeKind.Local).AddTicks(5830),
-                            ConcurrencyStamp = "083befcb-3db4-46f2-af4a-1a1abf14a600",
+                            AppId = new Guid("b5d9e4dd-8254-47ab-b422-62d79dc084e9"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 692, DateTimeKind.Local).AddTicks(4530),
+                            ConcurrencyStamp = "ef57a50f-d635-4e29-ace3-b4ecd6f315f2",
                             Email = "gencho@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Gencho",
@@ -481,20 +481,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Petkov",
                             NormalizedEmail = "GENCHO@GMAIL.COM",
                             NormalizedUserName = "GENCHO@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDn9Mw0A9IPBKcqUSgf14fShqUqZhN5SfMhxNcgjipzRTJg6HEzd0KUXraPViHKFcQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPvssRrSRndIFZV+kD0lRkQU/Y8GIjykdGg3+/pB+cJQ7jACN6TLounhFoAr6x02YQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3d33cfb3-82a8-4c54-a0bb-fda244fd57a9",
+                            SecurityStamp = "8f28b0a5-d1b1-4977-8294-ca55e7e8d146",
                             TwoFactorEnabled = false,
                             UserName = "gencho@gmail.com",
-                            VerificationKey = new Guid("f157ab19-869b-4031-b22d-b883edee4cd2")
+                            VerificationKey = new Guid("ee83a516-0fc4-4bb6-a97e-84c9a0e033b1")
                         },
                         new
                         {
-                            Id = new Guid("61344aa0-73cc-474e-b417-f0eb155d4e05"),
+                            Id = new Guid("4a26d76f-81b7-4082-8f3e-178b7c3a3025"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("22722b03-0902-40ac-8022-da0b3cd6d024"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 1, DateTimeKind.Local).AddTicks(6030),
-                            ConcurrencyStamp = "4cf41f18-f73e-43e7-b5ca-6ef28588da08",
+                            AppId = new Guid("7d9c7f61-c5fe-4b6b-a193-9287e036572f"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 729, DateTimeKind.Local).AddTicks(6940),
+                            ConcurrencyStamp = "12e85c19-4a3c-4401-8740-0f8af487ec72",
                             Email = "martin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Martin",
@@ -506,20 +506,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Ivanov",
                             NormalizedEmail = "MARTIN@GMAIL.COM",
                             NormalizedUserName = "MARTIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDYoiV+25L4cJrU6AXJyE36B0BHu+bgp9WTGRj0QfogMK9PlN1afCEobp2TZ511UBw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEpMaz6h8839LYKE9z1s5ZWyKOsliVhIKeh6uviSZpdS0OH0akjmueSvHt06fVS3xQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ad158b58-e2e2-4fad-a8de-497074ffd701",
+                            SecurityStamp = "62989f85-2939-4add-b1d4-cfd11d28d3bc",
                             TwoFactorEnabled = false,
                             UserName = "martin@gmail.com",
-                            VerificationKey = new Guid("1834dbd2-af82-4cf7-a603-d29882311f37")
+                            VerificationKey = new Guid("10d4b716-30e7-40b9-aa01-44625365ce19")
                         },
                         new
                         {
-                            Id = new Guid("7457b466-60c2-4b9a-8422-b2b889bfea94"),
+                            Id = new Guid("3dd3ef79-eaea-4aa0-a571-e47e87fd5029"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("af460353-e289-4f19-8bd8-78db1354131d"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 39, DateTimeKind.Local).AddTicks(730),
-                            ConcurrencyStamp = "499211b1-0c5f-4526-a461-350d566f1f2e",
+                            AppId = new Guid("105285af-3bb3-4256-b615-99bcfec6a72b"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 767, DateTimeKind.Local).AddTicks(9650),
+                            ConcurrencyStamp = "cd121cb2-fb50-4918-a8c5-806634417d0a",
                             Email = "ginka@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ginka",
@@ -531,20 +531,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Petrova",
                             NormalizedEmail = "GINKA@GMAIL.COM",
                             NormalizedUserName = "GINKA@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKTCErAUqPw74JXrmFGklY/9SG5lmsmekZ3Yzq3oLS92J/Ulu6Q9wEpkXMm1PKMuCw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE9GTtdaKvrQRhcB15Yg5iP7bLdrH6VlaOJgJGjsM+bbjU8behyEpSpfcMF85NsZUA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4ef0e5de-b862-496d-84b8-b332b5ac7135",
+                            SecurityStamp = "8ec35820-431c-495d-89e9-ca3bf7c1e1f3",
                             TwoFactorEnabled = false,
                             UserName = "ginka@gmail.com",
-                            VerificationKey = new Guid("c9b74718-3bda-413a-a9ab-2bb257856dac")
+                            VerificationKey = new Guid("de8fc69b-4306-4900-8c89-0db327d1b65d")
                         },
                         new
                         {
-                            Id = new Guid("c76f8236-2060-4b87-898e-27d6b2da6d78"),
+                            Id = new Guid("aa5c635d-2f0a-4840-9ba4-401e5e682d7d"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("7803d9e9-216f-49bd-806b-6bffd7a85488"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 76, DateTimeKind.Local).AddTicks(7840),
-                            ConcurrencyStamp = "d073bb9a-ad3c-4dbf-94ec-c6d671828f48",
+                            AppId = new Guid("aa51a218-c71e-41d5-9eed-08dc9c6b7cb5"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 804, DateTimeKind.Local).AddTicks(9820),
+                            ConcurrencyStamp = "1dc69b22-67f3-4067-aedd-04299735aedc",
                             Email = "jivko@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Jivko",
@@ -556,20 +556,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Vasilev",
                             NormalizedEmail = "JIVKO@GMAIL.COM",
                             NormalizedUserName = "JIVKO@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKwUCOL6sJuutmoGkPSInKnH9MG0cNL5oHIw65zmSMnGTIH0QAtxkKPdtl7Rh4COxA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGAF8yQjZ17g9WDmFbRKd1uEsyu3a517Ju0eDyW0wJ4On5XxoL1OTOVPmoRE1W75vA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2ace4980-02c1-428e-87f5-ec84ba85eaa5",
+                            SecurityStamp = "77e9b654-3787-42d0-9fbd-37c9042c9d7c",
                             TwoFactorEnabled = false,
                             UserName = "jivko@gmail.com",
-                            VerificationKey = new Guid("60d82043-eb9b-4664-bfc2-c130139f31b8")
+                            VerificationKey = new Guid("80bb9df5-afc3-47cf-88fd-78b4342b1b89")
                         },
                         new
                         {
-                            Id = new Guid("7ca00505-f103-48e4-9d61-fb3263ba977a"),
+                            Id = new Guid("b871cd1b-c4e2-4725-8a21-abbc1d4c305d"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("5100ccc0-51c3-41a4-9982-302564d8fa62"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 114, DateTimeKind.Local).AddTicks(4620),
-                            ConcurrencyStamp = "f2a282a0-ad36-4bb4-9a5e-db79f39c25e0",
+                            AppId = new Guid("52fd6e39-4adf-4a6c-a236-6f686ae0a769"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 842, DateTimeKind.Local).AddTicks(9110),
+                            ConcurrencyStamp = "17bb7666-8e05-43d7-ac60-571c1b28fe56",
                             Email = "pencho@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Pencho",
@@ -581,20 +581,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Angelov",
                             NormalizedEmail = "PENCHO@GMAIL.COM",
                             NormalizedUserName = "PENCHO@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB2VPi09tJJ6ZXMQDYVleZiTnBJ64WtNe/rJLRXTXkaODvkJGtTT6uSl0Fb6wnlgUQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGo64IS4D+SxtXjJFm6eChqTzyQ+V9r8lsp3SILm20RrZhGR8YO+1dQr3MAfKKGgUA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6a4eacd6-4fb9-40fd-b2f5-10c0de0af5fa",
+                            SecurityStamp = "cd4bf850-910e-4222-b0da-19c8a660ae91",
                             TwoFactorEnabled = false,
                             UserName = "pencho@gmail.com",
-                            VerificationKey = new Guid("91916cb7-92a1-4add-855c-b5c774da99a6")
+                            VerificationKey = new Guid("9f9e330a-81e1-4ef4-a238-ac369940c8c3")
                         },
                         new
                         {
-                            Id = new Guid("37a2e56c-5e73-426c-b64c-67f3e1276a02"),
+                            Id = new Guid("2fb904be-10b0-4c3b-a926-fb7ce5e1f81d"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("cf46d531-b1cd-48a3-8b5a-164b407c63de"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 152, DateTimeKind.Local).AddTicks(500),
-                            ConcurrencyStamp = "99af372a-561b-413b-9494-be42337633f4",
+                            AppId = new Guid("89320008-9462-4220-9aa5-bff33d4fddf5"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 880, DateTimeKind.Local).AddTicks(1380),
+                            ConcurrencyStamp = "526583ae-a231-42bb-abb9-33d42085dbd2",
                             Email = "maria@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Maria",
@@ -606,20 +606,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Ivanova",
                             NormalizedEmail = "MARIA@GMAIL.COM",
                             NormalizedUserName = "MARIA@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENdTSuhn6+cwQF58OJOGrShKfTIfWouRh8J07pgGKuPloNW40V6JOzXvBaZ1Paccow==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBjNYBjxIRR3JKBvCgVkA+D+yxbmkGurdUD1b8P2mJGd2TTxzptyko/i9yX3/+ISZQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "06f8b8fa-874d-469d-88b1-5ccfbc069ac6",
+                            SecurityStamp = "8ba6b634-75fd-48ec-af95-a42d4de7ae03",
                             TwoFactorEnabled = false,
                             UserName = "maria@gmail.com",
-                            VerificationKey = new Guid("c1afe46f-52a8-4f81-9d58-9f5f559899f9")
+                            VerificationKey = new Guid("1b57975b-6361-4038-aeaf-08403b518b45")
                         },
                         new
                         {
-                            Id = new Guid("4841dee8-5528-4641-a29a-6639d65d70d8"),
+                            Id = new Guid("9f5ac8dd-e7ab-405b-9b9d-5d5c5fd9671c"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("6c4e91aa-5027-4227-b186-5b8ffc1380e6"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 189, DateTimeKind.Local).AddTicks(6610),
-                            ConcurrencyStamp = "e8982a14-850a-4ce5-ac44-183717434d1e",
+                            AppId = new Guid("80a24610-0bae-400c-8225-d9d8636d7d12"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 917, DateTimeKind.Local).AddTicks(8510),
+                            ConcurrencyStamp = "dfa74809-09d4-4511-b818-13006d39be27",
                             Email = "stefka@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Stefka",
@@ -631,20 +631,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Petkova",
                             NormalizedEmail = "STEFKA@GMAIL.COM",
                             NormalizedUserName = "STEFKA@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHaeruGyGkeZMZf7kxFkOgodsC3ir66lVpztm55RS76XZbOex/b4NiEWHmqjk9yAlA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBZKsjgvyAuTXVqTg5LN/Vuue7iru+IFMDbgWjYYVT1oh1wMdESQAmU3+MWV6w9nOg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7ad32f40-c1b3-47b2-b90f-230c15b24c4d",
+                            SecurityStamp = "d35f104c-56d3-48f9-961f-87236164229e",
                             TwoFactorEnabled = false,
                             UserName = "stefka@gmail.com",
-                            VerificationKey = new Guid("f56328bf-13ce-420e-a3e0-8265d184b03a")
+                            VerificationKey = new Guid("6435862d-9168-4e91-846e-821f00a1628a")
                         },
                         new
                         {
-                            Id = new Guid("66f892b6-6a11-4df1-bc4b-ff0014c62fb8"),
+                            Id = new Guid("719ecc8f-c52c-4cb3-bdbb-81a204c78844"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("34ce67ff-c98d-4a43-9eb6-345905242e97"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 227, DateTimeKind.Local).AddTicks(2120),
-                            ConcurrencyStamp = "3ffaca7c-2642-4853-b97f-82f9e5fd2e93",
+                            AppId = new Guid("8afc42f4-b9ee-429a-9275-e4abceea0977"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 955, DateTimeKind.Local).AddTicks(4230),
+                            ConcurrencyStamp = "c390e8af-6650-4c8a-a786-330841088165",
                             Email = "stamen@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Stamen",
@@ -656,20 +656,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Georgiev",
                             NormalizedEmail = "STAMEN@GMAIL.COM",
                             NormalizedUserName = "STAMEN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAECAh+eJO5/+Dsp5fyqynVIFBQreMAZ4DKN7JOa/kLSMncd4NzumE/WYN+gK4v1mtsA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELMyCav2w1yJr4fJ5JonYEFf97bPg3hy8kDGMfxjwCp00R678wSevZ58Tp0vfKo12w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2d8ed79b-bda2-4d9f-8b29-14640b5d3dfa",
+                            SecurityStamp = "d587a812-7c24-4fb0-a1bb-681d56c2a0e8",
                             TwoFactorEnabled = false,
                             UserName = "stamen@gmail.com",
-                            VerificationKey = new Guid("ed893222-9a7a-4ee9-817b-875e52e6cfaf")
+                            VerificationKey = new Guid("856454cd-eaf3-4764-8495-cc2d3c105230")
                         },
                         new
                         {
-                            Id = new Guid("3d357581-f0af-43cf-b07d-10e633e47ae9"),
+                            Id = new Guid("2f25395d-8c7f-4737-9e4c-d163bb3ccfc8"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("3fd6b3d4-6bcf-4932-9e5a-4a607b3bfd0e"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 264, DateTimeKind.Local).AddTicks(2200),
-                            ConcurrencyStamp = "2ca3da5f-3b03-4716-b6df-7cd2918dc237",
+                            AppId = new Guid("556c352a-8ad8-4f8e-ad9a-028559a0e3bd"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 12, 992, DateTimeKind.Local).AddTicks(6390),
+                            ConcurrencyStamp = "2021fffa-136d-4fcc-88d5-8570672f3776",
                             Email = "stoyanka@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Stoyanka",
@@ -681,20 +681,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Doneva",
                             NormalizedEmail = "STOYANKA@GMAIL.COM",
                             NormalizedUserName = "STOYANKA@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEI2jSoQyM0j/yQiPRdatf4gjp3XvMKCZ1Xh+oOaqzl/fCzhGW/RqgbMrDkni2qfkiA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBVgiPIrAqbfrK0rJcuY0nkWlkZTxMKjxoZcV7CN2XYO+H9yvSMIElngAI+YWqp3rA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "96daf992-b632-422d-a2cd-54315c0106cc",
+                            SecurityStamp = "c786d93b-5cf9-4ff1-a3df-c9916aa39ce0",
                             TwoFactorEnabled = false,
                             UserName = "stoyanka@gmail.com",
-                            VerificationKey = new Guid("7018ad18-f5d9-4f3e-a651-61a737b3871b")
+                            VerificationKey = new Guid("42801f83-12c6-4a5a-8796-33f06f291611")
                         },
                         new
                         {
-                            Id = new Guid("743896c4-dde4-4d4a-ae08-201448a0538a"),
+                            Id = new Guid("e5f406ab-ad3d-450b-b6be-5c9e0a0c1f5c"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("b4dd7b6a-53b8-4110-97b2-ee4af5bd9274"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 300, DateTimeKind.Local).AddTicks(2250),
-                            ConcurrencyStamp = "63b40961-95ff-4ff5-9f82-621fbcfdc171",
+                            AppId = new Guid("84fd6466-94f3-4321-9cec-5b759bdf920b"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 13, 29, DateTimeKind.Local).AddTicks(2840),
+                            ConcurrencyStamp = "b5bd20e5-e4b1-45ff-9108-9ab44972252a",
                             Email = "petar@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Petar",
@@ -706,20 +706,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Mladenov",
                             NormalizedEmail = "PETAR@GMAIL.COM",
                             NormalizedUserName = "PETAR@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOIKOSH+ZWbkQSdXAs0Xonk//EgtXoV+XvYBAzD97AHZ9wd3rLREEFv7nLi3CqVYcQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDa7RqgxzVfA+Kwfebl8lQMaL8piG9cR5EPB99Tw8LzPiKEI/wf/BEV5K1aBCA6avA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3fab9b73-751c-4064-827a-1606bb4168e0",
+                            SecurityStamp = "0a2b4bb6-ad20-4e41-ab0f-c91075275205",
                             TwoFactorEnabled = false,
                             UserName = "petar@gmail.com",
-                            VerificationKey = new Guid("2034c4b3-970a-4e84-b081-12f385d6d360")
+                            VerificationKey = new Guid("28f89cee-e83f-4341-bf6c-821152f1b524")
                         },
                         new
                         {
-                            Id = new Guid("18fe4605-776f-4e3b-a6ea-7de059667c60"),
+                            Id = new Guid("b5e5fd1a-a3ff-487a-a3a6-a11b03a3cf5b"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("b7c9bcae-011b-4df9-851f-955a975f2dfe"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 337, DateTimeKind.Local).AddTicks(1080),
-                            ConcurrencyStamp = "0a5baec9-cacb-4876-b104-97ce10e33bbc",
+                            AppId = new Guid("a699d3e3-0538-4aa5-bbad-50f72bcc666e"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 13, 66, DateTimeKind.Local).AddTicks(1190),
+                            ConcurrencyStamp = "2b11591c-8872-4f0c-8f4d-ea0a90fb8ace",
                             Email = "boncho@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Boncho",
@@ -731,20 +731,20 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Dimitrov",
                             NormalizedEmail = "BONCHO@GMAIL.COM",
                             NormalizedUserName = "BONCHO@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGtMnXblTFhvEOTcHuZDKW0TgFoJKiDP5CyFXeIZ4h5kqUMHH74fbaU693wCRXLkCg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELGwLj5KOZP4oFy4nu5KXrsQ6oU6yFtcoEosk+1LMLbQAgCPdzKlgmF6lKpcd5adbQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5988b19b-e2fd-4ae5-8094-5a3f89cd21a6",
+                            SecurityStamp = "c96711e7-dc99-418d-a5db-b81cc2b04416",
                             TwoFactorEnabled = false,
                             UserName = "boncho@gmail.com",
-                            VerificationKey = new Guid("97d2c953-f60a-450b-a54d-633a5c1da52a")
+                            VerificationKey = new Guid("629dc3d7-be76-40f3-b151-11769fd8cd90")
                         },
                         new
                         {
-                            Id = new Guid("6d8fb148-72df-484b-998d-68ea58112359"),
+                            Id = new Guid("c78a8c24-0225-45da-82ff-0462e92fe43d"),
                             AccessFailedCount = 0,
-                            AppId = new Guid("6d8fb148-72df-484b-998d-68ea58112359"),
-                            BirthDate = new DateTime(2024, 12, 10, 22, 39, 27, 373, DateTimeKind.Local).AddTicks(9220),
-                            ConcurrencyStamp = "78404a79-b181-4826-bebc-8889a33805e3",
+                            AppId = new Guid("c78a8c24-0225-45da-82ff-0462e92fe43d"),
+                            BirthDate = new DateTime(2024, 12, 10, 23, 7, 13, 103, DateTimeKind.Local).AddTicks(3530),
+                            ConcurrencyStamp = "c6e14c1e-fc35-4534-954c-3f9cf00a2341",
                             Email = "admin@scholario.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -756,12 +756,12 @@ namespace SchoolManagementSystem.Data.Migrations
                             MiddleName = "Adminov",
                             NormalizedEmail = "ADMIN@SCHOLARIO.COM",
                             NormalizedUserName = "ADMIN@SCHOLARIO.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEL3NNgRdDMA5jBL+Or0/Sp8MF3DTT6D49x3rvDULxanZPbrU43TgNMCYf5C/YCmA/g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEN+l/askyiKbpUZIVcGQh0FQruNu2asObwlEy0OGfFY/e6fY70GPR/X7yBrBJIQm6A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "de4c229d-78c3-4866-90c7-d7fe3494e38c",
+                            SecurityStamp = "a55e7a5e-983b-455d-bc04-aa98fb9183bc",
                             TwoFactorEnabled = false,
                             UserName = "admin@scholario.com",
-                            VerificationKey = new Guid("6d8fb148-72df-484b-998d-68ea58112359")
+                            VerificationKey = new Guid("c78a8c24-0225-45da-82ff-0462e92fe43d")
                         });
                 });
 
@@ -912,83 +912,83 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("45a0fc66-8c37-4b97-bd66-eed20cca76a9"),
+                            Id = new Guid("983cb0fe-f890-4974-a93f-5b009a0490bc"),
                             ClassId = 1,
                             FirstName = "Ivan",
                             IdNumber = "0141012442",
                             LastName = "Ivanov",
                             MiddleName = "Ivanov",
-                            VerificationKey = new Guid("b6662178-53af-4450-8e6c-594d313bcae1")
+                            VerificationKey = new Guid("52f4a5b6-a496-44b7-b584-bfbc22b45bdd")
                         },
                         new
                         {
-                            Id = new Guid("d753c019-419d-4fc9-bcd1-e81084d677c5"),
+                            Id = new Guid("b5d9e4dd-8254-47ab-b422-62d79dc084e9"),
                             ClassId = 1,
                             FirstName = "Gencho",
                             IdNumber = "0543121244",
                             LastName = "Ginev",
                             MiddleName = "Petkov",
-                            VerificationKey = new Guid("f157ab19-869b-4031-b22d-b883edee4cd2")
+                            VerificationKey = new Guid("ee83a516-0fc4-4bb6-a97e-84c9a0e033b1")
                         },
                         new
                         {
-                            Id = new Guid("22722b03-0902-40ac-8022-da0b3cd6d024"),
+                            Id = new Guid("7d9c7f61-c5fe-4b6b-a193-9287e036572f"),
                             ClassId = 2,
                             FirstName = "Martin",
                             IdNumber = "0741124324",
                             LastName = "Georgiev",
                             MiddleName = "Ivanov",
-                            VerificationKey = new Guid("1834dbd2-af82-4cf7-a603-d29882311f37")
+                            VerificationKey = new Guid("10d4b716-30e7-40b9-aa01-44625365ce19")
                         },
                         new
                         {
-                            Id = new Guid("af460353-e289-4f19-8bd8-78db1354131d"),
+                            Id = new Guid("105285af-3bb3-4256-b615-99bcfec6a72b"),
                             ClassId = 3,
                             FirstName = "Ginka",
                             IdNumber = "0944174331",
                             LastName = "Stoyanova",
                             MiddleName = "Petrova",
-                            VerificationKey = new Guid("c9b74718-3bda-413a-a9ab-2bb257856dac")
+                            VerificationKey = new Guid("de8fc69b-4306-4900-8c89-0db327d1b65d")
                         },
                         new
                         {
-                            Id = new Guid("7803d9e9-216f-49bd-806b-6bffd7a85488"),
+                            Id = new Guid("aa51a218-c71e-41d5-9eed-08dc9c6b7cb5"),
                             ClassId = 4,
                             FirstName = "Jivko",
                             IdNumber = "1041124324",
                             LastName = "Donev",
                             MiddleName = "Vasilev",
-                            VerificationKey = new Guid("60d82043-eb9b-4664-bfc2-c130139f31b8")
+                            VerificationKey = new Guid("80bb9df5-afc3-47cf-88fd-78b4342b1b89")
                         },
                         new
                         {
-                            Id = new Guid("5100ccc0-51c3-41a4-9982-302564d8fa62"),
+                            Id = new Guid("52fd6e39-4adf-4a6c-a236-6f686ae0a769"),
                             ClassId = 5,
                             FirstName = "Pencho",
                             IdNumber = "0945161226",
                             LastName = "Mihov",
                             MiddleName = "Angelov",
-                            VerificationKey = new Guid("91916cb7-92a1-4add-855c-b5c774da99a6")
+                            VerificationKey = new Guid("9f9e330a-81e1-4ef4-a238-ac369940c8c3")
                         },
                         new
                         {
-                            Id = new Guid("787d1a06-dbaf-4b5a-a8eb-773736c18d97"),
+                            Id = new Guid("c0168b38-bc23-49bc-983a-c3f2c746e22d"),
                             ClassId = 4,
                             FirstName = "Diana",
                             IdNumber = "1148061932",
                             LastName = "Kostova",
                             MiddleName = "Nedeva",
-                            VerificationKey = new Guid("7027c313-0dab-4ca8-b95f-aa795a1c8081")
+                            VerificationKey = new Guid("b78c8a5d-1282-45d9-96d6-3a34a92da0bd")
                         },
                         new
                         {
-                            Id = new Guid("39dad089-66b2-46c2-8369-9aa2226182d2"),
+                            Id = new Guid("b8db297b-d9f7-414b-9827-18b2fafdbbac"),
                             ClassId = 5,
                             FirstName = "Ruzha",
                             IdNumber = "0852131993",
                             LastName = "Veleva",
                             MiddleName = "Todorova",
-                            VerificationKey = new Guid("ea417ed3-1785-4ce7-ac09-dafd1e6f844e")
+                            VerificationKey = new Guid("83a7d1c6-ae60-4a64-a43d-b7cafe6b5722")
                         });
                 });
 
@@ -1051,63 +1051,63 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("cf46d531-b1cd-48a3-8b5a-164b407c63de"),
+                            Id = new Guid("89320008-9462-4220-9aa5-bff33d4fddf5"),
                             FirstName = "Maria",
                             IdNumber = "8008089119",
                             LastName = "Petrova",
                             MiddleName = "Ivanova",
                             Subject = 1,
-                            VerificationKey = new Guid("c1afe46f-52a8-4f81-9d58-9f5f559899f9")
+                            VerificationKey = new Guid("1b57975b-6361-4038-aeaf-08403b518b45")
                         },
                         new
                         {
-                            Id = new Guid("6c4e91aa-5027-4227-b186-5b8ffc1380e6"),
+                            Id = new Guid("80a24610-0bae-400c-8225-d9d8636d7d12"),
                             FirstName = "Stefka",
                             IdNumber = "9003021331",
                             LastName = "Gineva",
                             MiddleName = "Petkova",
                             Subject = 4,
-                            VerificationKey = new Guid("f56328bf-13ce-420e-a3e0-8265d184b03a")
+                            VerificationKey = new Guid("6435862d-9168-4e91-846e-821f00a1628a")
                         },
                         new
                         {
-                            Id = new Guid("34ce67ff-c98d-4a43-9eb6-345905242e97"),
+                            Id = new Guid("8afc42f4-b9ee-429a-9275-e4abceea0977"),
                             FirstName = "Stamen",
                             IdNumber = "7211053143",
                             LastName = "Peev",
                             MiddleName = "Georgiev",
                             Subject = 14,
-                            VerificationKey = new Guid("ed893222-9a7a-4ee9-817b-875e52e6cfaf")
+                            VerificationKey = new Guid("856454cd-eaf3-4764-8495-cc2d3c105230")
                         },
                         new
                         {
-                            Id = new Guid("3fd6b3d4-6bcf-4932-9e5a-4a607b3bfd0e"),
+                            Id = new Guid("556c352a-8ad8-4f8e-ad9a-028559a0e3bd"),
                             FirstName = "Stoyanka",
                             IdNumber = "7105053113",
                             LastName = "Peneva",
                             MiddleName = "Doneva",
                             Subject = 15,
-                            VerificationKey = new Guid("7018ad18-f5d9-4f3e-a651-61a737b3871b")
+                            VerificationKey = new Guid("42801f83-12c6-4a5a-8796-33f06f291611")
                         },
                         new
                         {
-                            Id = new Guid("b4dd7b6a-53b8-4110-97b2-ee4af5bd9274"),
+                            Id = new Guid("84fd6466-94f3-4321-9cec-5b759bdf920b"),
                             FirstName = "Petar",
                             IdNumber = "8210045421",
                             LastName = "Chonev",
                             MiddleName = "Mladenov",
                             Subject = 5,
-                            VerificationKey = new Guid("2034c4b3-970a-4e84-b081-12f385d6d360")
+                            VerificationKey = new Guid("28f89cee-e83f-4341-bf6c-821152f1b524")
                         },
                         new
                         {
-                            Id = new Guid("b7c9bcae-011b-4df9-851f-955a975f2dfe"),
+                            Id = new Guid("a699d3e3-0538-4aa5-bbad-50f72bcc666e"),
                             FirstName = "Boncho",
                             IdNumber = "8006210887",
                             LastName = "Dimitrov",
                             MiddleName = "Dimitrov",
                             Subject = 9,
-                            VerificationKey = new Guid("97d2c953-f60a-450b-a54d-633a5c1da52a")
+                            VerificationKey = new Guid("629dc3d7-be76-40f3-b151-11769fd8cd90")
                         });
                 });
 
@@ -1128,52 +1128,52 @@ namespace SchoolManagementSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            TeacherId = new Guid("cf46d531-b1cd-48a3-8b5a-164b407c63de"),
+                            TeacherId = new Guid("89320008-9462-4220-9aa5-bff33d4fddf5"),
                             ClassId = 1
                         },
                         new
                         {
-                            TeacherId = new Guid("cf46d531-b1cd-48a3-8b5a-164b407c63de"),
+                            TeacherId = new Guid("89320008-9462-4220-9aa5-bff33d4fddf5"),
                             ClassId = 2
                         },
                         new
                         {
-                            TeacherId = new Guid("6c4e91aa-5027-4227-b186-5b8ffc1380e6"),
+                            TeacherId = new Guid("80a24610-0bae-400c-8225-d9d8636d7d12"),
                             ClassId = 1
                         },
                         new
                         {
-                            TeacherId = new Guid("6c4e91aa-5027-4227-b186-5b8ffc1380e6"),
+                            TeacherId = new Guid("80a24610-0bae-400c-8225-d9d8636d7d12"),
                             ClassId = 2
                         },
                         new
                         {
-                            TeacherId = new Guid("3fd6b3d4-6bcf-4932-9e5a-4a607b3bfd0e"),
+                            TeacherId = new Guid("556c352a-8ad8-4f8e-ad9a-028559a0e3bd"),
                             ClassId = 5
                         },
                         new
                         {
-                            TeacherId = new Guid("34ce67ff-c98d-4a43-9eb6-345905242e97"),
+                            TeacherId = new Guid("8afc42f4-b9ee-429a-9275-e4abceea0977"),
                             ClassId = 1
                         },
                         new
                         {
-                            TeacherId = new Guid("34ce67ff-c98d-4a43-9eb6-345905242e97"),
+                            TeacherId = new Guid("8afc42f4-b9ee-429a-9275-e4abceea0977"),
                             ClassId = 2
                         },
                         new
                         {
-                            TeacherId = new Guid("34ce67ff-c98d-4a43-9eb6-345905242e97"),
+                            TeacherId = new Guid("8afc42f4-b9ee-429a-9275-e4abceea0977"),
                             ClassId = 3
                         },
                         new
                         {
-                            TeacherId = new Guid("b4dd7b6a-53b8-4110-97b2-ee4af5bd9274"),
+                            TeacherId = new Guid("84fd6466-94f3-4321-9cec-5b759bdf920b"),
                             ClassId = 4
                         },
                         new
                         {
-                            TeacherId = new Guid("b7c9bcae-011b-4df9-851f-955a975f2dfe"),
+                            TeacherId = new Guid("a699d3e3-0538-4aa5-bbad-50f72bcc666e"),
                             ClassId = 4
                         });
                 });

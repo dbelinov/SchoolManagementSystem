@@ -33,6 +33,7 @@ public class AdminStudentsController : Controller
             {
                 StudentId = s.Id,
                 FullName = $"{s.FirstName} {s.MiddleName} {s.LastName}",
+                SchoolName = s.Class.School.Name,
                 ClassName = s.Class.Name,
                 ValidationKey = s.VerificationKey.ToString(),
             })
