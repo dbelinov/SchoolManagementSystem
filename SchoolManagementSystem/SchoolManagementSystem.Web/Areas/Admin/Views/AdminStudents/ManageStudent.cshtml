@@ -1,31 +1,34 @@
 @model StudentManageViewModel
 
 @{
-    ViewData["Title"] = "Manage Student";
+    ViewData["Title"] = "Manage Student Profile";
 }
 
 <h2>Manage Student Profile of @Model.FirstName @Model.MiddleName @Model.LastName</h2>
 
-@* Begin the form to create or edit student *@
-<form asp-action="SaveStudent" method="post">
+<form asp-action="ManageStudent" method="post">
     <div class="form-group mb-3">
         <label for="FirstName">First Name</label>
-        <input type="text" id="FirstName" name="FirstName" class="form-control" value="@Model.FirstName" required />
+        <input type="text" id="FirstName" name="FirstName" class="form-control" value="@Model.FirstName" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
         <label for="MiddleName">Middle Name</label>
         <input type="text" id="MiddleName" name="MiddleName" class="form-control" value="@Model.MiddleName" />
+        <span asp-validation-for="MiddleName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
         <label for="LastName">Last Name</label>
-        <input type="text" id="LastName" name="LastName" class="form-control" value="@Model.LastName" required />
+        <input type="text" id="LastName" name="LastName" class="form-control" value="@Model.LastName" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
         <label for="IdNumber">ID Number</label>
-        <input type="text" id="IdNumber" name="IdNumber" class="form-control" value="@Model.IdNumber" required />
+        <input type="text" id="IdNumber" name="IdNumber" class="form-control" value="@Model.IdNumber" />
+        <span asp-validation-for="IdNumber" class="text-danger"></span>
     </div>
 
     @* Add space between the fields and the save button *@
@@ -33,3 +36,8 @@
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
 </form>
+
+@* Include the validation script *@
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

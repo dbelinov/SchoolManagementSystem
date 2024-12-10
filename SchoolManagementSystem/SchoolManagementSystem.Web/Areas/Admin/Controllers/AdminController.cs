@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
+
 namespace SchoolManagementSystem.Web.Areas.Admin.Controllers;
 
-[Area("Admin")]
+[Area(AdminAreaName)]
 [Authorize(Roles = "Admin")]
 public class AdminController : Controller
 {

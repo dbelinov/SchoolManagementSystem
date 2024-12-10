@@ -9,7 +9,7 @@ using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 
 namespace SchoolManagementSystem.Web.Areas.Admin.Controllers;
 
-[Area("Admin")]
+[Area(AdminAreaName)]
 [Authorize(Roles = "Admin")]
 public class AdminStudentsController : Controller
 {
@@ -113,5 +113,43 @@ public class AdminStudentsController : Controller
         };
 
         return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ManageStudent(Guid id, StudentManageViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+        
+        var student = await _context.Students
+            .FirstOrDefaultAsync(s => s.Id == id);
+
+        if (student == null)
+        {
+            return BadRequest();
+        }
+        
+        student.FirstName = model.FirstName;
+        student.MiddleName = model.MiddleName;
+        student.LastName = model.LastName;
+        student.IdNumber = model.IdNumber;
+        _context.Students.Update(student);
+        await _context.SaveChangesAsync();
+        
+        var studentUser = await _userManager.Users
+            .FirstOrDefaultAsync(u => u.Id == student.Id);
+
+        if (studentUser != null)
+        {
+            studentUser.FirstName = model.FirstName;
+            studentUser.MiddleName = model.MiddleName;
+            studentUser.LastName = model.LastName;
+            studentUser.IdNumber = model.IdNumber;
+            await _userManager.UpdateAsync(studentUser);
+        }
+        
+        return RedirectToAction(nameof(StudentsList));
     }
 }
