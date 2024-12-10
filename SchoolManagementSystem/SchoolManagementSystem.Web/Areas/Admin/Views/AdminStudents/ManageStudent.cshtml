@@ -1,18 +1,35 @@
 @model StudentManageViewModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Manage Student";
 }
 
-<!DOCTYPE html>
+<h2>Manage Student Profile of @Model.FirstName @Model.MiddleName @Model.LastName</h2>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+@* Begin the form to create or edit student *@
+<form asp-action="SaveStudent" method="post">
+    <div class="form-group mb-3">
+        <label for="FirstName">First Name</label>
+        <input type="text" id="FirstName" name="FirstName" class="form-control" value="@Model.FirstName" required />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="MiddleName">Middle Name</label>
+        <input type="text" id="MiddleName" name="MiddleName" class="form-control" value="@Model.MiddleName" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="LastName">Last Name</label>
+        <input type="text" id="LastName" name="LastName" class="form-control" value="@Model.LastName" required />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="IdNumber">ID Number</label>
+        <input type="text" id="IdNumber" name="IdNumber" class="form-control" value="@Model.IdNumber" required />
+    </div>
+
+    @* Add space between the fields and the save button *@
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
