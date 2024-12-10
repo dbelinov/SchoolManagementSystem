@@ -36,10 +36,15 @@
       <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Admin\Dashboard.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Areas\Admin\Services\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\Admin\Views\Admin\Dashboard.cshtml" />
     </ItemGroup>
 
 </Project>

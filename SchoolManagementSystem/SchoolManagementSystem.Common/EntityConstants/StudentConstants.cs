@@ -9,4 +9,5 @@ public static class StudentConstants
     public const int LastNameMinLength = 2;
     public const int LastNameMaxLength = 20;
     public const int IdNumberMaxLength = 10;
+    public const int IdNumberMinLength = 10;
 }
