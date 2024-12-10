@@ -7,6 +7,7 @@ using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Web.ViewModels;
+using X.PagedList.Extensions;
 using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 
 namespace SchoolManagementSystem.Web.Areas.Admin.Controllers;
@@ -25,12 +26,24 @@ public class AdminStudentsController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> StudentsList()
+    public IActionResult StudentsList(string searchTerm, int page = 1)
     {
-        var model = await _context.Students
+        int pageSize = 10;
+        
+        var studentsQuery = _context.Students
             .OrderBy(s => s.FirstName)
             .ThenBy(s => s.MiddleName)
             .ThenBy(s => s.LastName)
+            .AsQueryable();
+
+        if (!string.IsNullOrEmpty(searchTerm))
+        {
+            studentsQuery = studentsQuery.Where(s => s.FirstName.Contains(searchTerm)
+            || s.MiddleName.Contains(searchTerm) || s.LastName.Contains(searchTerm) || s.Class.Name.Contains(searchTerm)
+            || s.Class.School.Name.Contains(searchTerm));
+        }
+        
+        var model = studentsQuery
             .Select(s => new StudentAdminViewModel
             {
                 StudentId = s.Id,
@@ -39,7 +52,7 @@ public class AdminStudentsController : Controller
                 ClassName = s.Class.Name,
                 ValidationKey = s.VerificationKey.ToString(),
             })
-            .ToListAsync();
+            .ToPagedList(page, pageSize);
         
         return View(model);
     }
