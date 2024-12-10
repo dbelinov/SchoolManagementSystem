@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Web.ViewModels;
@@ -53,5 +54,30 @@ public class AdminTeachersController : Controller
             .ToPagedList(page, pageSize);
         
         return View(model);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> DeleteTeacher(Guid id)
+    {
+        var teacher = await _context.Teachers
+            .FirstOrDefaultAsync(t => t.Id == id);
+
+        if (teacher == null)
+        {
+            return BadRequest();
+        }
+        
+        var teacherUser = await _userManager.Users
+            .FirstOrDefaultAsync(u => u.AppId == teacher.Id);
+        
+        _context.Teachers.Remove(teacher);
+        await _context.SaveChangesAsync();
+
+        if (teacherUser != null)
+        {
+            await _userManager.DeleteAsync(teacherUser);
+        }
+        
+        return RedirectToAction(nameof(TeachersList));
     }
 }
