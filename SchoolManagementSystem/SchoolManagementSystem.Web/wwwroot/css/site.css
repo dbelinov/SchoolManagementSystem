@@ -140,4 +140,10 @@ body {
   .school-card .card-text {
     color: #ffffff !important;
   }
+  
+  .page-link {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    border: #555555 !important;
+  }
 }
