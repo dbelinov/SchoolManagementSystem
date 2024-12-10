@@ -134,6 +134,7 @@ public class Seeder : ISeeder
             new Student
             {
                 Id = studentIvanId,
+                VerificationKey = ivanVerificationCode,
                 FirstName = "Ivan",
                 MiddleName = "Ivanov",
                 LastName = "Ivanov",
@@ -143,6 +144,7 @@ public class Seeder : ISeeder
             new Student
             {
                 Id = studentGenchoId,
+                VerificationKey = genchoVerificationCode,
                 FirstName = "Gencho",
                 MiddleName = "Petkov",
                 LastName = "Ginev",
@@ -152,6 +154,7 @@ public class Seeder : ISeeder
             new Student()
             {
                 Id = studentMartinId,
+                VerificationKey = martinVerificationCode,
                 FirstName = "Martin",
                 MiddleName = "Ivanov",
                 LastName = "Georgiev",
@@ -161,6 +164,7 @@ public class Seeder : ISeeder
             new Student()
             {
                 Id = studentGinkaId,
+                VerificationKey = ginkaVerificationCode,
                 FirstName = "Ginka",
                 MiddleName = "Petrova",
                 LastName = "Stoyanova",
@@ -170,6 +174,7 @@ public class Seeder : ISeeder
             new Student
             {
                 Id = studentJivkoId,
+                VerificationKey = jivkoVerificationCode,
                 FirstName = "Jivko",
                 MiddleName = "Vasilev",
                 LastName = "Donev",
@@ -179,6 +184,7 @@ public class Seeder : ISeeder
             new Student
             {
                 Id = studentPenchoId,
+                VerificationKey = penchoVerificationCode,
                 FirstName = "Pencho",
                 MiddleName = "Angelov",
                 LastName = "Mihov",
@@ -209,6 +215,7 @@ public class Seeder : ISeeder
             new Teacher
             {
                 Id = teacherMariaId,
+                VerificationKey = mariaVerificationCode,
                 FirstName = "Maria",
                 MiddleName = "Ivanova",
                 LastName = "Petrova",
@@ -218,6 +225,7 @@ public class Seeder : ISeeder
             new Teacher
             {
                 Id = teacherStefkaId,
+                VerificationKey = stefkaVerificationCode,
                 FirstName = "Stefka",
                 MiddleName = "Petkova",
                 LastName = "Gineva",
@@ -227,6 +235,7 @@ public class Seeder : ISeeder
             new Teacher
             {
                 Id = teacherStamenId,
+                VerificationKey = stamenVerificationCode,
                 FirstName = "Stamen",
                 MiddleName = "Georgiev",
                 LastName = "Peev",
@@ -236,6 +245,7 @@ public class Seeder : ISeeder
             new Teacher
             {
                 Id = teacherStoyankaId,
+                VerificationKey = stoyankaVerificationCode,
                 FirstName = "Stoyanka",
                 MiddleName = "Doneva",
                 LastName = "Peneva",
@@ -245,6 +255,7 @@ public class Seeder : ISeeder
             new Teacher
             {
                 Id = teacherPetarId,
+                VerificationKey = petarVerificationCode,
                 FirstName = "Petar",
                 MiddleName = "Mladenov",
                 LastName = "Chonev",
@@ -254,6 +265,7 @@ public class Seeder : ISeeder
             new Teacher
             {
                 Id = teacherBonchoId,
+                VerificationKey = bonchoVerificationCode,
                 FirstName = "Boncho",
                 MiddleName = "Dimitrov",
                 LastName = "Dimitrov",
