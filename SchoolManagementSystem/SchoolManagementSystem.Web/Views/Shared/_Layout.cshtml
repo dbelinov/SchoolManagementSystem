@@ -25,7 +25,7 @@
                     <!-- App Icon and Title Group -->
                     <div class="logo-title-group">
                         <img src="~/scholario_icon.png" alt="App Icon" style="height: 40px; width: auto; margin-right: 10px;">
-                        <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                        <a class="navbar-brand">
                             Scholario
                         </a>
                     </div>
@@ -102,6 +102,39 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="/Teacher/Scoreboard">
                                     <i class="bi bi-table"></i> Scoreboard
+                                </a>
+                            </li>
+                        }
+                    }
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        var user = await UserManager.GetUserAsync(User);
+                        if (user is { IsAuthenticated: true })
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="Index">
+                                    <i class="bi bi-house-door"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="AdminStudents" asp-action="StudentsList">
+                                    <i class="bi bi-person"></i> Students
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="AdminTeachers" asp-action="TeachersList">
+                                    <i class="bi bi-mortarboard"></i> Teachers
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="AdminSchools" asp-action="SchoolsList">
+                                    <i class="bi bi-book"></i> Schools
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="AdminProjects" asp-action="ProjectsList">
+                                    <i class="bi bi-briefcase"></i> Projects
                                 </a>
                             </li>
                         }
