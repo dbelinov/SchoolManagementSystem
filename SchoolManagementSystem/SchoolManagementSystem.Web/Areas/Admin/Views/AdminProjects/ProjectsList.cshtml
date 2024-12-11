@@ -40,9 +40,9 @@
                 <td>@project.StartDate</td>
                 <td>@project.EndDate</td>
                 <td>
-                    <a asp-action="ManageProject" asp-route-id="@project.Id" class="btn btn-primary">Manage</a>
-                    <form asp-action="DeleteProject" asp-route-id="@project.Id" method="post" class="d-inline">
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this school?');">Delete</button>
+                    <a asp-action="ManageProject" asp-route-projectId="@project.Id" class="btn btn-primary">Manage</a>
+                    <form asp-action="DeleteProject" asp-route-projectId="@project.Id" asp-route-schoolId="@schoolId" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this project?');">Delete</button>
                     </form>
                 </td>
             </tr>

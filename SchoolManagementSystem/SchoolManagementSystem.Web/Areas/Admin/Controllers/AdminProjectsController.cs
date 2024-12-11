@@ -147,4 +147,71 @@ public class AdminProjectsController : Controller
         
         return RedirectToAction(nameof(ProjectsList), new { schoolId });
     }
+
+    [HttpGet]
+    public async Task<IActionResult> ManageProject(int schoolId, int projectId)
+    {
+        var project = await _context.Projects
+            .FirstOrDefaultAsync(p => p.Id == projectId);
+
+        if (project == null)
+        {
+            return NotFound();
+        }
+
+        var model = new ProjectManageViewModel
+        {
+            Name = project.Name,
+            Capacity = project.Capacity,
+            StartDate = project.StartDate,
+            EndDate = project.EndDate,
+            Id = projectId,
+            SchoolId = schoolId
+        };
+        
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ManageProject(int projectId, int schoolId, ProjectManageViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+        
+        var project = await _context.Projects
+            .FirstOrDefaultAsync(p => p.Id == projectId);
+
+        if (project == null)
+        {
+            return BadRequest();
+        }
+        
+        project.Name = model.Name;
+        project.Capacity = model.Capacity;
+        project.StartDate = model.StartDate;
+        project.EndDate = model.EndDate;
+        
+        _context.Projects.Update(project);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(ProjectsList), new { schoolId });
+    }
+
+    public async Task<IActionResult> DeleteProject(int schoolId, int projectId)
+    {
+        var project = await _context.Projects
+            .FirstOrDefaultAsync(s => s.Id == projectId);
+
+        if (project == null)
+        {
+            return BadRequest();
+        }
+        
+        _context.Projects.Remove(project);
+        await _context.SaveChangesAsync();
+        
+        return RedirectToAction(nameof(ProjectsList), new { schoolId });
+    }
 }

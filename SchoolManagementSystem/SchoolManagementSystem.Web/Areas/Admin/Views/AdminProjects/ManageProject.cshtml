@@ -1,14 +1,14 @@
-@model SchoolManagementSystem.Web.ViewModels.ProjectCreateViewModel
+@model SchoolManagementSystem.Web.ViewModels.ProjectManageViewModel
 
 @{
-    ViewData["Title"] = "Create Project";
+    ViewData["Title"] = "Manage Project";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2>@ViewData["Title"]</h2>
 
-<form asp-action="CreateProject" method="post">
-    <input asp-for="SchoolId" type="hidden" />
-
+<form asp-action="ManageProject" method="post">
+    <input type="hidden" name="projectId" value="@Model.Id"/>
+    <input type="hidden" name="schoolId" value="@Model.Id"/>
     <div class="form-group mb-3">
         <label asp-for="Name" class="control-label"></label>
         <input asp-for="Name" class="form-control"/>
@@ -34,29 +34,9 @@
     </div>
 
     <div class="form-group mb-3">
-        <button type="submit" class="btn btn-primary">Create Project</button>
+        <button type="submit" class="btn btn-primary">Save Project</button>
     </div>
 </form>
-
-<h2>Available Projects</h2>
-<div class="list-group">
-    @if (Model.AvailableProjects.Any()) {
-        @foreach (var project in Model.AvailableProjects)
-        {
-            <div class="list-group-item d-flex justify-content-between align-items-center">
-                <span>@project.Name</span>
-                <form asp-action="AddProject" method="post" class="d-inline">
-                    <input type="hidden" name="projectId" value="@project.Id"/>
-                    <input type="hidden" name="schoolId" value="@Model.SchoolId" />
-                    <button type="submit" class="btn btn-success">Add</button>
-                </form>
-            </div>
-        }
-    }
-    else {
-        <p class="text-muted">No other projects in the system.</p>
-    }
-</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
