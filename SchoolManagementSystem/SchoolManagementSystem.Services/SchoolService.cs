@@ -38,7 +38,7 @@ public class SchoolService : ISchoolService
                 Address = s.Address,
                 Description = s.Description,
                 LogoUrl = s.LogoUrl,
-                Specialities = s.Specialities
+          //      Specialities = s.Specialities
             })
             .FirstOrDefaultAsync();
     

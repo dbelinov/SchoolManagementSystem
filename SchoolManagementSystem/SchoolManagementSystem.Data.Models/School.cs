@@ -31,7 +31,6 @@ public class School
     public string LogoUrl { get; set; } = string.Empty;
 
     [Required]
-    public ICollection<Speciality> Specialities { get; set; }
     public ICollection<Class> Classes { get; set; }
     public ICollection<Teacher> Teachers { get; set; }
     public ICollection<SchoolProject> SchoolsProjects { get; set; }
