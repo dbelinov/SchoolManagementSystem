@@ -77,51 +77,12 @@ namespace SchoolManagementSystem.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Projects()
         {
-            var user = await _studentService.GetLoggedInUserAsync(User);
-
-            if (user is null)
-            {
-                return BadRequest();
-            }
-            
-            var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
-
-            if (student is null)
+            var model = await _studentService.GetStudentProjectsAsync(User);
+            if (model == null)
             {
                 return NotFound();
             }
 
-            var studentSchool = await _context.Schools
-                .Include(school => school.SchoolsProjects)
-                .ThenInclude(schoolProject => schoolProject.Project)
-                .ThenInclude(project => project.StudentsProjects)
-                .FirstOrDefaultAsync(s => s.Id == student.Class.SchoolId);
-            
-            var databaseProjects = studentSchool.SchoolsProjects.ToList();
-            
-            var allProjects = databaseProjects
-                .Where(sp => sp.Project.StudentsProjects.Count + 1 <= sp.Project.Capacity)
-                .Select(sp => new ProjectViewModel
-                {
-                    Id = sp.ProjectId,
-                    Name = sp.Project.Name,
-                })
-                .ToList();
-
-            var userProjects = databaseProjects
-                .Where(sp => sp.Project.StudentsProjects.Any(s => s.StudentId == student.Id))
-                .Select(p => new ProjectViewModel
-                {
-                    Id = p.ProjectId,
-                    Name = p.Project.Name,
-                }).ToList();
-
-            var model = new StudentProjectsViewModel
-            {
-                AllProjects = allProjects,
-                UserProjects = userProjects
-            };
-            
             return View(model);
         }
 
@@ -129,90 +90,25 @@ namespace SchoolManagementSystem.Web.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> JoinProject(int projectId)
         {
-            var user = await _studentService.GetLoggedInUserAsync(HttpContext.User);
-
-            if (user == null)
+            var success = await _studentService.JoinProjectAsync(User, projectId);
+            if (!success)
             {
                 return BadRequest();
             }
-            
-            var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
 
-            if (student == null)
-            {
-                return NotFound();
-            }
-            
-            var project = _context.Projects
-                .Include(project => project.StudentsProjects)
-                .FirstOrDefault(p => p.Id == projectId);
-
-            if (project == null)
-            {
-                return NotFound();
-            }
-
-            var studentProject = new StudentProject
-            {
-                StudentId = student.Id,
-                ProjectId = projectId,
-            };
-                
-            project.StudentsProjects.Add(studentProject);
-            student.StudentsProjects.Add(studentProject);
-                
-            await _context.StudentsProjects.AddAsync(studentProject);
-            _context.Update(project);
-            _context.Update(student);
-            await _context.SaveChangesAsync();
-                
             return RedirectToAction(nameof(Projects));
         }
 
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> LeaveProject(int projectId)
         {
-            var user = await _studentService.GetLoggedInUserAsync(HttpContext.User);
-
-            if (user == null)
+            var success = await _studentService.LeaveProjectAsync(User, projectId);
+            if (!success)
             {
                 return BadRequest();
             }
-            
-            var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
 
-            if (student == null)
-            {
-                return NotFound();
-            }
-            
-            var project = _context.Projects
-                .Include(project => project.StudentsProjects)
-                .FirstOrDefault(p => p.Id == projectId);
-
-            if (project == null)
-            {
-                return NotFound();
-            }
-
-            if (project.StudentsProjects.All(s => s.StudentId != student.Id))
-            {
-                return BadRequest();
-            }
-            
-            var studentProject = project.StudentsProjects
-                .FirstOrDefault(s => s.StudentId == student.Id);
-
-            if (studentProject == null)
-            {
-                return BadRequest();
-            }
-            
-            project.StudentsProjects.Remove(studentProject);
-            student.StudentsProjects.Remove(studentProject);
-            _context.Update(project);
-            _context.Update(student);
-            await _context.SaveChangesAsync();
-            
             return RedirectToAction(nameof(Projects));
         }
         

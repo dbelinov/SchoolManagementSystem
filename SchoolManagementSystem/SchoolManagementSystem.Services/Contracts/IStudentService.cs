@@ -11,4 +11,7 @@ public interface IStudentService
     Task<Student?> GetStudentByUserIdAsync(Guid userId);
     StudentDashboardViewModel GetDashboardViewModel(Student student);
     List<StudentGradesViewModel> GetGradesViewModel(Student student);
+    Task<StudentProjectsViewModel?> GetStudentProjectsAsync(ClaimsPrincipal user);
+    Task<bool> JoinProjectAsync(ClaimsPrincipal user, int projectId);
+    Task<bool> LeaveProjectAsync(ClaimsPrincipal user, int projectId);
 }
