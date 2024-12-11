@@ -30,6 +30,10 @@ namespace SchoolManagementSystem.Services
         {
             return await _context.Students
                 .Where(s => s.Id == userId)
+                .Include(s => s.Class)
+                .ThenInclude(c => c.School)
+                .ThenInclude(s => s.SchoolsProjects)
+                .ThenInclude(sp => sp.Project)
                 .Include(s => s.Grades)
                 .Include(s => s.StudentsProjects)
                 .FirstOrDefaultAsync();

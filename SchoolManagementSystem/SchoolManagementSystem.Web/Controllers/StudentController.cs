@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Services.Contracts;
+using SchoolManagementSystem.Web.ViewModels;
 
 namespace SchoolManagementSystem.Web.Controllers
 {
@@ -9,12 +12,12 @@ namespace SchoolManagementSystem.Web.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
-        //private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public StudentController(IStudentService studentService/*, ApplicationDbContext context*/)
+        public StudentController(IStudentService studentService, ApplicationDbContext context)
         {
             _studentService = studentService;
-            //_context = context;
+            _context = context;
         }
 
         [HttpGet]
@@ -69,6 +72,101 @@ namespace SchoolManagementSystem.Web.Controllers
             
             var models = _studentService.GetGradesViewModel(student);
             return View(models);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Projects()
+        {
+            var user = await _studentService.GetLoggedInUserAsync(User);
+
+            if (user is null)
+            {
+                return BadRequest();
+            }
+            
+            var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
+
+            if (student is null)
+            {
+                return NotFound();
+            }
+
+            var studentSchool = await _context.Schools
+                .Include(school => school.SchoolsProjects)
+                .ThenInclude(schoolProject => schoolProject.Project)
+                .ThenInclude(project => project.StudentsProjects)
+                .FirstOrDefaultAsync(s => s.Id == student.Class.SchoolId);
+            
+            var databaseProjects = studentSchool.SchoolsProjects.ToList();
+            
+            var allProjects = databaseProjects
+                .Where(sp => sp.Project.StudentsProjects.Count + 1 <= sp.Project.Capacity)
+                .Select(sp => new ProjectViewModel
+                {
+                    Id = sp.ProjectId,
+                    Name = sp.Project.Name,
+                })
+                .ToList();
+
+            var userProjects = databaseProjects
+                .Where(sp => sp.Project.StudentsProjects.Any(s => s.StudentId == student.Id))
+                .Select(p => new ProjectViewModel
+                {
+                    Id = p.ProjectId,
+                    Name = p.Project.Name,
+                }).ToList();
+
+            var model = new StudentProjectsViewModel
+            {
+                AllProjects = allProjects,
+                UserProjects = userProjects
+            };
+            
+            return View(model);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> JoinProject(int projectId)
+        {
+            var user = await _studentService.GetLoggedInUserAsync(HttpContext.User);
+
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            
+            var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+            
+            var project = _context.Projects
+                .Include(project => project.StudentsProjects)
+                .FirstOrDefault(p => p.Id == projectId);
+
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            var studentProject = new StudentProject
+            {
+                StudentId = student.Id,
+                ProjectId = projectId,
+            };
+                
+            project.StudentsProjects.Add(studentProject);
+            student.StudentsProjects.Add(studentProject);
+                
+            await _context.StudentsProjects.AddAsync(studentProject);
+            _context.Update(project);
+            _context.Update(student);
+            await _context.SaveChangesAsync();
+                
+            return RedirectToAction(nameof(Projects));
         }
         
         // //Test Purposes
