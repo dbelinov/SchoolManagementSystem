@@ -7,6 +7,7 @@ using SchoolManagementSystem.Common.Enums;
 using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Data.Models.IdentityModels;
+using SchoolManagementSystem.Services.Contracts;
 using SchoolManagementSystem.Web.ViewModels;
 using X.PagedList.Extensions;
 using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
@@ -19,11 +20,13 @@ public class AdminTeachersController : Controller
 {
     private readonly ApplicationDbContext _context;
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IUserService _userService;
 
-    public AdminTeachersController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+    public AdminTeachersController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IUserService userService)
     {
         _context = context;
         _userManager = userManager;
+        _userService = userService;
     }
     
     [HttpGet]
@@ -230,6 +233,17 @@ public class AdminTeachersController : Controller
         
         _context.TeachersClasses.AddRange(teacherClasses);
         await _context.SaveChangesAsync();
+        
+        var alreadySignedUpUser = await _userManager.Users
+            .FirstOrDefaultAsync(u => u.IdNumber == model.IdNumber 
+                                      && u.FirstName == model.FirstName
+                                      && u.MiddleName == model.MiddleName
+                                      && u.LastName == model.LastName);
+
+        if (alreadySignedUpUser != null)
+        {
+            await _userService.AssignToStudentOrTeacherAsync(alreadySignedUpUser);
+        }
         
         return RedirectToAction(nameof(TeachersList));
     }

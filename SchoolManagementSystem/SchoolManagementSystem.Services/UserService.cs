@@ -45,12 +45,14 @@ public class UserService : IUserService
         {
             user.AppId = studentMatch.Id;
             user.VerificationKey = studentMatch.VerificationKey;
+            user.IsGuest = false;
             await _userManager.AddToRoleAsync(user, nameof(Student));
         }
         else if (teacherMatch is not null)
         {
             user.AppId = teacherMatch.Id;
             user.VerificationKey = teacherMatch.VerificationKey;
+            user.IsGuest = false;
             await AddToRoleAsync(user, nameof(Teacher));
         }
 
