@@ -16,12 +16,10 @@ namespace SchoolManagementSystem.Web.Areas.Admin.Controllers;
 public class AdminSchoolsController : Controller
 {
     private readonly ApplicationDbContext _context;
-    private readonly UserManager<ApplicationUser> _userManager;
 
-    public AdminSchoolsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+    public AdminSchoolsController(ApplicationDbContext context)
     {
         _context = context;
-        _userManager = userManager;
     }
     
     [HttpGet]
