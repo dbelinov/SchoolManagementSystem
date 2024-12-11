@@ -61,7 +61,7 @@ public class AdminProjectsController : Controller
         
         if (!string.IsNullOrEmpty(searchTerm))
         {
-            projectsQuery = projectsQuery.Where(p => p.Name.Contains(searchTerm));
+            projectsQuery = projectsQuery.Where(p => p.Name.ToLower().Contains(searchTerm.ToLower()));
         }
         
         var projects = projectsQuery
