@@ -168,6 +168,53 @@ namespace SchoolManagementSystem.Web.Controllers
                 
             return RedirectToAction(nameof(Projects));
         }
+
+        public async Task<IActionResult> LeaveProject(int projectId)
+        {
+            var user = await _studentService.GetLoggedInUserAsync(HttpContext.User);
+
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            
+            var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+            
+            var project = _context.Projects
+                .Include(project => project.StudentsProjects)
+                .FirstOrDefault(p => p.Id == projectId);
+
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            if (project.StudentsProjects.All(s => s.StudentId != student.Id))
+            {
+                return BadRequest();
+            }
+            
+            var studentProject = project.StudentsProjects
+                .FirstOrDefault(s => s.StudentId == student.Id);
+
+            if (studentProject == null)
+            {
+                return BadRequest();
+            }
+            
+            project.StudentsProjects.Remove(studentProject);
+            student.StudentsProjects.Remove(studentProject);
+            _context.Update(project);
+            _context.Update(student);
+            await _context.SaveChangesAsync();
+            
+            return RedirectToAction(nameof(Projects));
+        }
         
         // //Test Purposes
         // private async Task AddGradesToIvan()
