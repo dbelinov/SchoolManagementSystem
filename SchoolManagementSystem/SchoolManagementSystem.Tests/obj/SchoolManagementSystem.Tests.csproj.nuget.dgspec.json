@@ -1,0 +1,523 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Tests/SchoolManagementSystem.Tests.csproj": {}
+  },
+  "projects": {
+    "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/SchoolManagementSystem.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/SchoolManagementSystem.Common.csproj",
+        "projectName": "SchoolManagementSystem.Common",
+        "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/SchoolManagementSystem.Common.csproj",
+        "packagesPath": "/Users/dbelinov/.nuget/packages/",
+        "outputPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/obj/",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "/Users/dbelinov/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/dbelinov/.dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/SchoolManagementSystem.Data.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/SchoolManagementSystem.Data.Models.csproj",
+        "projectName": "SchoolManagementSystem.Data.Models",
+        "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/SchoolManagementSystem.Data.Models.csproj",
+        "packagesPath": "/Users/dbelinov/.nuget/packages/",
+        "outputPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/obj/",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "/Users/dbelinov/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/SchoolManagementSystem.Common.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/SchoolManagementSystem.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/dbelinov/.dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data/SchoolManagementSystem.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data/SchoolManagementSystem.Data.csproj",
+        "projectName": "SchoolManagementSystem.Data",
+        "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data/SchoolManagementSystem.Data.csproj",
+        "packagesPath": "/Users/dbelinov/.nuget/packages/",
+        "outputPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data/obj/",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "/Users/dbelinov/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/SchoolManagementSystem.Common.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/SchoolManagementSystem.Common.csproj"
+              },
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/SchoolManagementSystem.Data.Models.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/SchoolManagementSystem.Data.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/dbelinov/.dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Services/SchoolManagementSystem.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Services/SchoolManagementSystem.Services.csproj",
+        "projectName": "SchoolManagementSystem.Services",
+        "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Services/SchoolManagementSystem.Services.csproj",
+        "packagesPath": "/Users/dbelinov/.nuget/packages/",
+        "outputPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Services/obj/",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "/Users/dbelinov/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/SchoolManagementSystem.Data.Models.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/SchoolManagementSystem.Data.Models.csproj"
+              },
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data/SchoolManagementSystem.Data.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data/SchoolManagementSystem.Data.csproj"
+              },
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Web.ViewModels/SchoolManagementSystem.Web.ViewModels.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Web.ViewModels/SchoolManagementSystem.Web.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[10.5.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/dbelinov/.dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Tests/SchoolManagementSystem.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Tests/SchoolManagementSystem.Tests.csproj",
+        "projectName": "SchoolManagementSystem.Tests",
+        "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Tests/SchoolManagementSystem.Tests.csproj",
+        "packagesPath": "/Users/dbelinov/.nuget/packages/",
+        "outputPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "/Users/dbelinov/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data/SchoolManagementSystem.Data.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data/SchoolManagementSystem.Data.csproj"
+              },
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Services/SchoolManagementSystem.Services.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Services/SchoolManagementSystem.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.14.0, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.9.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/dbelinov/.dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Web.ViewModels/SchoolManagementSystem.Web.ViewModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Web.ViewModels/SchoolManagementSystem.Web.ViewModels.csproj",
+        "projectName": "SchoolManagementSystem.Web.ViewModels",
+        "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Web.ViewModels/SchoolManagementSystem.Web.ViewModels.csproj",
+        "packagesPath": "/Users/dbelinov/.nuget/packages/",
+        "outputPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Web.ViewModels/obj/",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "/Users/dbelinov/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/SchoolManagementSystem.Common.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Common/SchoolManagementSystem.Common.csproj"
+              },
+              "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/SchoolManagementSystem.Data.Models.csproj": {
+                "projectPath": "/Users/dbelinov/Documents/GitHub/SchoolManagementSystem/SchoolManagementSystem/SchoolManagementSystem.Data.Models/SchoolManagementSystem.Data.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/dbelinov/.dotnet/sdk/9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
