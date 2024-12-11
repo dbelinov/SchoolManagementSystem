@@ -146,4 +146,9 @@ body {
     color: #ffffff !important;
     border: #555555 !important;
   }
+
+  .list-group-item {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+  }
 }
