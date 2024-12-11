@@ -211,6 +211,13 @@ public class AdminStudentsController : Controller
     {
         if (!ModelState.IsValid)
         {
+            model.Schools = await _context.Schools
+                .Select(s => new SchoolSelectViewModel
+                {
+                    SchoolId = s.Id,
+                    Name = s.Name
+                }).ToListAsync();
+            
             return View(model);
         }
 
