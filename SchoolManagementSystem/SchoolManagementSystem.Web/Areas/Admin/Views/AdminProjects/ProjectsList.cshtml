@@ -2,12 +2,13 @@
 @model X.PagedList.IPagedList<ProjectAdminViewModel>
 
 @{
-    ViewData["Title"] = "Schools List";
+    ViewData["Title"] = "Projects List";
+    var schoolId = Context.Request.Query["schoolId"];
 }
 
-<h2>Schools List</h2>
+<h2>Projects List</h2>
 <div class="mb-3">
-    <a asp-action="CreateProject" class="btn btn-success">Add Project</a>
+    <a asp-action="CreateProject" asp-route-schoolId="@schoolId" class="btn btn-success">Add Project</a>
 </div>
 
 <!-- Search Form -->

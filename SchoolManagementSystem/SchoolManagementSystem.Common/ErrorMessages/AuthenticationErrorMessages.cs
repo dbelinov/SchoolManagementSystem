@@ -20,9 +20,14 @@ public static class AuthenticationErrorMessages
     public const string LastNameRequired = "Last name is required!";
     public const string SchoolRequired = "School is required!";
     public const string SchoolNameRequired = "School name is required!";
+    public const string ProjectNameRequired = "Project name is required!";
+    public const string ProjectCapacityRequired = "Project capacity is required!";
+    public const string ProjectStartDateRequired = "Project start date is required!";
+    public const string ProjectEndDateRequired = "Project end date is required!";
     public const string SchoolAddressRequired = "School address is required!";
     public const string SchoolLogoUrlRequired = "School logo url is required!";
     public const string SchoolNameLength = "School name should be between 2 and 100 characters!";
+    public const string ProjectNameLength = "Project name should be between 5 and 50 characters!";
     public const string SchoolAddressLength = "School address should be between 10 and 150 characters!";
     public const string SchoolDescriptionLength = "School description should be between 10 and 500 characters!";
     public const string ClassRequired = "Class is required!";

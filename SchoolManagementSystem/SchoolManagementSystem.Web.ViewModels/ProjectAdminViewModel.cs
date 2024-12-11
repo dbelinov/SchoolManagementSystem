@@ -4,13 +4,13 @@ public class ProjectAdminViewModel
 {
     public int Id { get; set; }
     
-    public string Name { get; set; } = null!;
+    public string Name { get; set; } = string.Empty;
     
     public int Capacity { get; set; }
     
-    public DateTime StartDate { get; set; }
+    public string StartDate { get; set; } = string.Empty;
     
-    public DateTime EndDate { get; set; }
+    public string EndDate { get; set; } = string.Empty;
 
     public int SchoolId { get; set; }
 }

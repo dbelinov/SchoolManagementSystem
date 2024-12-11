@@ -2,8 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Data;
+using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Web.ViewModels;
 using X.PagedList.Extensions;
+
+using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 
 namespace SchoolManagementSystem.Web.Areas.Admin.Controllers;
 
@@ -46,6 +49,7 @@ public class AdminProjectsController : Controller
         return View(model);
     }
 
+    [HttpGet]
     public IActionResult ProjectsList(int schoolId, string searchTerm, int page = 1)
     {
         int pageSize = 10;
@@ -66,9 +70,9 @@ public class AdminProjectsController : Controller
                 Id = p.Id,
                 Name = p.Name,
                 Capacity = p.Capacity,
-                StartDate = p.StartDate,
-                EndDate = p.EndDate,
-                SchoolId = schoolId,
+                StartDate = p.StartDate.ToString(DateFormat),
+                EndDate = p.EndDate.ToString(DateFormat),
+                SchoolId = schoolId
             }).ToPagedList(page, pageSize);
 
         return View(projects);
@@ -77,6 +81,52 @@ public class AdminProjectsController : Controller
     [HttpGet]
     public async Task<IActionResult> CreateProject(int schoolId)
     {
-        return View(new ProjectCreateViewModel());
+        var availableProjects = await _context.Projects
+            .Select(p => new ProjectAdminViewModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Capacity = p.Capacity,
+                StartDate = p.StartDate.ToString(DateFormat),
+                EndDate = p.EndDate.ToString(DateFormat),
+                SchoolId = schoolId
+            })
+            .ToListAsync();
+        return View(new ProjectCreateViewModel { AvailableProjects = availableProjects });
+    }
+
+    public async Task<IActionResult> CreateProject(int schoolId, ProjectCreateViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        Project project = new Project
+        {
+            Name = model.Name,
+            Capacity = model.Capacity,
+            StartDate = model.StartDate,
+            EndDate = model.EndDate,
+        };
+        
+        await _context.Projects.AddAsync(project);
+        await _context.SaveChangesAsync();
+
+        var schoolProject = new SchoolProject
+        {
+            SchoolId = schoolId,
+            ProjectId = project.Id,
+        };
+        
+        await _context.SchoolsProjects.AddAsync(schoolProject);
+        await _context.SaveChangesAsync();
+        
+        return RedirectToAction(nameof(ProjectsList), new { schoolId });
+    }
+
+    public async Task<IActionResult> AddProject(int schoolId, int projectId)
+    {
+        return View();
     }
 }
