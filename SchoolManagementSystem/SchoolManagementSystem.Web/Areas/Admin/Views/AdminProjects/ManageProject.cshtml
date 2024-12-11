@@ -7,6 +7,7 @@
 <h2>@ViewData["Title"]</h2>
 
 <form asp-action="ManageProject" method="post">
+    @Html.AntiForgeryToken()
     <input type="hidden" name="projectId" value="@Model.Id"/>
     <input type="hidden" name="schoolId" value="@Model.Id"/>
     <div class="form-group mb-3">

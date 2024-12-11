@@ -103,6 +103,8 @@ public class AdminProjectsController : Controller
         return View(model);
     }
 
+    [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> CreateProject(int schoolId, ProjectCreateViewModel model)
     {
         if (!ModelState.IsValid)
@@ -134,6 +136,7 @@ public class AdminProjectsController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> AddProject(int schoolId, int projectId)
     {
         var schoolProject = new SchoolProject
@@ -173,6 +176,7 @@ public class AdminProjectsController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> ManageProject(int projectId, int schoolId, ProjectManageViewModel model)
     {
         if (!ModelState.IsValid)
@@ -199,6 +203,8 @@ public class AdminProjectsController : Controller
         return RedirectToAction(nameof(ProjectsList), new { schoolId });
     }
 
+    [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> DeleteProject(int schoolId, int projectId)
     {
         var project = await _context.Projects

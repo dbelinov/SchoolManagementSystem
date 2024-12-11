@@ -7,7 +7,8 @@
 <h1>@ViewData["Title"]</h1>
 
 <form asp-action="CreateProject" method="post">
-    <input asp-for="SchoolId" type="hidden" />
+    @Html.AntiForgeryToken()
+    <input asp-for="SchoolId" type="hidden"/>
 
     <div class="form-group mb-3">
         <label asp-for="Name" class="control-label"></label>
@@ -46,8 +47,9 @@
             <div class="list-group-item d-flex justify-content-between align-items-center">
                 <span>@project.Name</span>
                 <form asp-action="AddProject" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
                     <input type="hidden" name="projectId" value="@project.Id"/>
-                    <input type="hidden" name="schoolId" value="@Model.SchoolId" />
+                    <input type="hidden" name="schoolId" value="@Model.SchoolId"/>
                     <button type="submit" class="btn btn-success">Add</button>
                 </form>
             </div>

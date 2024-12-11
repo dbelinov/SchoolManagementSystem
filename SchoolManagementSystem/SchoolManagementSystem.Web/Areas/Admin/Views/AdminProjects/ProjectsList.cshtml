@@ -15,7 +15,7 @@
 <form method="get" class="mb-3">
     <div class="input-group">
         <input type="text" name="searchTerm" value="@Context.Request.Query["searchTerm"]" asp-route-schoolId="@schoolId" placeholder="Search Projects" class="form-control"/>
-        <input type="hidden" name="schoolId" value="@Context.Request.Query["schoolId"]" />
+        <input type="hidden" name="schoolId" value="@Context.Request.Query["schoolId"]"/>
         <button type="submit" class="btn btn-primary">Search</button>
     </div>
 </form>
@@ -43,6 +43,7 @@
                 <td>
                     <a asp-action="ManageProject" asp-route-projectId="@project.Id" class="btn btn-primary">Manage</a>
                     <form asp-action="DeleteProject" asp-route-projectId="@project.Id" asp-route-schoolId="@schoolId" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this project?');">Delete</button>
                     </form>
                 </td>
