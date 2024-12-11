@@ -60,7 +60,7 @@ public class SchoolServiceTests
     [Test]
     public async Task GetSchoolDetailsAsync_ShouldReturnNullIfSchoolNotFound()
     {
-        var result = await _schoolService.GetSchoolDetailsAsync(99); // School with Id 99 does not exist
+        var result = await _schoolService.GetSchoolDetailsAsync(99); 
 
         Assert.IsNull(result);
     }
@@ -70,7 +70,7 @@ public class SchoolServiceTests
     {
         var result = _schoolService.SearchSchools("XYZ", 1, 10);
 
-        Assert.That(result.Count, Is.EqualTo(1)); // Only 1 match (XYZ School)
+        Assert.That(result.Count, Is.EqualTo(1)); 
         Assert.That(result[0].Name, Is.EqualTo("XYZ School"));
     }
 
