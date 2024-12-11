@@ -325,6 +325,22 @@ public class Seeder : ISeeder
                 ClassId = 4,
                 TeacherId = teacherBonchoId
             });
+        
+        //Projects
+        modelBuilder.Entity<Project>().HasData(new Project
+        {
+            Id = 1,
+            Name = "IT Kariera",
+            Capacity = 40,
+            StartDate = DateTime.Today.AddDays(-1),
+            EndDate = DateTime.Today,
+        });
+
+        modelBuilder.Entity<SchoolProject>().HasData(new SchoolProject
+        {
+            SchoolId = 1,
+            ProjectId = 1,
+        });
 
         //Users
         var ivanId = Guid.NewGuid();
