@@ -47,6 +47,7 @@
                 <span>@project.Name</span>
                 <form asp-action="AddProject" method="post" class="d-inline">
                     <input type="hidden" name="projectId" value="@project.Id"/>
+                    <div>@Model.SchoolId</div>  <!-- For debugging, display the SchoolId -->
                     <input type="hidden" name="schoolId" value="@Model.SchoolId" />
                     <button type="submit" class="btn btn-success">Add</button>
                 </form>

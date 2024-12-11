@@ -82,6 +82,7 @@ public class AdminProjectsController : Controller
     public async Task<IActionResult> CreateProject(int schoolId)
     {
         var availableProjects = await _context.Projects
+            .Where(p => p.SchoolsProjects.All(sp => sp.SchoolId != schoolId))
             .Select(p => new ProjectAdminViewModel
             {
                 Id = p.Id,
@@ -92,7 +93,14 @@ public class AdminProjectsController : Controller
                 SchoolId = schoolId
             })
             .ToListAsync();
-        return View(new ProjectCreateViewModel { AvailableProjects = availableProjects });
+        
+        var model = new ProjectCreateViewModel
+        {
+            SchoolId = schoolId,
+            AvailableProjects = availableProjects
+        };
+        
+        return View(model);
     }
 
     public async Task<IActionResult> CreateProject(int schoolId, ProjectCreateViewModel model)
@@ -125,8 +133,18 @@ public class AdminProjectsController : Controller
         return RedirectToAction(nameof(ProjectsList), new { schoolId });
     }
 
+    [HttpPost]
     public async Task<IActionResult> AddProject(int schoolId, int projectId)
     {
-        return View();
+        var schoolProject = new SchoolProject
+        {
+            SchoolId = schoolId,
+            ProjectId = projectId,
+        };
+        
+        await _context.SchoolsProjects.AddAsync(schoolProject);
+        await _context.SaveChangesAsync();
+        
+        return RedirectToAction(nameof(ProjectsList), new { schoolId });
     }
 }
