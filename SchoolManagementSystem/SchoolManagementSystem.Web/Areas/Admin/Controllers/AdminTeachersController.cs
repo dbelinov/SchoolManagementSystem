@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Common.Enums;
 using SchoolManagementSystem.Data;
@@ -157,6 +158,79 @@ public class AdminTeachersController : Controller
         teacher.IdNumber = model.IdNumber;
         
         await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(TeachersList));
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> CreateTeacher()
+    {
+        var model = new TeacherCreateViewModel
+        {
+            Schools = await _context.Schools
+                .Select(s => new SchoolSelectViewModel
+                {
+                    SchoolId = s.Id,
+                    Name = s.Name
+                }).ToListAsync(),
+        };
+        
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateTeacher(TeacherCreateViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+        
+        var teacher = new Teacher
+        {
+            FirstName = model.FirstName,
+            MiddleName = model.MiddleName,
+            LastName = model.LastName,
+            Subject = Enum.Parse<Subject>(model.Subject),
+            IdNumber = model.IdNumber
+        };
+        
+        _context.Teachers.Add(teacher);
+        await _context.SaveChangesAsync();
+
+        var classNames = model.Classes.Split(", ");
+        
+        var school = await _context.Schools
+            .Include(school => school.Classes)
+            .FirstOrDefaultAsync(s => s.Id == model.SchoolId);
+        
+        if (school == null)
+        {
+            return BadRequest();
+        }
+        
+        var teacherClasses = new List<TeacherClass>();
+        foreach (var classString in classNames)
+        {
+            var classEntity = school.Classes
+                .FirstOrDefault(c => c.Name == classString);
+
+            if (classEntity is null)
+            {
+                ModelState.AddModelError(string.Empty, classString);
+                return View(model);
+            }
+
+            var teacherClass = new TeacherClass
+            {
+                TeacherId = teacher.Id,
+                ClassId = classEntity.Id,
+            };
+            teacherClasses.Add(teacherClass);
+        }
+        
+        _context.TeachersClasses.AddRange(teacherClasses);
+        await _context.SaveChangesAsync();
+        
         return RedirectToAction(nameof(TeachersList));
     }
 }

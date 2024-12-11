@@ -6,9 +6,9 @@ using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMess
 
 namespace SchoolManagementSystem.Web.ViewModels;
 
-public class TeacherManageViewModel
+public class TeacherCreateViewModel
 {
-    public TeacherManageViewModel()
+    public TeacherCreateViewModel()
     {
         Subjects = Enum.GetNames<Subject>().ToList();
     }
@@ -24,12 +24,17 @@ public class TeacherManageViewModel
     [Required(ErrorMessage = LastNameRequired)]
     [StringLength(LastNameMaxLength, MinimumLength = LastNameMinLength, ErrorMessage = InvalidLastName)]
     public string LastName { get; set; } = string.Empty;
-
+    
     [Required(ErrorMessage = IdNumberRequired)]
     [StringLength(IdNumberMaxLength, MinimumLength = IdNumberMinLength, ErrorMessage = IdNumberInvalid)]
     public string IdNumber { get; set; } = string.Empty;
 
     public string Subject { get; set; } = string.Empty;
+    
+    public int SchoolId { get; set; }
+    public string Classes { get; set; }
 
+    public ICollection<SchoolSelectViewModel> Schools { get; set; } = new List<SchoolSelectViewModel>();
     public ICollection<string> Subjects { get; set; }
+
 }
