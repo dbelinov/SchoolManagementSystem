@@ -147,6 +147,7 @@ public class AdminSchoolsController : Controller
         return View(model);
     }
 
+    [HttpPost]
     public async Task<IActionResult> ManageSchool(SchoolManageViewModel model)
     {
         if (!ModelState.IsValid)
@@ -173,6 +174,7 @@ public class AdminSchoolsController : Controller
         return RedirectToAction(nameof(SchoolsList));
     }
 
+    [HttpPost]
     public async Task<IActionResult> DeleteClass(int id, SchoolManageViewModel model)
     {
         var classEntity = await _context.Classes
@@ -187,5 +189,33 @@ public class AdminSchoolsController : Controller
         await _context.SaveChangesAsync();
         
         return View("ManageSchool", model);
+    }
+
+    [HttpGet]
+    public IActionResult CreateSchool()
+    {
+        return View(new SchoolCreateViewModel());
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateSchool(SchoolCreateViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        var school = new School
+        {
+            Name = model.Name,
+            Address = model.Address,
+            Description = model.Description,
+            LogoUrl = model.LogoUrl,
+        };
+        
+        _context.Schools.Add(school);
+        await _context.SaveChangesAsync();
+        
+        return RedirectToAction(nameof(SchoolsList));
     }
 }

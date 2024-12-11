@@ -5,10 +5,8 @@ using static SchoolManagementSystem.Common.ErrorMessages.AuthenticationErrorMess
 
 namespace SchoolManagementSystem.Web.ViewModels;
 
-public class SchoolManageViewModel
+public class SchoolCreateViewModel
 {
-    public int Id { get; set; }
-    
     [Required(ErrorMessage = SchoolNameRequired)]
     [StringLength(NameMaxLength, MinimumLength = NameMinLength, ErrorMessage = SchoolNameLength)]
     public string Name { get; set; } = string.Empty;
@@ -19,9 +17,7 @@ public class SchoolManageViewModel
 
     [StringLength(DescriptionMaxLength, MinimumLength = DescriptionMinLength, ErrorMessage = SchoolDescriptionLength)]
     public string? Description { get; set; }
-    
-    [Required(ErrorMessage = SchoolLogoUrlRequired)]
-    public string LogoUrl { get; set; } = string.Empty;
 
-    public ICollection<ClassViewModel> Classes { get; set; } = new List<ClassViewModel>();
+    [Required(ErrorMessage = SchoolLogoUrlRequired)]
+    public string LogoUrl { get; set; }= string.Empty;
 }
