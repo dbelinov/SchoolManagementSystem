@@ -21,21 +21,21 @@
                 <p><strong>Description:</strong> @Model.Description</p>
             }
 
-            <!-- Display Specialities as a simple Bulleted List -->
-            @if (Model.Specialities.Any())
-            {
-                <h4 class="mt-4">Specialities</h4>
-                <ul>
-                    @foreach (var speciality in Model.Specialities)
-                    {
-                        <li>@speciality</li>
-                    }
-                </ul>
-            }
-            else
-            {
-                <p class="mt-4 text-muted">No specialities available.</p>
-            }
+            @* <!-- Display Specialities as a simple Bulleted List --> *@
+            @* @if (Model.Specialities.Any()) *@
+            @* { *@
+            @*     <h4 class="mt-4">Specialities</h4> *@
+            @*     <ul> *@
+            @*         @foreach (var speciality in Model.Specialities) *@
+            @*         { *@
+            @*             <li>@speciality</li> *@
+            @*         } *@
+            @*     </ul> *@
+            @* } *@
+            @* else *@
+            @* { *@
+            @*     <p class="mt-4 text-muted">No specialities available.</p> *@
+            @* } *@
         </div>
 
         <!-- Right Section: Map Display -->
