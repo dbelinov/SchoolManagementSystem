@@ -1,0 +1,34 @@
+@model SchoolManagementSystem.Web.ViewModels.ClassAddViewModel
+
+@{
+    ViewData["Title"] = "Create New Class";
+}
+
+<h2>Create New Class</h2>
+
+<form asp-action="AddClass" method="post">
+    <input asp-for="SchoolId" type="hidden" />
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Class Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Enter class name"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Speciality" class="control-label">Speciality</label>
+        <select asp-for="Speciality" class="form-control" asp-items="@(new SelectList(Model.Specialities))">
+            <option value="">-- Select a Speciality --</option>
+        </select>
+        <span asp-validation-for="Speciality" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a asp-action="SchoolsList" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
