@@ -46,7 +46,7 @@ public class UserService : IUserService
             user.AppId = studentMatch.Id;
             user.VerificationKey = studentMatch.VerificationKey;
             user.IsGuest = false;
-            await _userManager.AddToRoleAsync(user, nameof(Student));
+            await AddToRoleAsync(user, nameof(Student));
         }
         else if (teacherMatch is not null)
         {

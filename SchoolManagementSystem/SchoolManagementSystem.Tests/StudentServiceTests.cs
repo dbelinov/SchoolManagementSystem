@@ -1,19 +1,14 @@
-using System;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using NUnit.Framework;
 using SchoolManagementSystem.Common.Enums;
 using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Services;
-using SchoolManagementSystem.Web.ViewModels;
 
-namespace SchoolManagementSystem.Tests.Services
+namespace SchoolManagementSystem.Tests
 {
     [TestFixture]
     public class StudentServiceTests
