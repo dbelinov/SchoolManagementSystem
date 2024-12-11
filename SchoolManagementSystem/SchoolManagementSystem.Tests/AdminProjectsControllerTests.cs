@@ -164,11 +164,10 @@ namespace SchoolManagementSystem.Tests
                 EndDate = DateTime.Now.AddMonths(1)
             };
 
-            var result = await _controller.ManageProject(project.Id, school.Id, model) as RedirectToActionResult;
+            var result = await _controller.ManageProject(project.Id, model) as RedirectToActionResult;
 
             Assert.IsNotNull(result);
-            Assert.AreEqual("ProjectsList", result.ActionName);
-            Assert.AreEqual(school.Id, result.RouteValues["schoolId"]);
+            Assert.AreEqual("SchoolsList", result.ActionName);
             var updatedProject = _context.Projects.First();
             Assert.AreEqual("Updated Project", updatedProject.Name);
             Assert.AreEqual(50, updatedProject.Capacity);

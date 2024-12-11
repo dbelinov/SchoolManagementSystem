@@ -177,7 +177,7 @@ public class AdminProjectsController : Controller
 
     [HttpPost]
     [AutoValidateAntiforgeryToken]
-    public async Task<IActionResult> ManageProject(int projectId, int schoolId, ProjectManageViewModel model)
+    public async Task<IActionResult> ManageProject(int projectId, ProjectManageViewModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -200,7 +200,7 @@ public class AdminProjectsController : Controller
         _context.Projects.Update(project);
         await _context.SaveChangesAsync();
 
-        return RedirectToAction(nameof(ProjectsList), new { schoolId });
+        return RedirectToAction(nameof(SchoolsList));
     }
 
     [HttpPost]
