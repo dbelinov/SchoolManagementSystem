@@ -7,27 +7,29 @@
 <h2>Manage Student Profile of @Model.FirstName @Model.MiddleName @Model.LastName</h2>
 
 <form asp-action="ManageStudent" method="post">
+    @Html.AntiForgeryToken()
+
     <div class="form-group mb-3">
         <label for="FirstName">First Name</label>
-        <input type="text" id="FirstName" name="FirstName" class="form-control" value="@Model.FirstName" />
+        <input type="text" id="FirstName" name="FirstName" class="form-control" value="@Model.FirstName"/>
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
         <label for="MiddleName">Middle Name</label>
-        <input type="text" id="MiddleName" name="MiddleName" class="form-control" value="@Model.MiddleName" />
+        <input type="text" id="MiddleName" name="MiddleName" class="form-control" value="@Model.MiddleName"/>
         <span asp-validation-for="MiddleName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
         <label for="LastName">Last Name</label>
-        <input type="text" id="LastName" name="LastName" class="form-control" value="@Model.LastName" />
+        <input type="text" id="LastName" name="LastName" class="form-control" value="@Model.LastName"/>
         <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
         <label for="IdNumber">ID Number</label>
-        <input type="text" id="IdNumber" name="IdNumber" class="form-control" value="@Model.IdNumber" />
+        <input type="text" id="IdNumber" name="IdNumber" class="form-control" value="@Model.IdNumber"/>
         <span asp-validation-for="IdNumber" class="text-danger"></span>
     </div>
 

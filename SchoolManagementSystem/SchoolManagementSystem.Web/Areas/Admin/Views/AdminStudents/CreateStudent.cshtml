@@ -7,27 +7,29 @@
 <h2 class="mb-4">@ViewData["Title"]</h2>
 
 <form asp-action="CreateStudent" method="post">
+    @Html.AntiForgeryToken()
+
     <div class="form-group mb-4">
         <label asp-for="FirstName" class="control-label">First Name</label>
-        <input asp-for="FirstName" class="form-control" />
+        <input asp-for="FirstName" class="form-control"/>
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-4">
         <label asp-for="MiddleName" class="control-label">Middle Name</label>
-        <input asp-for="MiddleName" class="form-control" />
+        <input asp-for="MiddleName" class="form-control"/>
         <span asp-validation-for="MiddleName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-4">
         <label asp-for="LastName" class="control-label">Last Name</label>
-        <input asp-for="LastName" class="form-control" />
+        <input asp-for="LastName" class="form-control"/>
         <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-4">
         <label asp-for="IdNumber" class="control-label">Identificator</label>
-        <input asp-for="IdNumber" class="form-control" />
+        <input asp-for="IdNumber" class="form-control"/>
         <span asp-validation-for="IdNumber" class="text-danger"></span>
     </div>
 
@@ -42,7 +44,7 @@
         </select>
     </div>
 
-    <div class="form-group mb-4"> 
+    <div class="form-group mb-4">
         <label asp-for="ClassId" class="control-label">Class</label>
         <select asp-for="ClassId" class="form-control" id="classId">
             <option value="">Select Class</option>

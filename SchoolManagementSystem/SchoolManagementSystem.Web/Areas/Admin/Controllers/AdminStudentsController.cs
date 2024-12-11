@@ -62,6 +62,7 @@ public class AdminStudentsController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> DeleteStudent(Guid id)
     {
         var student = await _context.Students
@@ -87,6 +88,7 @@ public class AdminStudentsController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> GenerateValidationKey(Guid id)
     {
         var student = await _context.Students
@@ -136,6 +138,7 @@ public class AdminStudentsController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> ManageStudent(Guid id, StudentManageViewModel model)
     {
         if (!ModelState.IsValid)
