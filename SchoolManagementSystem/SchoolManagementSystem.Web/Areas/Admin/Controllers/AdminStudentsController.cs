@@ -94,7 +94,7 @@ public class AdminStudentsController : Controller
 
         if (student == null)
         {
-            return BadRequest();
+            return NotFound();
         }
         
         var newVerificationKey = Guid.NewGuid();

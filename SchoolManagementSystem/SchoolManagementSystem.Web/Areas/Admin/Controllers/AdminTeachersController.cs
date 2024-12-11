@@ -70,7 +70,7 @@ public class AdminTeachersController : Controller
 
         if (teacher == null)
         {
-            return BadRequest();
+            return NotFound();
         }
         
         var teacherUser = await _userManager.Users
@@ -95,7 +95,7 @@ public class AdminTeachersController : Controller
 
         if (teacher == null)
         {
-            return BadRequest();
+            return NotFound();
         }
         
         var newVerificationKey = Guid.NewGuid();
@@ -122,7 +122,7 @@ public class AdminTeachersController : Controller
         
         if (teacher == null) 
         {
-            return BadRequest();
+            return NotFound();
         }
         
         var model = new TeacherManageViewModel
@@ -151,7 +151,7 @@ public class AdminTeachersController : Controller
 
         if (teacher == null)
         {
-            return BadRequest();
+            return NotFound();
         }
         
         teacher.FirstName = model.FirstName;
