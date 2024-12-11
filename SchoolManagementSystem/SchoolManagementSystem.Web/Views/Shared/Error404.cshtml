@@ -1,0 +1,61 @@
+@{
+    ViewBag.Title = "Page Not Found";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust if using a different layout
+}
+
+<style>
+    .error-container {
+        text-align: center;
+        padding: 80px;
+        font-family: 'Arial', sans-serif;
+        color: #555;
+    }
+
+    .error-heading {
+        font-size: 8rem;
+        font-weight: bold;
+        color: #ff5722;
+    }
+
+    .error-message {
+        font-size: 1.5rem;
+        margin: 20px 0;
+    }
+
+    .error-suggestion {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+    .btn-home {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+
+    .btn-home:hover {
+        background-color: #45a049;
+    }
+
+    .error-image {
+        max-width: 30%;  /* Adjust the size here */
+        height: auto;
+        margin: 30px 0;
+    }
+</style>
+
+<div class="error-container">
+    <div class="error-heading">404</div>
+    <div class="error-message">Oops! The page you are looking for doesn't exist.</div>
+    <div class="error-suggestion">
+        Maybe you mistyped the URL, or the page has been moved to a different location.
+    </div>
+    <a href="~/" class="btn-home">Return to Home</a>
+    <div>
+        <img src="~/scholario_404_no_background.png" alt="Page Not Found" class="error-image" />
+    </div>
+</div>

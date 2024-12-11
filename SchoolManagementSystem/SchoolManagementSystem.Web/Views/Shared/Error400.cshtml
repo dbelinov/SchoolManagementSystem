@@ -1,0 +1,52 @@
+@{
+    ViewBag.Title = "Bad Request";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .error-container {
+        text-align: center;
+        padding: 80px;
+        font-family: 'Arial', sans-serif;
+        color: #555;
+    }
+
+    .error-heading {
+        font-size: 8rem;
+        font-weight: bold;
+        color: #f44336; /* Red to indicate error */
+    }
+
+    .error-message {
+        font-size: 1.5rem;
+        margin: 20px 0;
+    }
+
+    .error-suggestion {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+    .btn-home {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+
+    .btn-home:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<div class="error-container">
+    <div class="error-heading">400</div>
+    <div class="error-message">Oops! Something went wrong with your request.</div>
+    <div class="error-suggestion">
+        You might have entered incorrect data or the request was malformed. Please double-check and try again.
+    </div>
+    <a href="~/" class="btn-home">Return to Home</a>
+</div>

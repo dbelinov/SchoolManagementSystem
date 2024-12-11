@@ -1,10 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Services.Contracts;
-using SchoolManagementSystem.Web.ViewModels;
 
 namespace SchoolManagementSystem.Web.Controllers
 {
@@ -63,7 +61,7 @@ namespace SchoolManagementSystem.Web.Controllers
             var student = await _studentService.GetStudentByUserIdAsync(user.AppId);
             if (student is null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             // await AddGradesToIvan();
