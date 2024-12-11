@@ -8,9 +8,9 @@ A web application designed to make interactions between teachers and students ea
 
 ### Technologies Used
 
-* Front-End: HTML, CSS, JavaScript, Razor, Twitter Bootstrap, 
-* Back-End: C#, Asp.Net, MVC, Entity Framework Core, LINQ, NuGet
-* Database: SQL Server
-* APIs: OpenCage Geocoding API
-* Testing: NUnit, Moq
-* IDEs: JetBrains Rider, JetBrains WebStorm
+* **Front-End**: HTML, CSS, JavaScript, Razor, Twitter Bootstrap
+* **Back-End**: C#, Asp.Net, MVC, Entity Framework Core, LINQ, NuGet
+* **Database**: SQL Server
+* **APIs**: OpenCage Geocoding API
+* **Testing**: NUnit, Moq
+* **IDEs**: JetBrains Rider, JetBrains WebStorm
