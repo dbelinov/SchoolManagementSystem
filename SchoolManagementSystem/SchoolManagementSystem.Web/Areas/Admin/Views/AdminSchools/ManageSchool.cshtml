@@ -1,0 +1,65 @@
+@model SchoolManagementSystem.Web.ViewModels.SchoolManageViewModel
+
+@{
+    ViewData["Title"] = "Manage School";
+}
+
+<h2>Manage School: @Model.Name</h2>
+
+<form asp-action="ManageSchool" method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Name">School Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Address">Address</label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Description">Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="LogoUrl">Logo URL</label>
+        <input asp-for="LogoUrl" class="form-control" />
+        <span asp-validation-for="LogoUrl" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<hr />
+
+<h3>Classes</h3>
+@if (Model.Classes.Any())
+{
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var classModel in Model.Classes)
+        {
+            <tr>
+                <td>@classModel.ClassName</td>
+                <td>
+                    <a asp-action="DeleteClass" asp-route-id="@classModel.Id" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this class?');">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No classes available for this school.</p>
+}

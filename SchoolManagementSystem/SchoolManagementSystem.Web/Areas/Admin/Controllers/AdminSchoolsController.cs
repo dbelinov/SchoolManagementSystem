@@ -114,4 +114,78 @@ public class AdminSchoolsController : Controller
         
         return RedirectToAction(nameof(SchoolsList));
     }
+
+    [HttpGet]
+    public async Task<IActionResult> ManageSchool(int id)
+    {
+        var school = _context.Schools
+            .FirstOrDefault(s => s.Id == id);
+
+        if (school == null)
+        {
+            return NotFound();
+        }
+        
+        ICollection<ClassViewModel> classes = await _context.Classes
+            .Where(c => c.SchoolId == id)
+            .Select(c => new ClassViewModel
+            {
+                Id = c.Id,
+                ClassName = c.Name,
+            })
+            .ToListAsync();
+
+        var model = new SchoolManageViewModel
+        {
+            Name = school.Name,
+            Address = school.Address,
+            LogoUrl = school.LogoUrl,
+            Description = school.Description,
+            Classes = classes,
+        };
+        
+        return View(model);
+    }
+
+    public async Task<IActionResult> ManageSchool(SchoolManageViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+        
+        var school = await _context.Schools
+            .FirstOrDefaultAsync(s => s.Id == model.Id);
+
+        if (school == null)
+        {
+            return NotFound();
+        }
+        
+        school.Name = model.Name;
+        school.Address = model.Address;
+        school.Description = model.Description;
+        school.LogoUrl = model.LogoUrl;
+        
+        _context.Schools.Update(school);
+        await _context.SaveChangesAsync();
+        
+        return RedirectToAction(nameof(SchoolsList));
+    }
+
+    public async Task<IActionResult> DeleteClass(int id, SchoolManageViewModel model)
+    {
+        var classEntity = await _context.Classes
+            .FirstOrDefaultAsync(c => c.Id == id);
+
+        if (classEntity == null)
+        {
+            return NotFound();
+        }
+        
+        _context.Classes.Remove(classEntity);
+        await _context.SaveChangesAsync();
+        
+        return View("ManageSchool", model);
+    }
 }
