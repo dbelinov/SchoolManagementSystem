@@ -174,5 +174,52 @@ namespace SchoolManagementSystem.Tests
             Assert.AreEqual(1, model.Schools.Count);
             Assert.AreEqual("Test School", model.Schools.First().Name);
         }
+
+        [Test]
+        public async Task CreateStudent_InvalidModelState_ReturnsViewResult_WithModel()
+        {
+            _controller.ModelState.AddModelError("Error", "Sample error");
+
+            var model = new StudentCreateViewModel { FirstName = "John", LastName = "Doe" };
+
+            var result = await _controller.CreateStudent(model) as ViewResult;
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(model, result.Model);
+        }
+        
+        [Test]
+        public async Task CreateStudent_ExistingUser_AssignsUserRole()
+        {
+            var school = new School { Name = "Test School", Address = "Test Address 12" };
+            var classEntity = new Class { Name = "Class 1", School = school };
+            var user = new ApplicationUser { FirstName = "John", MiddleName = "A", LastName = "Doe", IdNumber = "123" };
+
+            _context.Schools.Add(school);
+            _context.Classes.Add(classEntity);
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
+
+            var model = new StudentCreateViewModel
+            {
+                FirstName = "John",
+                MiddleName = "A",
+                LastName = "Doe",
+                IdNumber = "123",
+                ClassId = classEntity.Id
+            };
+
+            _userManagerMock.Setup(um => um.Users).Returns(_context.Users.AsQueryable());
+            _userServiceMock.Setup(us => us.AssignToStudentOrTeacherAsync(It.IsAny<ApplicationUser>())).ReturnsAsync(true);
+
+            var result = await _controller.CreateStudent(model) as RedirectToActionResult;
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("StudentsList", result.ActionName);
+            Assert.AreEqual(1, _context.Students.Count());
+            Assert.AreEqual("John", _context.Students.First().FirstName);
+
+            _userServiceMock.Verify(us => us.AssignToStudentOrTeacherAsync(user), Times.Once);
+        }
     }
 }
