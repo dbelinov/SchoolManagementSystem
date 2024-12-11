@@ -39,8 +39,11 @@
                 <td>
                     <a asp-action="ManageSchool" asp-route-id="@school.SchoolId" class="btn btn-primary">Manage</a>
                     <form asp-action="DeleteSchool" asp-route-id="@school.SchoolId" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this school?');">Delete</button>
                     </form>
+                    @Html.AntiForgeryToken()
                     <a asp-action="AddClass" asp-controller="AdminSchools" asp-route-schoolId="@school.SchoolId" class="btn btn-warning">Add Class</a>                
                 </td>
             </tr>

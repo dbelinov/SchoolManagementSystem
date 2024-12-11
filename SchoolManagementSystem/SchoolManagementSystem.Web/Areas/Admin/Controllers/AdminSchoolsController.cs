@@ -51,6 +51,7 @@ public class AdminSchoolsController : Controller
     }
     
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> DeleteSchool(int id)
     {
         var school = await _context.Schools
@@ -93,6 +94,7 @@ public class AdminSchoolsController : Controller
     }
     
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> AddClass(ClassAddViewModel model)
     {
         if (!ModelState.IsValid)
@@ -173,6 +175,7 @@ public class AdminSchoolsController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> DeleteClass(int id, SchoolManageViewModel model)
     {
         var classEntity = await _context.Classes
@@ -196,6 +199,7 @@ public class AdminSchoolsController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> CreateSchool(SchoolCreateViewModel model)
     {
         if (!ModelState.IsValid)

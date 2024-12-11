@@ -7,7 +7,9 @@
 <h2>Create New Class</h2>
 
 <form asp-action="AddClass" method="post">
-    <input asp-for="SchoolId" type="hidden" />
+    @Html.AntiForgeryToken()
+
+    <input asp-for="SchoolId" type="hidden"/>
 
     <div class="form-group">
         <label asp-for="Name" class="control-label">Class Name</label>
