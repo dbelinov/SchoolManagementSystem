@@ -7,7 +7,8 @@
 <h2>Manage Teacher Profile of @Model.FirstName @Model.MiddleName @Model.LastName</h2>
 
 <form asp-action="ManageTeacher" method="post">
-
+    @Html.AntiForgeryToken()
+    
     <div class="form-group mb-3">
         <label asp-for="FirstName" class="control-label">First Name</label>
         <input asp-for="FirstName" class="form-control" required />

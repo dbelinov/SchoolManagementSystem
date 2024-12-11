@@ -1,27 +1,29 @@
 @model TeacherCreateViewModel
 
 <form asp-action="CreateTeacher" method="post" id="createTeacherForm">
+    @Html.AntiForgeryToken()
+
     <div class="form-group mb-3">
         <label asp-for="FirstName" class="control-label">First Name</label>
-        <input asp-for="FirstName" class="form-control" />
+        <input asp-for="FirstName" class="form-control"/>
         <span class="text-danger" asp-validation-for="FirstName"></span>
     </div>
 
     <div class="form-group mb-3">
         <label asp-for="MiddleName" class="control-label">Middle Name</label>
-        <input asp-for="MiddleName" class="form-control" />
+        <input asp-for="MiddleName" class="form-control"/>
         <span class="text-danger" asp-validation-for="MiddleName"></span>
     </div>
 
     <div class="form-group mb-3">
         <label asp-for="LastName" class="control-label">Last Name</label>
-        <input asp-for="LastName" class="form-control" />
+        <input asp-for="LastName" class="form-control"/>
         <span class="text-danger" asp-validation-for="LastName"></span>
     </div>
 
     <div class="form-group mb-3">
         <label asp-for="IdNumber" class="control-label">Identificator</label>
-        <input asp-for="IdNumber" class="form-control" />
+        <input asp-for="IdNumber" class="form-control"/>
         <span class="text-danger" asp-validation-for="IdNumber"></span>
     </div>
 
@@ -46,7 +48,7 @@
     <!-- Text Field for Classes -->
     <div class="form-group mb-3">
         <label for="Classes">Class IDs (Comma Separated)</label>
-        <input type="text" class="form-control" id="Classes" name="Classes" placeholder="Enter Class IDs separated by commas" />
+        <input type="text" class="form-control" id="Classes" name="Classes" placeholder="Enter Class IDs separated by commas"/>
         <span class="text-danger" asp-validation-for="Classes"></span>
     </div>
 

@@ -63,6 +63,7 @@ public class AdminTeachersController : Controller
     }
     
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> DeleteTeacher(Guid id)
     {
         var teacher = await _context.Teachers
@@ -88,6 +89,7 @@ public class AdminTeachersController : Controller
     }
     
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> GenerateValidationKey(Guid id)
     {
         var teacher = await _context.Teachers
@@ -138,6 +140,7 @@ public class AdminTeachersController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> ManageTeacher(Guid id, TeacherManageViewModel model)
     {
         if (!ModelState.IsValid)
@@ -181,6 +184,7 @@ public class AdminTeachersController : Controller
     }
 
     [HttpPost]
+    [AutoValidateAntiforgeryToken]
     public async Task<IActionResult> CreateTeacher(TeacherCreateViewModel model)
     {
         if (!ModelState.IsValid)
