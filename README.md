@@ -14,3 +14,8 @@ A web application designed to make interactions between teachers and students ea
 * **APIs**: OpenCage Geocoding API
 * **Testing**: NUnit, Moq
 * **IDEs**: JetBrains Rider, JetBrains WebStorm
+
+### Admin User Credentials
+
+* **E-mail**: admin@scholario.com
+* **Password**: Admin123!
