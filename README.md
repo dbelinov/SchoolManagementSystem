@@ -4,7 +4,7 @@ A simple web app for all your educational needs!
 
 ## Description
 
-A web application designed to make interactions between teachers and students easier. To accomplish this, it automates key administrative and educational activities and projects. Students and teachers have separate profiles with access to the activities in which they participate. The interface is intuitive and optimized.
+A web application designed to streamline interactions between teachers and students. The system automates essential administrative tasks like grade calculations, making educational processes more efficient. Each user has an individual profile: students can sign up for projects, check their grades, and view their average grade across all subjects, while teachers can manage grades and monitor performance across their classes with an integrated scoreboard. The system supports multiple schools, ensuring scalability for larger institutions. Secure login with 2-step verification and role-based access control ensure users access only the features relevant to their role. Non-users can explore schools, view their details, and see their locations on an integrated map. The interface is intuitive, optimized for performance, and offers both light and dark mode for user preference.
 
 ### Technologies Used
 
@@ -14,3 +14,8 @@ A web application designed to make interactions between teachers and students ea
 * **APIs**: OpenCage Geocoding API
 * **Testing**: NUnit, Moq
 * **IDEs**: JetBrains Rider, JetBrains WebStorm
+
+### Admin User Credentials
+
+* **E-mail**: admin@scholario.com
+* **Password**: Admin123!
