@@ -148,7 +148,7 @@ namespace SchoolManagementSystem.Tests
         }
 
         [Test]
-        public async Task ManageProject_Post_UpdatesProject_RedirectsToProjectsList()
+        public async Task ManageProject_Post_UpdatesProject_RedirectsToSchoolsList()
         {
             var school = new School { Name = "Test School" , Address = "Test Address 2" };
             var project = new Project { Name = "Test Project", Capacity = 30 };
