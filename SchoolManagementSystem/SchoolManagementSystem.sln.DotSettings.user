@@ -28,13 +28,13 @@
     &lt;TestId&gt;NUnit3x::B76CE0B2-A182-4178-9A4C-B96E974AF4B0::net8.0::SchoolManagementSystem.Tests.AdminProjectsControllerTests.ManageProject_Post_UpdatesProject_RedirectsToSchoolsList&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=87e7f5eb_002D1c5d_002D416d_002Db637_002D9d73b860f727/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=87e7f5eb_002D1c5d_002D416d_002Db637_002D9d73b860f727/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9feb9fd9_002Debd2_002D4446_002Dab08_002Da949cf02c67a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProject_AddsSchoolProject_RedirectsToProjectsList" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc11f031_002D81fa_002D4949_002D9f20_002Dc56acdaa73ee/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc11f031_002D81fa_002D4949_002D9f20_002Dc56acdaa73ee/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d7ad72d7_002Df5fb_002D4b80_002Da713_002Da902923be670/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;

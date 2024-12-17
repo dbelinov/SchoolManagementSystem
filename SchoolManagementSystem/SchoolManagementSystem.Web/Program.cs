@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models.IdentityModels;
+using SchoolManagementSystem.Data.Seeding;
 using SchoolManagementSystem.Services;
 using SchoolManagementSystem.Services.Contracts;
 using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
@@ -9,10 +10,16 @@ using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
-                       throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("AzureConnection") ??
+                       throw new InvalidOperationException("Connection string 'AzureConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString, sqlOptions =>
+    {
+        sqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(20),
+            errorNumbersToAdd: null);
+    }));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -37,6 +44,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AzureConnection")));
+
 builder.Services.AddScoped<ISchoolService, SchoolService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IVerificationService, VerificationService>();
@@ -44,6 +53,24 @@ builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    try
+    {
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        context.Database.Migrate(); // Apply any pending migrations
+        var seeder = new Seeder();
+        seeder.SeedData(context);
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred seeding the DB.");
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -25,12 +25,4 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<TeacherClass> TeachersClasses { get; set; }
     public DbSet<Timetable> Timetables { get; set; }
-    
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
-        base.OnModelCreating(builder);
-        
-        ISeeder seeder = new Seeder();
-        seeder.SeedData(builder).Wait();
-    }
 }
