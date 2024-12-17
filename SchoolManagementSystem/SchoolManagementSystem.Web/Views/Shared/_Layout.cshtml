@@ -24,8 +24,8 @@
                 <div class="navbar-header">
                     <!-- App Icon and Title Group -->
                     <div class="logo-title-group">
-                        <img src="~/scholario_icon.png" alt="App Icon" style="height: 40px; width: auto; margin-right: 10px;">
-                        <a class="navbar-brand">
+                        <a class="navbar-brand" href="/">
+                            <img src="~/scholario_icon.png" alt="App Icon" style="height: 40px; width: auto; margin-right: 10px;">
                             Scholario
                         </a>
                     </div>
@@ -156,22 +156,3 @@
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
-<style>
-    .logo-title-group {
-        display: flex;
-        align-items: center;
-    }
-
-    .separator {
-        border-left: 2px solid #000; /* Adjust color and thickness of the line */
-        height: 40px; /* Adjust the height to match the logo and title */
-        margin-left: 20px; /* Add space between the logo/title and the separator */
-        margin-right: 20px; /* Add space between the separator and the rest of the nav items */
-    }
-
-    .navbar-nav {
-        display: flex;
-        align-items: center;
-    }
-</style>
