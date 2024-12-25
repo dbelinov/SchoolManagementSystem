@@ -1,6 +1,6 @@
 # Scholario
 
-A simple web app for all your educational needs!
+A simple web app for all your educational needs! Deployed [here](https://scholario.azurewebsites.net/)
 
 ## Description
 
