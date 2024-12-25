@@ -220,4 +220,54 @@ public class AdminProjectsController : Controller
         
         return RedirectToAction(nameof(ProjectsList), new { schoolId });
     }
+    
+    [HttpPost]
+    [AutoValidateAntiforgeryToken]
+    public async Task<IActionResult> LeaveProject(int schoolId, int projectId)
+    {
+        var project = await _context.Projects
+            .FirstOrDefaultAsync(s => s.Id == projectId);
+        
+        var school = await _context.Schools
+            .Include(school => school.Classes)
+            .ThenInclude(@class => @class.Students)
+            .ThenInclude(student => student.StudentsProjects)
+            .FirstOrDefaultAsync(s => s.Id == schoolId);
+
+        if (project == null || school == null)
+        {
+            return BadRequest();
+        }
+        
+        var schoolProject = await _context.SchoolsProjects
+            .FirstOrDefaultAsync(sp => sp.SchoolId == schoolId && sp.ProjectId == projectId);
+
+        if (schoolProject == null)
+        {
+            return BadRequest();
+        }
+        
+        var studentsInProject = school.Classes
+            .SelectMany(c => c.Students)
+            .Where(s => s.StudentsProjects.Any(sp => sp.ProjectId == projectId))
+            .ToList();
+
+        foreach (var student in studentsInProject)
+        {
+            var studentProject = _context.StudentsProjects
+                .FirstOrDefault(sp => sp.StudentId == student.Id && sp.ProjectId == projectId);
+
+            if (studentProject == null)
+            {
+                return BadRequest();
+            }
+
+            student.StudentsProjects.Remove(studentProject);
+        }
+
+        _context.SchoolsProjects.Remove(schoolProject);
+        await _context.SaveChangesAsync();
+        
+        return RedirectToAction(nameof(ProjectsList), new { schoolId });
+    }
 }

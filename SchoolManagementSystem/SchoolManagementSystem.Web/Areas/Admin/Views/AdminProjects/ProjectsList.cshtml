@@ -46,6 +46,10 @@
                         @Html.AntiForgeryToken()
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this project?');">Delete</button>
                     </form>
+                    <form asp-action="LeaveProject" asp-route-projectId="@project.Id" asp-route-schoolId="@schoolId" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-warning" onclick="return confirm('Are you sure you want to leave this project?');">Leave</button>
+                    </form>
                 </td>
             </tr>
         }
