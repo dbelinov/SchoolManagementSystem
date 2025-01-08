@@ -13,7 +13,7 @@ A web application designed to streamline interactions between teachers and stude
 * **Database**: SQL Server
 * **APIs**: OpenCage Geocoding API
 * **Testing**: NUnit, Moq
-* **IDEs**: JetBrains Rider, JetBrains WebStorm
+* **IDEs**: JetBrains Rider, JetBrains DataGrip
 
 ### Admin User Credentials
 
