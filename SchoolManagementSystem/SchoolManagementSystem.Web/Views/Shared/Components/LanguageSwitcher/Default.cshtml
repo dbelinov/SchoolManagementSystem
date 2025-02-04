@@ -1,0 +1,9 @@
+@model string
+<form id="languageForm" asp-controller="Home" asp-action="SetLanguage" method="post" class="d-inline">
+    <div class="input-group" style="background-color: transparent; border: none;">
+        <select name="culture" class="form-select" style="background-color: transparent; border: none;" onchange="this.form.submit();">
+            <option value="en" selected="@(Model == "en" ? "selected" : null)">English</option>
+            <option value="bg" selected="@(Model == "bg" ? "selected" : null)">Български</option>
+        </select>
+    </div>
+</form>

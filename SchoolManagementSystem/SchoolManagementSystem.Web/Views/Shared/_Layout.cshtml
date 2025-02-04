@@ -141,6 +141,12 @@
                     }
                 </ul>
                 <partial name="_LoginPartial"/>
+
+                <div class="vr mx-2"></div> <!-- Vertical separator -->
+
+                <div class="language-switcher">          
+                    @await Component.InvokeAsync("LanguageSwitcher")
+                </div>
             </div>
         </div>
     </nav>

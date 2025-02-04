@@ -1,5 +1,9 @@
+using System.Globalization;
+using System.Runtime.InteropServices;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using SchoolManagementSystem.Data;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Data.Seeding;
@@ -41,7 +45,22 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(
     .AddDefaultUI()
     .AddDefaultTokenProviders();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.Configure<RequestLocalizationOptions>(options => 
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo("en"),
+        new CultureInfo("bg")
+    };
+    options.DefaultRequestCulture = new RequestCulture("bg");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization();
 builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AzureConnection")));
@@ -84,6 +103,9 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+var localisationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
+app.UseRequestLocalization(localisationOptions);
 
 app.UseStatusCodePagesWithReExecute("/Home/Error404", "?statusCode={0}");
 app.UseStatusCodePagesWithReExecute("/Home/Error400", "?statusCode={0}");

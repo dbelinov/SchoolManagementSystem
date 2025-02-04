@@ -1,4 +1,5 @@
-﻿@{
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@{
     ViewData["Title"] = "Welcome to Scholario";
 }
 
@@ -6,14 +7,14 @@
     <!-- Logo Image -->
     <img src="~/scholario_logo.png" alt="Scholario Logo" class="img-fluid mb-4" style="max-width: 200px;">
 
-    <h1>Welcome to Scholario!</h1>
-    <h3>Your Personal School Assistant!</h3>
+    <h1>@Localizer["WelcomeMessage"]</h1>
+    <h3>@Localizer["DetailsInfo1"]</h3>
     <p class="lead mb-4">
-        Explore our schools, manage accounts, and access exclusive tools for teachers and students.
+        @Localizer["DetailsInfo2"]
     </p>
 
     <p class="mb-4">
-        To unlock personalized features, please
+        @Localizer["Personalisation"]
         <a href="Identity/Account/Login" class="btn btn-warning btn-lg mx-2">Log In</a>
         or
         <a href="/User/Register" class="btn btn-success btn-lg mx-2">Register</a>

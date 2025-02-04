@@ -43,4 +43,28 @@
       <AdditionalFiles Include="Areas\Admin\Views\Admin\Dashboard.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Views.Home.Index.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Home.Index.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.Home.Index.bg.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Home.Index.bg.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Resources\Views.Home.Index.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Home.Index.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.Home.Index.bg.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Home.Index.bg.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
