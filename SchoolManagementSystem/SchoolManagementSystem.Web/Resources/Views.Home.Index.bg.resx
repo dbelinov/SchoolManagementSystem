@@ -34,4 +34,16 @@
     <data name="Personalisation" xml:space="preserve">
       <value>За да отключите персонализирани функции, моля</value>
     </data>
+    <data name="Login" xml:space="preserve">
+        <value>влезте</value>
+    </data>
+    <data name="Register" xml:space="preserve">
+        <value>се регистрирайте</value>
+    </data>
+    <data name="Schools" xml:space="preserve">
+        <value>Вижте училища</value>
+    </data>
+    <data name="Or" xml:space="preserve">
+        <value>или</value>
+    </data>
 </root>

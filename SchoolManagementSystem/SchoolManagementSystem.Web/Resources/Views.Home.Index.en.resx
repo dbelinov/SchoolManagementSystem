@@ -33,4 +33,16 @@
     <data name="Personalisation" xml:space="preserve">
       <value>To unlock personalized features, please</value>
     </data>
+    <data name="Login" xml:space="preserve">
+        <value>Log In</value>
+    </data>
+    <data name="Register" xml:space="preserve">
+        <value>Register</value>
+    </data>
+    <data name="Schools" xml:space="preserve">
+        <value>View Schools</value>
+    </data>
+    <data name="Or" xml:space="preserve">
+        <value>or</value>
+    </data>
 </root>

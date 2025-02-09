@@ -68,5 +68,29 @@ namespace SchoolManagementSystem.Web.Resources {
                 return ResourceManager.GetString("Personalisation", resourceCulture);
             }
         }
+        
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        internal static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        internal static string Schools {
+            get {
+                return ResourceManager.GetString("Schools", resourceCulture);
+            }
+        }
+        
+        internal static string Or {
+            get {
+                return ResourceManager.GetString("Or", resourceCulture);
+            }
+        }
     }
 }
