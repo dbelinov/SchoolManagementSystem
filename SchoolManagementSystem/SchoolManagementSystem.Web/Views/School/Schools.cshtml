@@ -1,15 +1,16 @@
 @model X.PagedList.IPagedList<SchoolViewModel>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Schools";
 }
 
-<h2>Available Schools</h2>
+<h2>@Localizer["AvailableSchools"]</h2>
 
 <div class="my-4">
     <form asp-action="Search" method="get" class="d-flex">
-        <input type="text" name="query" class="form-control me-2" placeholder="Search for schools..." value="@Context.Request.Query["query"]" />
-        <button type="submit" class="btn btn-outline-primary">Search</button>
+        <input type="text" name="query" class="form-control me-2" placeholder="@Localizer["Search"]" value="@Context.Request.Query["query"]" />
+        <button type="submit" class="btn btn-outline-primary">@Localizer["SearchButton"]</button>
     </form>
 </div>
 
@@ -29,7 +30,7 @@
                         <p class="card-text flex-grow-1">@school.Description</p>
                     </div>
                     <div class="card-footer">
-                        <a asp-controller="School" asp-action="Details" asp-route-id="@school.Id" class="btn btn-primary w-100">View Details</a>
+                        <a asp-controller="School" asp-action="Details" asp-route-id="@school.Id" class="btn btn-primary w-100">@Localizer["Details"]</a>
                     </div>
                 </div>
             </div>
