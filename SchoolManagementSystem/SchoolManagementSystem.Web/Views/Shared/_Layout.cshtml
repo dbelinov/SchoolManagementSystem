@@ -3,6 +3,7 @@
 @using SchoolManagementSystem.Data.Models
 @using SchoolManagementSystem.Data.Models.IdentityModels
 @inject UserManager<ApplicationUser> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,12 +42,12 @@
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-                                <i class="bi bi-house-door"></i> Home
+                                <i class="bi bi-house-door"></i> @Localizer["Home"]
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/School/Schools">
-                                <i class="bi bi-mortarboard"></i> Schools
+                                <i class="bi bi-mortarboard"></i> @Localizer["Schools"]
                             </a>
                         </li>
                     }
