@@ -68,6 +68,14 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Views.Student.Dashboard.en.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.Student.Grades.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Views.Student.Grades.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.Student.Projects.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Views.Student.Projects.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -100,6 +108,16 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Views.Student.Dashboard.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.Student.Grades.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Student.Grades.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.Student.Projects.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Student.Projects.en.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

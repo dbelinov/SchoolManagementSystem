@@ -1,10 +1,11 @@
 @model IEnumerable<StudentGradesViewModel>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Grades";
 }
 
-<h2 class="text-center my-4">Grades</h2>
+<h2 class="text-center my-4">@Localizer["Grades"]</h2>
 
 @if (Model.Any())
 {
@@ -12,8 +13,8 @@
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
             <tr>
-                <th scope="col" class="subject-header">Subject</th>
-                <th scope="col">Grades</th>
+                <th scope="col" class="subject-header">@Localizer["Subject"]</th>
+                <th scope="col">@Localizer["Grades"]</th>
             </tr>
             </thead>
             <tbody>
@@ -38,7 +39,7 @@
 else
 {
     <div class="alert alert-warning text-center">
-        No grades available for this student.
+        @Localizer["NoGrades"]
     </div>
 }
 
@@ -48,7 +49,7 @@ else
         font-size: 1.2rem;
         text-align: center;
         background-color: #343a40; /* Dark header background */
-        color: #fff; /* White text */
+        color: #212529; /* White text */
     }
 
     /* Custom Styles for Subject Cell */
@@ -84,7 +85,7 @@ else
 
     .grade-4 {
         background-color: #ffc107; /* Bootstrap's yellow */
-        color: black;
+        color: white;
     }
 
     .grade-3 {

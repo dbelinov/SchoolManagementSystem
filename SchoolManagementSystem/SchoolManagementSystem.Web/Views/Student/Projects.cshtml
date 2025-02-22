@@ -1,10 +1,11 @@
 @model SchoolManagementSystem.Web.ViewModels.StudentProjectsViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Projects";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1>@Localizer["Projects"]</h1>
 
 <div class="container mt-4">
     <div class="row">
@@ -12,7 +13,7 @@
         <div class="col-md-6 d-flex flex-column">
             <div class="card h-100">
                 <div class="card-body">
-                    <h2 class="card-title">All Projects in Your School</h2>
+                    <h2 class="card-title">@Localizer["AllProjects"]</h2>
                     @if (Model.AllProjects.Any())
                     {
                         <ul class="list-group">
@@ -23,13 +24,13 @@
 
                                     @if (Model.UserProjects.Any(up => up.Id == project.Id))
                                     {
-                                        <span class="badge bg-success">Joined</span>
+                                        <span class="badge bg-success">@Localizer["Joined"]</span>
                                     }
                                     else
                                     {
                                         <form method="post" asp-action="JoinProject" asp-route-projectId="@project.Id">
                                             @Html.AntiForgeryToken()
-                                            <button type="submit" class="btn btn-primary btn-sm">Join</button>
+                                            <button type="submit" class="btn btn-primary btn-sm">@Localizer["Join"]</button>
                                         </form>
                                     }
                                 </li>
@@ -38,7 +39,7 @@
                     }
                     else
                     {
-                        <p>No projects available in your school.</p>
+                        <p>@Localizer["NoProjects"]</p>
                     }
                 </div>
             </div>
@@ -48,7 +49,7 @@
         <div class="col-md-6 d-flex flex-column">
             <div class="card h-100">
                 <div class="card-body">
-                    <h2 class="card-title">Your Joined Projects</h2>
+                    <h2 class="card-title">@Localizer["YourProjects"]</h2>
                     @if (Model.UserProjects.Any())
                     {
                         <ul class="list-group">
@@ -58,7 +59,7 @@
                                     <strong>@project.Name</strong>
                                     <form method="post" asp-action="LeaveProject" asp-route-projectId="@project.Id">
                                         @Html.AntiForgeryToken()
-                                        <button type="submit" class="btn btn-danger btn-sm">Leave</button>
+                                        <button type="submit" class="btn btn-danger btn-sm">@Localizer["Leave"]</button>
                                     </form>
                                 </li>
                             }
@@ -66,7 +67,7 @@
                     }
                     else
                     {
-                        <p>You haven't joined any projects yet.</p>
+                        <p>@Localizer["NoPersonalProjects"]</p>
                     }
                 </div>
             </div>

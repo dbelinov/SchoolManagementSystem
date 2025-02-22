@@ -1,4 +1,5 @@
 @model StudentDashboardViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Student Dashboard";
@@ -8,14 +9,14 @@
     <div class="row w-100">
         <main class="col-md-8 mx-auto">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2 text-center">Dashboard</h1>
+                <h1 class="h2 text-center">@Localizer["Dashboard"]</h1>
             </div>
 
             <div class="row text-center">
                 <div class="col-md-4">
                     <div class="card text-white bg-primary mb-3">
                         <div class="card-body">
-                            <h5 class="card-title">Average Grade</h5>
+                            <h5 class="card-title">@Localizer["AverageGrade"]</h5>
                             <p class="card-text display-4">@Model.AverageGrade</p>
                         </div>
                     </div>
@@ -24,7 +25,7 @@
                 <div class="col-md-4">
                     <div class="card text-white bg-success mb-3">
                         <div class="card-body">
-                            <h5 class="card-title">Total Grade Count</h5>
+                            <h5 class="card-title">@Localizer["GradeCount"]</h5>
                             <p class="card-text display-4">@Model.GradesCount</p>
                         </div>
                     </div>
@@ -33,7 +34,7 @@
                 <div class="col-md-4">
                     <div class="card text-white bg-warning mb-3">
                         <div class="card-body">
-                            <h5 class="card-title">Project Count</h5>
+                            <h5 class="card-title">@Localizer["ProjectCount"]</h5>
                             <p class="card-text display-4">@Model.ProjectsCount</p>
                         </div>
                     </div>
