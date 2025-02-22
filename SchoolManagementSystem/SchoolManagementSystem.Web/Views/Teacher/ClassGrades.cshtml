@@ -1,10 +1,11 @@
 @model IEnumerable<TeacherGradesViewModel>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Class Overview";
 }
 
-<h2 class="text-center my-4">All Grades</h2>
+<h2 class="text-center my-4">@Localizer["Title"]</h2>
 
 @if (Model.Any())
 {
@@ -12,9 +13,9 @@
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Student Name</th>
-                <th scope="col">Grades</th>
-                <th scope="col">Add Grade</th>
+                <th scope="col">@Localizer["StudentName"]</th>
+                <th scope="col">@Localizer["Grades"]</th>
+                <th scope="col">@Localizer["AddGrade"]</th>
             </tr>
             </thead>
             <tbody>
@@ -33,7 +34,7 @@
                                     <button
                                         type="submit"
                                         class="badge grade-badge grade-@grade.GradeValue"
-                                        title="Click to delete grade">
+                                        title="@Localizer["DeleteGrade"]">
                                         @grade.GradeValue
                                     </button>
                                 </form>
@@ -67,7 +68,7 @@
 else
 {
     <div class="alert alert-warning text-center">
-        No grades available for any students.
+        @Localizer["NoStudents"]
     </div>
 }
 

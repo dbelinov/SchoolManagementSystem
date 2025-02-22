@@ -84,6 +84,22 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Areas.Identity.Pages.Account.Register.en.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.Teacher.Dashboard.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Views.Teacher.Dashboard.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.Teacher.GradesDashboard.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Views.Teacher.GradesDashboard.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.Teacher.ClassGrades.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Views.Teacher.ClassGrades.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.Teacher.Scoreboard.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Views.Teacher.Scoreboard.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -136,6 +152,26 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Views.User.Register.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.Teacher.Dashboard.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Teacher.Dashboard.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.Teacher.GradesDashboard.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Teacher.GradesDashboard.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.Teacher.ClassGrades.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Teacher.ClassGrades.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.Teacher.Scoreboard.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Teacher.Scoreboard.en.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

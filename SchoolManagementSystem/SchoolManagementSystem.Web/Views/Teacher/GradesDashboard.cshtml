@@ -1,10 +1,11 @@
 @model TeacherClassesViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Grades";
 }
 
-<h1>Classes for @Model.TeacherName</h1>
+<h1>@Localizer["Title"] @Model.TeacherName</h1>
 
 @if (Model.Classes.Any())
 {
@@ -22,5 +23,5 @@
 }
 else
 {
-    <p>No classes found for this teacher.</p>
+    <p>@Localizer["NoClasses"]</p>
 }
