@@ -56,5 +56,41 @@ namespace SchoolManagementSystem.Web.Resources {
                 return ResourceManager.GetString("Schools", resourceCulture);
             }
         }
+        
+        internal static string Dashboard {
+            get {
+                return ResourceManager.GetString("Dashboard", resourceCulture);
+            }
+        }
+        
+        internal static string Grades {
+            get {
+                return ResourceManager.GetString("Grades", resourceCulture);
+            }
+        }
+        
+        internal static string Projects {
+            get {
+                return ResourceManager.GetString("Projects", resourceCulture);
+            }
+        }
+        
+        internal static string Scoreboard {
+            get {
+                return ResourceManager.GetString("Scoreboard", resourceCulture);
+            }
+        }
+        
+        internal static string Students {
+            get {
+                return ResourceManager.GetString("Students", resourceCulture);
+            }
+        }
+        
+        internal static string Teachers {
+            get {
+                return ResourceManager.GetString("Teachers", resourceCulture);
+            }
+        }
     }
 }

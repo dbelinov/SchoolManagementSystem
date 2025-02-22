@@ -64,6 +64,10 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Views.Shared._LoginPartial.bg.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.Student.Dashboard.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Views.Student.Dashboard.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -91,6 +95,11 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Views.Shared._LoginPartial.bg.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.Student.Dashboard.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Student.Dashboard.en.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

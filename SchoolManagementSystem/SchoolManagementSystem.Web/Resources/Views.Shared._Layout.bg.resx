@@ -24,4 +24,22 @@
     <data name="Schools" xml:space="preserve">
         <value>Училища</value>
     </data>
+    <data name="Dashboard" xml:space="preserve">
+        <value>Начало</value>
+    </data>
+    <data name="Grades" xml:space="preserve">
+        <value>Оценки</value>
+    </data>
+    <data name="Projects" xml:space="preserve">
+        <value>Проекти</value>
+    </data>
+    <data name="Scoreboard" xml:space="preserve">
+        <value>Резултати</value>
+    </data>
+    <data name="Students" xml:space="preserve">
+        <value>Ученици</value>
+    </data>
+    <data name="Teachers" xml:space="preserve">
+        <value>Учители</value>
+    </data>
 </root>

@@ -17,4 +17,22 @@
     <data name="Schools" xml:space="preserve">
         <value>Schools</value>
     </data>
+    <data name="Dashboard" xml:space="preserve">
+        <value>Dashboard</value>
+    </data>
+    <data name="Grades" xml:space="preserve">
+        <value>Grades</value>
+    </data>
+    <data name="Projects" xml:space="preserve">
+        <value>Projects</value>
+    </data>
+    <data name="Scoreboard" xml:space="preserve">
+        <value>Scoreboard</value>
+    </data>
+    <data name="Students" xml:space="preserve">
+        <value>Students</value>
+    </data>
+    <data name="Teachers" xml:space="preserve">
+        <value>Teachers</value>
+    </data>
 </root>
