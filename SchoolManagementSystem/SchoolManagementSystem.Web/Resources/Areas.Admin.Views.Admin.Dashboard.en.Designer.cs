@@ -14,21 +14,21 @@ namespace SchoolManagementSystem.Web.Resources {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Views_Shared__Layout_bg {
+    internal class Areas_Admin_Views_Admin_Dashboard_en {
         
         private static System.Resources.ResourceManager resourceMan;
         
         private static System.Globalization.CultureInfo resourceCulture;
         
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Views_Shared__Layout_bg() {
+        internal Areas_Admin_Views_Admin_Dashboard_en() {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("SchoolManagementSystem.Web.Resources.Views_Shared__Layout_bg", typeof(Views_Shared__Layout_bg).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("SchoolManagementSystem.Web.Resources.Areas_Admin_Views_Admin_Dashboard_en", typeof(Areas_Admin_Views_Admin_Dashboard_en).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -45,57 +45,69 @@ namespace SchoolManagementSystem.Web.Resources {
             }
         }
         
-        internal static string Home {
+        internal static string Title {
             get {
-                return ResourceManager.GetString("Home", resourceCulture);
+                return ResourceManager.GetString("Title", resourceCulture);
             }
         }
         
-        internal static string Schools {
+        internal static string ManageStudents {
             get {
-                return ResourceManager.GetString("Schools", resourceCulture);
+                return ResourceManager.GetString("ManageStudents", resourceCulture);
             }
         }
         
-        internal static string Dashboard {
+        internal static string ManageStudentsText {
             get {
-                return ResourceManager.GetString("Dashboard", resourceCulture);
+                return ResourceManager.GetString("ManageStudentsText", resourceCulture);
             }
         }
         
-        internal static string Grades {
+        internal static string ManageTeachers {
             get {
-                return ResourceManager.GetString("Grades", resourceCulture);
+                return ResourceManager.GetString("ManageTeachers", resourceCulture);
             }
         }
         
-        internal static string Projects {
+        internal static string ManageTeachersText {
             get {
-                return ResourceManager.GetString("Projects", resourceCulture);
+                return ResourceManager.GetString("ManageTeachersText", resourceCulture);
             }
         }
         
-        internal static string Scoreboard {
+        internal static string ManageSchools {
             get {
-                return ResourceManager.GetString("Scoreboard", resourceCulture);
+                return ResourceManager.GetString("ManageSchools", resourceCulture);
             }
         }
         
-        internal static string Students {
+        internal static string ManageSchoolsText {
             get {
-                return ResourceManager.GetString("Students", resourceCulture);
+                return ResourceManager.GetString("ManageSchoolsText", resourceCulture);
             }
         }
         
-        internal static string Teachers {
+        internal static string ManageProjects {
             get {
-                return ResourceManager.GetString("Teachers", resourceCulture);
+                return ResourceManager.GetString("ManageProjects", resourceCulture);
             }
         }
         
-        internal static string Scholario {
+        internal static string ManageProjectsText {
             get {
-                return ResourceManager.GetString("Scholario", resourceCulture);
+                return ResourceManager.GetString("ManageProjectsText", resourceCulture);
+            }
+        }
+        
+        internal static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        internal static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

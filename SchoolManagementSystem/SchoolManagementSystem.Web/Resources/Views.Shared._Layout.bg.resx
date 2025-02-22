@@ -42,4 +42,7 @@
     <data name="Teachers" xml:space="preserve">
         <value>Учители</value>
     </data>
+    <data name="Scholario" xml:space="preserve">
+        <value>Сколарио</value>
+    </data>
 </root>

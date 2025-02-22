@@ -42,6 +42,7 @@
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Miscellaneous_0020Files_002FCekozab/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Miscellaneous_0020Files_002FCekozab/@EntryIndexRemoved">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdmin_002EDashboard/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EIdentity_002EPages_002EAccount_002ELogin/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EIdentity_002EPages_002EAccount_002ERegister/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EIdentity_002EPages_002EAccount_002ERegister/@EntryIndexRemoved">True</s:Boolean>
@@ -55,7 +56,7 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FHome_002FViews_002EHome_002EIndex/@EntryIndexRemoved">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002EHome_002EIndex/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002ESchool_002ESchools/@EntryIndexedValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002EShared_002E_005FLayout/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002EShared_002E_005FLayout/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002EShared_002E_005FLoginPartial/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002EStudent_002EDashboard/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002EStudent_002EGrades/@EntryIndexedValue">False</s:Boolean>
@@ -63,7 +64,7 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002ETeacher_002EClassGrades/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002ETeacher_002EDashboard/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002ETeacher_002EGradesDashboard/@EntryIndexedValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002ETeacher_002EScoreboard/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002ETeacher_002EScoreboard/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FViews_002EUser_002ERegister/@EntryIndexedValue">False</s:Boolean>
 	
 	
