@@ -80,6 +80,10 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Areas.Identity.Pages.Login.en.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.User.Register.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Identity.Pages.Account.Register.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -127,6 +131,11 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Areas.Identity.Pages.Account.Login.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.User.Register.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.User.Register.en.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

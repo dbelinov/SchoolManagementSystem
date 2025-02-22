@@ -1,11 +1,12 @@
 ﻿@model RegisterFormViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Register";
 }
 
-<h1 class="text-center">@ViewData["Title"]</h1>
-<h2 class="text-center">Create a new account.</h2>
+<h1 class="text-center">@Localizer["Register"]</h1>
+<h2 class="text-center">@Localizer["Title"]</h2>
 
 <div class="row">
     <div class="col-md-4 offset-md-1"></div>
@@ -19,22 +20,22 @@
             <div class="col-md-4 offset-md-1">
                 <div class="form-floating mb-3">
                     <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com"/>
-                    <label asp-for="Email">Email</label>
+                    <label asp-for="Email">@Localizer["Email"]</label>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
-                    <label asp-for="Password">Password</label>
+                    <label asp-for="Password">@Localizer["Password"]</label>
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
-                    <label asp-for="ConfirmPassword">Confirm Password</label>
+                    <label asp-for="ConfirmPassword">@Localizer["ConfirmPassword"]</label>
                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="IdNumber" class="form-control" autocomplete="id-number" aria-required="true" placeholder="0102031234"/>
-                    <label asp-for="IdNumber">Identification Number</label>
+                    <label asp-for="IdNumber">@Localizer["Id"]</label>
                     <span asp-validation-for="IdNumber" class="text-danger"></span>
                 </div>
             </div>
@@ -42,29 +43,29 @@
             <div class="col-md-4 offset-md-2">
                 <div class="form-floating mb-3">
                     <input asp-for="FirstName" class="form-control" autocomplete="first-name" aria-required="true" placeholder="Ivan"/>
-                    <label asp-for="FirstName">First Name</label>
+                    <label asp-for="FirstName">@Localizer["FirstName"]</label>
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="MiddleName" class="form-control" autocomplete="middle-name" aria-required="true" placeholder="Ivanov"/>
-                    <label asp-for="MiddleName">Middle Name</label>
+                    <label asp-for="MiddleName">@Localizer["MiddleName"]</label>
                     <span asp-validation-for="MiddleName" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="LastName" class="form-control" autocomplete="last-name" aria-required="true" placeholder="Ivanov"/>
-                    <label asp-for="LastName">Last Name</label>
+                    <label asp-for="LastName">@Localizer["LastName"]</label>
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="BirthDate" class="form-control" autocomplete="birth-date" aria-required="true" placeholder="01/01/1900"/>
-                    <label asp-for="BirthDate">Birth Date</label>
+                    <label asp-for="BirthDate">@Localizer["BirthDate"]</label>
                     <span asp-validation-for="BirthDate" class="text-danger"></span>
                 </div>
             </div>
         </div>
 
         <div class="d-flex justify-content-center mt-4">
-            <button id="register-submit" type="submit" class="btn btn-lg btn-primary w-25">Register</button>
+            <button id="register-submit" type="submit" class="btn btn-lg btn-primary w-25">@Localizer["Register"]</button>
         </div>
     </form>
 </div>
