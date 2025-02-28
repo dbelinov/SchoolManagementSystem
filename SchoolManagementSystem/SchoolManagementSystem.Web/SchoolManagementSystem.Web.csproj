@@ -104,6 +104,18 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Areas.Admin.Views.Admin.Dashboard.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminStudents.StudentsList.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminStudents.StudentsList.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminStudents.CreateStudent.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminStudents.CreateStudent.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminStudents.ManageStudent.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminStudents.ManageStudent.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -181,6 +193,21 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Areas.Admin.Views.Admin.Dashboard.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminStudents.StudentsList.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminStudents.StudentsList.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminStudents.CreateStudent.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminStudents.CreateStudent.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminStudents.ManageStudent.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminStudents.ManageStudent.en.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

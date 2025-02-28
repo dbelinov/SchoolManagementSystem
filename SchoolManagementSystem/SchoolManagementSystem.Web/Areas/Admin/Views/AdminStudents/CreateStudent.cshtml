@@ -1,42 +1,43 @@
 @model StudentCreateViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Create Student";
 }
 
-<h2 class="mb-4">@ViewData["Title"]</h2>
+<h2 class="mb-4">@Localizer["Title"]</h2>
 
 <form asp-action="CreateStudent" method="post">
     @Html.AntiForgeryToken()
 
     <div class="form-group mb-4">
-        <label asp-for="FirstName" class="control-label">First Name</label>
+        <label asp-for="FirstName" class="control-label">@Localizer["FirstName"]</label>
         <input asp-for="FirstName" class="form-control"/>
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-4">
-        <label asp-for="MiddleName" class="control-label">Middle Name</label>
+        <label asp-for="MiddleName" class="control-label">@Localizer["MiddleName"]</label>
         <input asp-for="MiddleName" class="form-control"/>
         <span asp-validation-for="MiddleName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-4">
-        <label asp-for="LastName" class="control-label">Last Name</label>
+        <label asp-for="LastName" class="control-label">@Localizer["LastName"]</label>
         <input asp-for="LastName" class="form-control"/>
         <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-4">
-        <label asp-for="IdNumber" class="control-label">Identificator</label>
+        <label asp-for="IdNumber" class="control-label">@Localizer["Id"]</label>
         <input asp-for="IdNumber" class="form-control"/>
         <span asp-validation-for="IdNumber" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-4">
-        <label asp-for="SchoolId" class="control-label">School</label>
+        <label asp-for="SchoolId" class="control-label">@Localizer["School"]</label>
         <select asp-for="SchoolId" class="form-control" id="schoolId">
-            <option value="">Select School</option>
+            <option value="">@Localizer["SelectSchool"]</option>
             @foreach (var school in Model.Schools)
             {
                 <option value="@school.SchoolId">@school.Name</option>
@@ -45,14 +46,14 @@
     </div>
 
     <div class="form-group mb-4">
-        <label asp-for="ClassId" class="control-label">Class</label>
+        <label asp-for="ClassId" class="control-label">@Localizer["Class"]</label>
         <select asp-for="ClassId" class="form-control" id="classId">
-            <option value="">Select Class</option>
+            <option value="">@Localizer["SelectClass"]</option>
         </select>
     </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
     </div>
 </form>
 
@@ -68,7 +69,7 @@
                         data: { schoolId: schoolId },
                         success: function(data) {
                             $('#classId').empty();
-                            $('#classId').append('<option value="">Select Class</option>');
+                            $('#classId').append('<option value="">@Localizer["SelectClass"]</option>');
                             $.each(data, function(index, classItem) {
                                 $('#classId').append('<option value="' + classItem.id + '">' + classItem.name + '</option>');
                             });
@@ -79,7 +80,7 @@
                     });
                 } else {
                     $('#classId').empty();
-                    $('#classId').append('<option value="">Select Class</option>');
+                    $('#classId').append('<option value="">@Localizer["SelectClass"]</option>');
                 }
             });
         });
