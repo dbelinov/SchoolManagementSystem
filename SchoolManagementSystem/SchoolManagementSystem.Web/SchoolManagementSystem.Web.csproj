@@ -128,6 +128,22 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Areas.Admin.Views.AdminTeacher.ManageTeacher.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminSchools.SchoolsList.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminSchools.SchoolsList.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminSchools.CreateSchool.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminSchools.CreateSchool.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminSchools.ManageSchool.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminSchools.ManageSchool.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminSchools.AddClass.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminSchools.AddClass.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -235,6 +251,26 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Areas.Admin.Views.AdminTeachers.ManageTeacher.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminSchools.SchoolsList.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminSchools.SchoolsList.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminSchools.CreateSchool.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminSchools.CreateSchool.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminSchools.ManageSchool.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminSchools.ManageSchool.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminSchools.AddClass.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminSchools.AddClass.en.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

@@ -1,10 +1,11 @@
 @model SchoolManagementSystem.Web.ViewModels.ClassAddViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Create New Class";
 }
 
-<h2>Create New Class</h2>
+<h2>@Localizer["Title"]</h2>
 
 <form asp-action="AddClass" method="post">
     @Html.AntiForgeryToken()
@@ -12,22 +13,22 @@
     <input asp-for="SchoolId" type="hidden"/>
 
     <div class="form-group">
-        <label asp-for="Name" class="control-label">Class Name</label>
-        <input asp-for="Name" class="form-control" placeholder="Enter class name"/>
+        <label asp-for="Name" class="control-label">@Localizer["ClassName"]</label>
+        <input asp-for="Name" class="form-control" placeholder="@Localizer["ClassNameText"]"/>
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Speciality" class="control-label">Speciality</label>
+        <label asp-for="Speciality" class="control-label">@Localizer["Speciality"]</label>
         <select asp-for="Speciality" class="form-control" asp-items="@(new SelectList(Model.Specialities))">
-            <option value="">-- Select a Speciality --</option>
+            <option value="">-- @Localizer["SelectSpeciality"] --</option>
         </select>
         <span asp-validation-for="Speciality" class="text-danger"></span>
     </div>
 
     <div class="form-group mt-3">
-        <button type="submit" class="btn btn-primary">Create</button>
-        <a asp-action="SchoolsList" class="btn btn-secondary">Back to List</a>
+        <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
+        <a asp-action="SchoolsList" class="btn btn-secondary">@Localizer["BackToList"]</a>
     </div>
 </form>
 

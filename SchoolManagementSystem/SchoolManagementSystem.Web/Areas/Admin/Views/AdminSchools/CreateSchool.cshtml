@@ -1,37 +1,38 @@
 @model SchoolCreateViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Create School";
 }
 
-<h2>Create School</h2>
+<h2>@Localizer["Title"]</h2>
 
 <form asp-action="CreateSchool" method="post">
     @Html.AntiForgeryToken()
 
     <div class="form-group mb-3">
-        <label asp-for="Name">School Name</label>
+        <label asp-for="Name">@Localizer["SchoolName"]</label>
         <input asp-for="Name" class="form-control"/>
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <label asp-for="Address">Address</label>
+        <label asp-for="Address">@Localizer["Address"]</label>
         <input asp-for="Address" class="form-control"/>
         <span asp-validation-for="Address" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <label asp-for="Description">Description</label>
+        <label asp-for="Description">@Localizer["Description"]</label>
         <textarea asp-for="Description" class="form-control"></textarea>
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <label asp-for="LogoUrl">Logo URL</label>
+        <label asp-for="LogoUrl">@Localizer["LogoUrl"]</label>
         <input asp-for="LogoUrl" class="form-control"/>
         <span asp-validation-for="LogoUrl" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Create School</button>
+    <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
 </form>
