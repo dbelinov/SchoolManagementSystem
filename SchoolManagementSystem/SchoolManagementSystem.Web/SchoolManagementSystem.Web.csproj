@@ -116,6 +116,18 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Areas.Admin.Views.AdminStudents.ManageStudent.en.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminTeachers.TeachersList.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Admin.Views.AdminTeachers.TeachersList.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminTeachers.CreateTeacher.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminTeachers.CreateTeacher.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminTeachers.ManageTeacher.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminTeacher.ManageTeacher.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -208,6 +220,21 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Areas.Admin.Views.AdminStudents.ManageStudent.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminTeachers.TeachersList.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminTeachers.TeachersList.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminTeachers.CreateTeacher.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminTeachers.CreateTeacher.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminTeachers.ManageTeacher.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminTeachers.ManageTeacher.en.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 
