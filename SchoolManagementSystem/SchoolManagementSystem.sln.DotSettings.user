@@ -44,7 +44,11 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Miscellaneous_0020Files_002FCekozab/@EntryIndexRemoved">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAdmin_002EViews_002EAdminTeachers_002ETeachersList/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAdmin_002EViews_002EAdminTeachers_002ETeachersList/@EntryIndexRemoved">True</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdminSchools_002EAddClass/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdminProjects_002ECreateProject/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdminProjects_002EManageProject/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdminProjects_002EProjectsList/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdminProjects_002ESchoolsList/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdminSchools_002EAddClass/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdminSchools_002ECreateSchool/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdminSchools_002EManageSchool/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=SchoolManagementSystem_002EWeb_002FResources_002FAreas_002EAdmin_002EViews_002EAdminSchools_002ESchoolsList/@EntryIndexedValue">False</s:Boolean>

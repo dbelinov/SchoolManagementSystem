@@ -144,6 +144,22 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Areas.Admin.Views.AdminSchools.AddClass.en.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminProjects.SchoolsList.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminProjects.SchoolsList.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminProjects.ProjectsList.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminProjects.ProjectsList.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminProjects.ManageProject.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminProjects.ManageProject.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Areas.Admin.Views.AdminProjects.CreateProject.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Areas.Admin.Views.AdminProjects.CreateProject.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -271,6 +287,26 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Areas.Admin.Views.AdminSchools.AddClass.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminProjects.SchoolsList.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminProjects.SchoolsList.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminProjects.ProjectsList.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminProjects.ProjectsList.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminProjects.ManageProject.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminProjects.ManageProject.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Areas.Admin.Views.AdminProjects.CreateProject.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Areas.Admin.Views.AdminProjects.CreateProject.en.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 

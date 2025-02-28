@@ -1,41 +1,42 @@
 @model SchoolManagementSystem.Web.ViewModels.ProjectManageViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Manage Project";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h2>@Localizer["Title"]</h2>
 
 <form asp-action="ManageProject" method="post">
     @Html.AntiForgeryToken()
     <input type="hidden" name="projectId" value="@Model.Id"/>
     <input type="hidden" name="schoolId" value="@Model.Id"/>
     <div class="form-group mb-3">
-        <label asp-for="Name" class="control-label"></label>
+        <label asp-for="Name" class="control-label">@Localizer["Name"]</label>
         <input asp-for="Name" class="form-control"/>
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <label asp-for="Capacity" class="control-label"></label>
+        <label asp-for="Capacity" class="control-label">@Localizer["Capacity"]</label>
         <input asp-for="Capacity" class="form-control" type="number"/>
         <span asp-validation-for="Capacity" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <label asp-for="StartDate" class="control-label"></label>
+        <label asp-for="StartDate" class="control-label">@Localizer["StartDate"]</label>
         <input asp-for="StartDate" class="form-control" type="date"/>
         <span asp-validation-for="StartDate" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <label asp-for="EndDate" class="control-label"></label>
+        <label asp-for="EndDate" class="control-label">@Localizer["EndDate"]</label>
         <input asp-for="EndDate" class="form-control" type="date"/>
         <span asp-validation-for="EndDate" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <button type="submit" class="btn btn-primary">Save Project</button>
+        <button type="submit" class="btn btn-primary">@Localizer["Save"]</button>
     </div>
 </form>
 

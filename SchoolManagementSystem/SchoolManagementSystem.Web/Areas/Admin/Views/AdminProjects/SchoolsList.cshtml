@@ -1,17 +1,18 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model X.PagedList.IPagedList<SchoolsAdminViewModel>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "All Schools - Project";
 }
 
-<h1>Schools</h1>
+<h1>@Localizer["Title"]</h1>
 
 <!-- Search Form -->
 <form method="get" class="mb-3">
     <div class="input-group">
-        <input type="text" class="form-control" name="searchTerm" value="@Context.Request.Query["searchTerm"]" placeholder="Search by name or address" />
-        <button class="btn btn-primary" type="submit">Search</button>
+        <input type="text" class="form-control" name="searchTerm" value="@Context.Request.Query["searchTerm"]" placeholder="@Localizer["SearchSchool"]" />
+        <button class="btn btn-primary" type="submit">@Localizer["Search"]</button>
     </div>
 </form>
 
@@ -19,10 +20,10 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Number of Classes</th>
-        <th>Action</th>
+        <th>@Localizer["Name"]</th>
+        <th>@Localizer["Address"]</th>
+        <th>@Localizer["NumberOfClasses"]</th>
+        <th>@Localizer["Actions"]</th>
     </tr>
     </thead>
     <tbody>
@@ -33,7 +34,7 @@
             <td>@school.Address</td>
             <td>@school.Classes</td>
             <td>
-                <a asp-action="ProjectsList" asp-controller="AdminProjects" asp-route-schoolId="@school.SchoolId" class="btn btn-primary">Manage Projects</a>
+                <a asp-action="ProjectsList" asp-controller="AdminProjects" asp-route-schoolId="@school.SchoolId" class="btn btn-primary">@Localizer["ManageProjects"]</a>
             </td>
         </tr>
     }
@@ -44,7 +45,7 @@
 <div class="mt-3">
     <ul class="pagination">
         <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
-            <a class="page-link" href="?page=@(Model.PageNumber - 1)&searchTerm=@Context.Request.Query["searchTerm"]">Previous</a>
+            <a class="page-link" href="?page=@(Model.PageNumber - 1)&searchTerm=@Context.Request.Query["searchTerm"]">@Localizer["Previous"]</a>
         </li>
         @for (int i = 1; i <= Model.PageCount; i++)
         {
@@ -53,7 +54,7 @@
             </li>
         }
         <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
-            <a class="page-link" href="?page=@(Model.PageNumber + 1)&searchTerm=@Context.Request.Query["searchTerm"]">Next</a>
+            <a class="page-link" href="?page=@(Model.PageNumber + 1)&searchTerm=@Context.Request.Query["searchTerm"]">@Localizer["Next"]</a>
         </li>
     </ul>
 </div>

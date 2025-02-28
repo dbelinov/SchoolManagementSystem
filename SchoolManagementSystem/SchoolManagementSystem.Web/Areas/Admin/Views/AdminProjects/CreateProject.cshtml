@@ -1,45 +1,46 @@
 @model SchoolManagementSystem.Web.ViewModels.ProjectCreateViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Create Project";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1>@Localizer["Title"]</h1>
 
 <form asp-action="CreateProject" method="post">
     @Html.AntiForgeryToken()
     <input asp-for="SchoolId" type="hidden"/>
 
     <div class="form-group mb-3">
-        <label asp-for="Name" class="control-label"></label>
+        <label asp-for="Name" class="control-label">@Localizer["Name"]</label>
         <input asp-for="Name" class="form-control"/>
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <label asp-for="Capacity" class="control-label"></label>
+        <label asp-for="Capacity" class="control-label">@Localizer["Capacity"]</label>
         <input asp-for="Capacity" class="form-control" type="number"/>
         <span asp-validation-for="Capacity" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <label asp-for="StartDate" class="control-label"></label>
+        <label asp-for="StartDate" class="control-label">@Localizer["StartDate"]</label>
         <input asp-for="StartDate" class="form-control" type="date"/>
         <span asp-validation-for="StartDate" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <label asp-for="EndDate" class="control-label"></label>
+        <label asp-for="EndDate" class="control-label">@Localizer["EndDate"]</label>
         <input asp-for="EndDate" class="form-control" type="date"/>
         <span asp-validation-for="EndDate" class="text-danger"></span>
     </div>
 
     <div class="form-group mb-3">
-        <button type="submit" class="btn btn-primary">Create Project</button>
+        <button type="submit" class="btn btn-primary">@Localizer["Create"]</button>
     </div>
 </form>
 
-<h2>Available Projects</h2>
+<h2>@Localizer["AvailableProjects"]</h2>
 <div class="list-group">
     @if (Model.AvailableProjects.Any()) {
         @foreach (var project in Model.AvailableProjects)
@@ -50,13 +51,13 @@
                     @Html.AntiForgeryToken()
                     <input type="hidden" name="projectId" value="@project.Id"/>
                     <input type="hidden" name="schoolId" value="@Model.SchoolId"/>
-                    <button type="submit" class="btn btn-success">Join</button>
+                    <button type="submit" class="btn btn-success">@Localizer["Join"]</button>
                 </form>
             </div>
         }
     }
     else {
-        <p class="text-muted">No other projects in the system.</p>
+        <p class="text-muted">@Localizer["NoProjects"]</p>
     }
 </div>
 
