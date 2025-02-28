@@ -1,3 +1,5 @@
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
 @{
     ViewBag.Title = "Page Not Found";
     Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust if using a different layout
@@ -50,11 +52,11 @@
 
 <div class="error-container">
     <div class="error-heading">404</div>
-    <div class="error-message">Oops! The page you are looking for doesn't exist.</div>
+    <div class="error-message">@Localizer["Title"]</div>
     <div class="error-suggestion">
-        Maybe you mistyped the URL, or the page has been moved to a different location.
+        @Localizer["Description"]
     </div>
-    <a href="~/" class="btn-home">Return to Home</a>
+    <a href="~/" class="btn-home">@Localizer["Button"]</a>
     <div>
         <img src="~/scholario_404_no_background.png" alt="Page Not Found" class="error-image" />
     </div>

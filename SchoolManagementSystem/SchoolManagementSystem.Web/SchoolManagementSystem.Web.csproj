@@ -160,6 +160,10 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Areas.Admin.Views.AdminProjects.CreateProject.Designer.cs</LastGenOutput>
       </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Views.Shared.Error404.en.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Views.Shared.Error404.en.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -307,6 +311,11 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>Areas.Admin.Views.AdminProjects.CreateProject.en.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\Views.Shared.Error404.en.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Views.Shared.Error404.en.resx</DependentUpon>
       </Compile>
     </ItemGroup>
 
