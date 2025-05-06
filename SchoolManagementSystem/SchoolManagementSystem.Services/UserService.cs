@@ -46,6 +46,9 @@ public class UserService : IUserService
             user.AppId = studentMatch.Id;
             user.VerificationKey = studentMatch.VerificationKey;
             user.IsGuest = false;
+            
+            studentMatch.IsRegistered = true;
+            
             await AddToRoleAsync(user, nameof(Student));
         }
         else if (teacherMatch is not null)
@@ -53,6 +56,9 @@ public class UserService : IUserService
             user.AppId = teacherMatch.Id;
             user.VerificationKey = teacherMatch.VerificationKey;
             user.IsGuest = false;
+            
+            teacherMatch.IsRegistered = true;
+            
             await AddToRoleAsync(user, nameof(Teacher));
         }
 

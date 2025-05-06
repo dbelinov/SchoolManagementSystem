@@ -21,8 +21,10 @@ public class Seeder : ISeeder
     //Email template used: firstname@gmail.com
     //Password used: Parola123
     
-    public void SeedData(ApplicationDbContext context)
+    public async Task SeedData(ApplicationDbContext context)
     {
+        await context.Database.OpenConnectionAsync();
+
         //Teachers School 1
         var teacherMariaId = Guid.NewGuid();
         var teacherStefkaId = Guid.NewGuid();
@@ -62,9 +64,11 @@ public class Seeder : ISeeder
         var jivkoVerificationCode = Guid.NewGuid();
         var penchoVerificationCode = Guid.NewGuid();
         
+
         //Schools
         if (!context.Schools.Any())
         {
+            await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Schools ON");
             context.Schools.AddRange(
                 new School
                 {
@@ -95,9 +99,13 @@ public class Seeder : ISeeder
                 });
         }
 
+        await context.SaveChangesAsync();
+        await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Schools OFF");
+        
         //Classes
         if (!context.Classes.Any())
         {
+            await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Classes ON");
             context.Classes.AddRange(
                 new Class
                 {
@@ -135,6 +143,9 @@ public class Seeder : ISeeder
                     Speciality = Speciality.French
                 });
         }
+
+        await context.SaveChangesAsync();
+        await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Classes OFF");
 
         //Students
         if (!context.Students.Any())
@@ -220,6 +231,8 @@ public class Seeder : ISeeder
                 });
         }
 
+        await context.SaveChangesAsync();
+        
         //Teachers
         if (!context.Teachers.Any())
         {
@@ -286,6 +299,8 @@ public class Seeder : ISeeder
                 });
         }
 
+        await context.SaveChangesAsync();
+
         //Link between teachers and classes they teach
         if (!context.TeachersClasses.Any())
         {
@@ -342,9 +357,12 @@ public class Seeder : ISeeder
                 });
         }
         
+        await context.SaveChangesAsync();
+
         //Projects
         if (!context.Projects.Any())
         {
+            await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Projects ON");
             context.Projects.Add(new Project
             {
                 Id = 1,
@@ -355,6 +373,9 @@ public class Seeder : ISeeder
             });
         }
 
+        await context.SaveChangesAsync();
+        await context.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT dbo.Projects OFF");
+
         if (!context.SchoolsProjects.Any())
         {
             context.SchoolsProjects.Add(new SchoolProject
@@ -363,6 +384,8 @@ public class Seeder : ISeeder
                 ProjectId = 1,
             });
         }
+
+        await context.SaveChangesAsync();
 
         //Users
         var ivanId = Guid.NewGuid();
@@ -623,6 +646,8 @@ public class Seeder : ISeeder
                 });
         }
         
+        await context.SaveChangesAsync();
+
         //Roles
         var studentRoleId = Guid.NewGuid();
         var teacherRoleId = Guid.NewGuid();
@@ -712,10 +737,15 @@ public class Seeder : ISeeder
                 });
         }
 
-        if (context.Users.Any(u => u.FirstName == "Admin" && u.MiddleName == "Adminov" && u.LastName == "Adminov"))
+        await context.SaveChangesAsync();
+
+        if (!context.Users.Any(u => u.FirstName == "Admin" && u.MiddleName == "Adminov" && u.LastName == "Adminov"))
         {
             SeedAdmin(context).Wait();
         }
+        
+        await context.SaveChangesAsync();
+        await context.Database.CloseConnectionAsync();
     }
 
     private static Task SeedAdmin(ApplicationDbContext context)

@@ -4,5 +4,5 @@ namespace SchoolManagementSystem.Data.Seeding;
 
 public interface ISeeder
 {
-    void SeedData(ApplicationDbContext context);
+    Task SeedData(ApplicationDbContext context);
 }

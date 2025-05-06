@@ -14,7 +14,7 @@ using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("AzureConnection") ??
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
                        throw new InvalidOperationException("Connection string 'AzureConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString, sqlOptions =>
@@ -63,7 +63,7 @@ builder.Services.AddControllersWithViews()
     .AddDataAnnotationsLocalization();
 builder.Services.AddRazorPages();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AzureConnection")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<ISchoolService, SchoolService>();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -82,7 +82,7 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<ApplicationDbContext>();
         context.Database.Migrate(); // Apply any pending migrations
         var seeder = new Seeder();
-        seeder.SeedData(context);
+        await seeder.SeedData(context);
     }
     catch (Exception ex)
     {
