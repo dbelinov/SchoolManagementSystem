@@ -11,6 +11,7 @@ public class Teacher
     {
         Id = Guid.NewGuid();
         VerificationKey = Guid.NewGuid();
+        IsRegistered = false;
         TeachersClasses = new List<TeacherClass>();
         Grades = new List<Grade>();
     }
@@ -39,6 +40,9 @@ public class Teacher
     
     [Required]
     public Guid VerificationKey { get; set; }
+
+    [Required]
+    public bool IsRegistered { get; set; }
     
     public ICollection<Grade> Grades { get; set; }
     public ICollection<TeacherClass> TeachersClasses { get; set; }
