@@ -39,18 +39,21 @@
         <value>Действия</value>
     </data>
     <data name="Manage" xml:space="preserve">
-        <value>Управлявай</value>
+        <value>Промени</value>
     </data>
     <data name="Delete" xml:space="preserve">
         <value>Изтрий</value>
     </data>
     <data name="NewKey" xml:space="preserve">
-        <value>Генерирай нов ключ</value>
+        <value>Нов ключ</value>
     </data>
     <data name="Previous" xml:space="preserve">
         <value>Предишна</value>
     </data>
     <data name="Next" xml:space="preserve">
         <value>Следваща</value>
+    </data>
+    <data name="IsRegistered" xml:space="preserve">
+        <value>Регистриран</value>
     </data>
 </root>

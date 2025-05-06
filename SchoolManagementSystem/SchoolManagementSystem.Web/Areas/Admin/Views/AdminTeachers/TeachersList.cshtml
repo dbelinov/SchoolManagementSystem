@@ -1,5 +1,5 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model X.PagedList.IPagedList<TeacherAdminViewModel>
+@model X.PagedList.IPagedList<SchoolManagementSystem.Web.ViewModels.Teacher.TeacherAdminViewModel>
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
@@ -27,6 +27,7 @@
             <th>@Localizer["FullName"]</th>
             <th>@Localizer["Subject"]</th>
             <th>@Localizer["ValidationKey"]</th>
+            <th>@Localizer["IsRegistered"]</th>
             <th>@Localizer["Actions"]</th>
         </tr>
         </thead>
@@ -37,6 +38,16 @@
                 <td>@teacher.FullName</td>
                 <td>@teacher.Subject</td>
                 <td>@teacher.ValidationKey</td>
+                <td class="text-center">
+                    @if (teacher.IsRegistered)
+                    {
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                    }
+                    else
+                    {
+                        <i class="bi bi-x-circle-fill text-danger"></i>
+                    }
+                </td>
                 <td>
                     <a asp-action="ManageTeacher" asp-route-id="@teacher.TeacherId" class="btn btn-primary">@Localizer["Manage"]</a>
                     <form asp-action="DeleteTeacher" asp-route-id="@teacher.TeacherId" method="post" class="d-inline">

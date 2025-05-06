@@ -9,6 +9,7 @@ using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Services;
 using SchoolManagementSystem.Services.Contracts;
 using SchoolManagementSystem.Web.ViewModels;
+using SchoolManagementSystem.Web.ViewModels.Student;
 using X.PagedList.Extensions;
 using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 
@@ -55,6 +56,7 @@ public class AdminStudentsController : Controller
                 SchoolName = s.Class.School.Name,
                 ClassName = s.Class.Name,
                 ValidationKey = s.VerificationKey.ToString(),
+                IsRegistered = s.IsRegistered
             })
             .ToPagedList(page, pageSize);
         

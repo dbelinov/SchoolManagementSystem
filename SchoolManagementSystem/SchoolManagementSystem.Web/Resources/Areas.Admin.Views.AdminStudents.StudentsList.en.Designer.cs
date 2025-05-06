@@ -129,5 +129,11 @@ namespace SchoolManagementSystem.Web.Resources {
                 return ResourceManager.GetString("Next", resourceCulture);
             }
         }
+        
+        internal static string IsRegistered {
+            get {
+                return ResourceManager.GetString("IsRegistered", resourceCulture);
+            }
+        }
     }
 }

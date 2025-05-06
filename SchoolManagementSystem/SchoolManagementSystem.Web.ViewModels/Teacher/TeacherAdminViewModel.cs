@@ -1,4 +1,4 @@
-namespace SchoolManagementSystem.Web.ViewModels;
+namespace SchoolManagementSystem.Web.ViewModels.Teacher;
 
 public class TeacherAdminViewModel
 {
@@ -6,4 +6,5 @@ public class TeacherAdminViewModel
     public string FullName { get; set; } = string.Empty;
     public string Subject { get; set; } = string.Empty;
     public string ValidationKey { get; set; } = string.Empty;
+    public bool IsRegistered { get; set; }
 }

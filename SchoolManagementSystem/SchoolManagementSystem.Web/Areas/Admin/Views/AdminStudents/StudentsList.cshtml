@@ -28,6 +28,7 @@
             <th>@Localizer["School"]</th>
             <th>@Localizer["ClassName"]</th>
             <th>@Localizer["ValidationKey"]</th>
+            <th>@Localizer["IsRegistered"]</th>
             <th>@Localizer["Actions"]</th>
         </tr>
         </thead>
@@ -39,6 +40,16 @@
                 <td>@student.SchoolName</td>
                 <td>@student.ClassName</td>
                 <td>@student.ValidationKey</td>
+                <td class="text-center">
+                    @if (student.IsRegistered)
+                    {
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                    }
+                    else
+                    {
+                        <i class="bi bi-x-circle-fill text-danger"></i>
+                    }
+                </td>
                 <td>
                     <a asp-action="ManageStudent" asp-route-id="@student.StudentId" class="btn btn-primary">@Localizer["Manage"]</a>
                     <form asp-action="DeleteStudent" asp-route-id="@student.StudentId" method="post" class="d-inline">

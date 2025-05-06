@@ -9,6 +9,7 @@ using SchoolManagementSystem.Data.Models;
 using SchoolManagementSystem.Data.Models.IdentityModels;
 using SchoolManagementSystem.Services.Contracts;
 using SchoolManagementSystem.Web.ViewModels;
+using SchoolManagementSystem.Web.ViewModels.Teacher;
 using X.PagedList.Extensions;
 using static SchoolManagementSystem.Common.EntityConstants.IdentityConstants;
 
@@ -56,6 +57,7 @@ public class AdminTeachersController : Controller
                 FullName = $"{t.FirstName} {t.MiddleName} {t.LastName}",
                 Subject = t.Subject.ToString(),
                 ValidationKey = t.VerificationKey.ToString(),
+                IsRegistered = t.IsRegistered
             })
             .ToPagedList(page, pageSize);
         

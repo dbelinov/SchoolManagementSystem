@@ -52,12 +52,15 @@
         <value>Delete</value>
     </data>
     <data name="NewKey" xml:space="preserve">
-        <value>Generate New Validation Key</value>
+        <value>New Key</value>
     </data>
     <data name="Previous" xml:space="preserve">
         <value>Previous</value>
     </data>
     <data name="Next" xml:space="preserve">
         <value>Next</value>
+    </data>
+    <data name="IsRegistered" xml:space="preserve">
+        <value>Registered</value>
     </data>
 </root>

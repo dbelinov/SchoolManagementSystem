@@ -50,4 +50,7 @@
     <data name="ValidationKey" xml:space="preserve">
         <value>Ключ за автентикация</value>
     </data>
+    <data name="IsRegistered" xml:space="preserve">
+        <value>Регистриран</value>
+    </data>
 </root>

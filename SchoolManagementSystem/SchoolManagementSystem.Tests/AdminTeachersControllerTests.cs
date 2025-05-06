@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using SchoolManagementSystem.Common.Enums;
+using SchoolManagementSystem.Web.ViewModels.Teacher;
 using X.PagedList;
 
 namespace SchoolManagementSystem.Tests
