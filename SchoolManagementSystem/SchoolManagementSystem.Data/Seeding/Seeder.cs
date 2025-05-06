@@ -159,7 +159,8 @@ public class Seeder : ISeeder
                     MiddleName = "Ivanov",
                     LastName = "Ivanov",
                     IdNumber = "0141012442",
-                    ClassId = 1
+                    ClassId = 1,
+                    IsRegistered = true
                 },
                 new Student
                 {
@@ -169,7 +170,8 @@ public class Seeder : ISeeder
                     MiddleName = "Petkov",
                     LastName = "Ginev",
                     IdNumber = "0543121244",
-                    ClassId = 1
+                    ClassId = 1,
+                    IsRegistered = true
                 },
                 new Student()
                 {
@@ -179,7 +181,8 @@ public class Seeder : ISeeder
                     MiddleName = "Ivanov",
                     LastName = "Georgiev",
                     IdNumber = "0741124324",
-                    ClassId = 2
+                    ClassId = 2,
+                    IsRegistered = true
                 },
                 new Student()
                 {
@@ -189,7 +192,8 @@ public class Seeder : ISeeder
                     MiddleName = "Petrova",
                     LastName = "Stoyanova",
                     IdNumber = "0944174331",
-                    ClassId = 3
+                    ClassId = 3,
+                    IsRegistered = true
                 },
                 new Student
                 {
@@ -199,7 +203,8 @@ public class Seeder : ISeeder
                     MiddleName = "Vasilev",
                     LastName = "Donev",
                     IdNumber = "1041124324",
-                    ClassId = 4
+                    ClassId = 4,
+                    IsRegistered = true
                 },
                 new Student
                 {
@@ -210,6 +215,7 @@ public class Seeder : ISeeder
                     LastName = "Mihov",
                     IdNumber = "0945161226",
                     ClassId = 5,
+                    IsRegistered = true
                 },
                 new Student
                 {
@@ -246,6 +252,7 @@ public class Seeder : ISeeder
                     LastName = "Petrova",
                     IdNumber = "8008089119",
                     Subject = Subject.Bulgarian,
+                    IsRegistered = true
                 },
                 new Teacher
                 {
@@ -255,7 +262,8 @@ public class Seeder : ISeeder
                     MiddleName = "Petkova",
                     LastName = "Gineva",
                     IdNumber = "9003021331",
-                    Subject = Subject.German
+                    Subject = Subject.German,
+                    IsRegistered = true
                 },
                 new Teacher
                 {
@@ -265,7 +273,8 @@ public class Seeder : ISeeder
                     MiddleName = "Georgiev",
                     LastName = "Peev",
                     IdNumber = "7211053143",
-                    Subject = Subject.IT
+                    Subject = Subject.IT,
+                    IsRegistered = true
                 },
                 new Teacher
                 {
@@ -275,7 +284,8 @@ public class Seeder : ISeeder
                     MiddleName = "Doneva",
                     LastName = "Peneva",
                     IdNumber = "7105053113",
-                    Subject = Subject.French
+                    Subject = Subject.French,
+                    IsRegistered = true
                 },
                 new Teacher
                 {
@@ -285,7 +295,8 @@ public class Seeder : ISeeder
                     MiddleName = "Mladenov",
                     LastName = "Chonev",
                     IdNumber = "8210045421",
-                    Subject = Subject.Geography
+                    Subject = Subject.Geography,
+                    IsRegistered = true
                 },
                 new Teacher
                 {
@@ -295,7 +306,8 @@ public class Seeder : ISeeder
                     MiddleName = "Dimitrov",
                     LastName = "Dimitrov",
                     IdNumber = "8006210887",
-                    Subject = Subject.History
+                    Subject = Subject.History,
+                    IsRegistered = true
                 });
         }
 
