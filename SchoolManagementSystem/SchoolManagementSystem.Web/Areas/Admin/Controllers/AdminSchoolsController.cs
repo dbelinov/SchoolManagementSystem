@@ -137,6 +137,7 @@ public class AdminSchoolsController : Controller
 
         var model = new SchoolManageViewModel
         {
+            Id = school.Id,
             Name = school.Name,
             Address = school.Address,
             LogoUrl = school.LogoUrl,
@@ -176,20 +177,20 @@ public class AdminSchoolsController : Controller
 
     [HttpPost]
     [AutoValidateAntiforgeryToken]
-    public async Task<IActionResult> DeleteClass(int id, SchoolManageViewModel model)
+    public async Task<IActionResult> DeleteClass(int id, int schoolId)
     {
         var classEntity = await _context.Classes
             .FirstOrDefaultAsync(c => c.Id == id);
 
         if (classEntity == null)
         {
-            return NotFound();
+            return BadRequest();
         }
         
         _context.Classes.Remove(classEntity);
         await _context.SaveChangesAsync();
-        
-        return View("ManageSchool", model);
+
+        return RedirectToAction(nameof(ManageSchool), new { id = schoolId });
     }
 
     [HttpGet]
