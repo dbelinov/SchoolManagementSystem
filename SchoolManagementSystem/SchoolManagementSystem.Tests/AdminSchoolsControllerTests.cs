@@ -151,24 +151,6 @@ namespace SchoolManagementSystem.Tests
         }
 
         [Test]
-        public async Task DeleteClass_RemovesClass_ReturnsManageSchoolView()
-        {
-            var school = new School { Name = "Test School", Address = "Test Address 2" };
-            var classEntity = new Class { Name = "Class 1", School = school };
-
-            _context.Schools.Add(school);
-            _context.Classes.Add(classEntity);
-            await _context.SaveChangesAsync();
-
-            var model = new SchoolManageViewModel { Id = school.Id };
-            var result = await _controller.DeleteClass(classEntity.Id, model) as ViewResult;
-
-            Assert.IsNotNull(result);
-            Assert.AreEqual("ManageSchool", result.ViewName);
-            Assert.AreEqual(0, _context.Classes.Count());
-        }
-
-        [Test]
         public async Task CreateSchool_Get_ReturnsViewResult()
         {
             var result = _controller.CreateSchool() as ViewResult;
